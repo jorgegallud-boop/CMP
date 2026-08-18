@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ficha de residente · CMP 26-27</title>
+<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-bar">
+    <a class="brand" href="index.html">
+      <img class="logo-icon" src="img/logo-icon-white.png" alt="Colegio Mayor Peñafiel">
+      <span class="titulos">
+        <span class="titulo-principal">CMP 26-27</span>
+        <span class="subtitulo">Colegio Mayor · Curso 2026-2027</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰ Menú</button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="bienvenida.html">Bienvenida</a></li>
+        <li><a href="https://compositor.org/comidas/penafiel.php" target="_blank" rel="noopener">Comidas ↗</a></li>
+        <li><a href="habitaciones.html">Habitaciones</a></li>
+        <li><a href="encargos.html">Encargos</a></li>
+        <li><a href="comisiones.html">Comisiones</a></li>
+        <li><a href="horarios.html">Horarios</a></li>
+        <li><a href="reglamento.html">Reglamento</a></li>
+        <li><a href="tutores.html">Tutores</a></li>
+        <li><a href="ficha.html">Ficha de residente</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Inicio</a> / Ficha de residente</div>
+    <h1>Ficha de residente</h1>
+    <p>Formulario obligatorio para todos los residentes — sustituye a la ficha en papel.</p>
+  </div>
+</div>
+
+<main>
+  <div class="container">
+
+    <div id="aviso-configuracion" class="aviso pendiente" style="display:none;">
+      <strong>Formulario sin configurar.</strong> Falta indicar la URL del Apps Script en <code>ficha.html</code> (constante <code>APPS_SCRIPT_URL</code> / atributo <code>action</code> del formulario). Instrucciones en <a href="docs/apps-script-ficha-residente.gs">docs/apps-script-ficha-residente.gs</a>.
+    </div>
+
+    <div class="panel-gracias" id="panel-gracias">
+      <h2>¡Gracias!</h2>
+      <p>Tu ficha se ha enviado correctamente. Si necesitas corregir algo, vuelve a enviar el formulario con los datos actualizados.</p>
+    </div>
+
+    <!-- EDITAR AQUÍ: pega la URL "/exec" de tu Apps Script como action del formulario -->
+    <form class="formulario" id="form-ficha" action="https://script.google.com/macros/s/PEGA_AQUI_TU_URL_DE_APPS_SCRIPT/exec" method="POST" target="ficha-iframe-destino">
+
+      <fieldset>
+        <legend>Datos del residente</legend>
+        <div class="fila-campos">
+          <div class="campo">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required autocomplete="given-name">
+          </div>
+          <div class="campo">
+            <label for="apellidos">Apellidos</label>
+            <input type="text" id="apellidos" name="apellidos" required autocomplete="family-name">
+          </div>
+        </div>
+        <div class="fila-campos">
+          <div class="campo">
+            <label for="dni">DNI</label>
+            <input type="text" id="dni" name="dni" required>
+          </div>
+          <div class="campo">
+            <label for="fecha_nacimiento">Fecha de nacimiento</label>
+            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+          </div>
+          <div class="campo">
+            <label for="lugar_nacimiento">Lugar de nacimiento</label>
+            <input type="text" id="lugar_nacimiento" name="lugar_nacimiento" required>
+          </div>
+        </div>
+        <div class="fila-campos">
+          <div class="campo">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+          <div class="campo">
+            <label for="telefono">Teléfono móvil</label>
+            <input type="tel" id="telefono" name="telefono" required autocomplete="tel">
+          </div>
+        </div>
+        <div class="fila-campos">
+          <div class="campo">
+            <label for="carrera">Carrera universitaria</label>
+            <input type="text" id="carrera" name="carrera" required>
+          </div>
+          <div class="campo">
+            <label for="curso">Curso</label>
+            <input type="text" id="curso" name="curso" required placeholder="Ej. 1º">
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Datos familiares y de contacto</legend>
+        <div class="fila-campos">
+          <div class="campo">
+            <label for="nombre_padre">Nombre del padre</label>
+            <input type="text" id="nombre_padre" name="nombre_padre">
+          </div>
+          <div class="campo">
+            <label for="nombre_madre">Nombre de la madre</label>
+            <input type="text" id="nombre_madre" name="nombre_madre">
+          </div>
+        </div>
+        <div class="campo">
+          <label for="direccion">Dirección postal</label>
+          <input type="text" id="direccion" name="direccion" required placeholder="Calle, número, código postal, ciudad">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Autorización de grabación y uso de imagen</legend>
+        <div class="texto-legal">
+          <p>Autorizo al Colegio Mayor Peñafiel, de manera expresa e inequívoca, a captar y utilizar las imágenes en las que aparezco grabado o fotografiado, individualmente o en grupo, con ocasión de las jornadas, encuentros y otras actividades organizadas por dicho Colegio Mayor, así como para su montaje y edición con la finalidad de ser publicadas y expuestas a través de sus canales de comunicación interna y externa.</p>
+          <p>El plazo de la cesión de los derechos de imagen y voz será por tiempo indefinido, de forma gratuita y sin límite en su ámbito territorial. El Colegio Mayor Peñafiel cuidará de que la captación y utilización de las imágenes no atente contra la dignidad ni el derecho al honor de las personas, ni contra la moral y el orden público, en los términos establecidos en la legislación vigente.</p>
+          <p>Igualmente, autorizo que dichas imágenes puedan aparecer en cualquier plataforma del Colegio Mayor Peñafiel —página web, redes sociales, vídeos y folletos, etc.—, de conformidad con el artículo 2 de la Ley Orgánica 1/1982 de 5 de mayo, sobre Protección Civil del Derecho al Honor, a la Intimidad Personal y Familiar y a la Propia Imagen.</p>
+        </div>
+        <div class="check-consentimiento">
+          <input type="checkbox" id="acepta_imagen" name="acepta_imagen" required>
+          <label for="acepta_imagen">He leído y acepto la autorización de grabación y uso de imagen.</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Aceptación del reglamento de régimen interno</legend>
+        <div class="texto-legal">
+          <p>Habiendo sido aceptado como residente del Colegio Mayor Peñafiel, declaro conocer, haber leído, aceptar y comprometerme a cumplir las normas contenidas en el <a href="reglamento.html" target="_blank">Reglamento</a> de dicho centro, y haber leído y aceptado las condiciones del contrato de alojamiento.</p>
+          <p>El plazo de esta aceptación será por tiempo indefinido, en tanto permanezca como residente del Colegio Mayor Peñafiel, sito en Valladolid, calle Estudios, 6. Las partes se someten a los Juzgados y Tribunales de Valladolid para resolver cuantas divergencias pudieran surgir por incumplimiento de este Reglamento.</p>
+        </div>
+        <div class="check-consentimiento">
+          <input type="checkbox" id="acepta_reglamento" name="acepta_reglamento" required>
+          <label for="acepta_reglamento">Declaro conocer, haber leído y aceptar el Reglamento y las condiciones del contrato de alojamiento.</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Autorización de urgencia médica</legend>
+        <div class="texto-legal">
+          <p>Autorizo a los directores del Colegio Mayor Peñafiel a tomar las medidas médicas urgentes que fueran imprescindibles en caso de ser imposible obtener mi consentimiento previo.</p>
+        </div>
+        <div class="check-consentimiento">
+          <input type="checkbox" id="acepta_urgencia" name="acepta_urgencia" required>
+          <label for="acepta_urgencia">Autorizo la actuación médica urgente en caso de no poder dar mi consentimiento previo.</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Aviso legal — protección de datos (LOPD)</legend>
+        <div class="texto-legal">
+          <p>De conformidad con la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y Garantía de los Derechos Digitales, los datos personales recabados a través de esta ficha se utilizarán únicamente para la gestión de las actividades del Colegio Mayor y para el envío de información sobre las mismas a los participantes. El responsable del tratamiento es el Colegio Mayor Peñafiel; puedes ejercer tus derechos de acceso, rectificación, cancelación y oposición por correo postal (calle Estudios, 6, 47005 Valladolid) o electrónico (contacto@cmpenafiel.org).</p>
+        </div>
+        <div class="check-consentimiento">
+          <input type="checkbox" id="acepta_lopd" name="acepta_lopd" required>
+          <label for="acepta_lopd">He leído y acepto el tratamiento de mis datos conforme al aviso legal anterior.</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Lugar, fecha y firma</legend>
+        <p class="texto-suave" style="margin-top:-0.5rem;">Al marcar las casillas anteriores y enviar este formulario con tu nombre y apellidos, declaras que los datos son correctos y aceptas los términos anteriores en sustitución de la firma manuscrita.</p>
+        <div class="fila-campos">
+          <div class="campo">
+            <label for="lugar_firma">Lugar</label>
+            <input type="text" id="lugar_firma" name="lugar_firma" required placeholder="Ej. Valladolid">
+          </div>
+          <div class="campo">
+            <label for="fecha_firma">Fecha</label>
+            <input type="date" id="fecha_firma" name="fecha_firma" required>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="form-envio">
+        <button type="submit" class="form-boton" id="boton-enviar">Enviar ficha</button>
+        <span class="form-estado" id="estado-envio"></span>
+      </div>
+    </form>
+
+    <iframe name="ficha-iframe-destino" id="ficha-iframe-destino" style="display:none;" title="destino de envío del formulario"></iframe>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p><img class="logo-icon" src="img/logo-icon-white.png" alt="">CMP 26-27 · Colegio Mayor · Curso 2026-2027</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/ficha.js"></script>
+</body>
+</html>

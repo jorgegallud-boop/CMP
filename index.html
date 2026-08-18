@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CMP 26-27</title>
+<link rel="icon" href="img/favicon.png" type="image/png">
 <meta name="description" content="Web de residentes del Colegio Mayor · Curso 2026-2027. Comidas, habitaciones, encargos, comisiones, horarios, reglamento y tutores.">
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -12,7 +13,7 @@
 <header class="site-header">
   <div class="header-bar">
     <a class="brand" href="index.html">
-      <span class="escudo">CM</span>
+      <img class="logo-icon" src="img/logo-icon-white.png" alt="Colegio Mayor Peñafiel">
       <span class="titulos">
         <span class="titulo-principal">CMP 26-27</span>
         <span class="subtitulo">Colegio Mayor · Curso 2026-2027</span>
@@ -22,6 +23,7 @@
     <nav class="main-nav">
       <ul>
         <li><a href="index.html">Inicio</a></li>
+        <li><a href="bienvenida.html">Bienvenida</a></li>
         <li><a href="https://compositor.org/comidas/penafiel.php" target="_blank" rel="noopener">Comidas ↗</a></li>
         <li><a href="habitaciones.html">Habitaciones</a></li>
         <li><a href="encargos.html">Encargos</a></li>
@@ -29,6 +31,7 @@
         <li><a href="horarios.html">Horarios</a></li>
         <li><a href="reglamento.html">Reglamento</a></li>
         <li><a href="tutores.html">Tutores</a></li>
+        <li><a href="ficha.html">Ficha de residente</a></li>
       </ul>
     </nav>
   </div>
@@ -46,12 +49,18 @@
   <div class="container">
 
     <div class="aviso pendiente">
-      <strong>Página en construcción.</strong> Esta web se ha creado con contenido de ejemplo. Los listados reales (habitaciones, encargos, comisiones, tutores, horarios y el reglamento) se irán añadiendo próximamente.
+      <strong>Página en construcción.</strong> Horarios y Reglamento ya tienen contenido real; la Ficha de residente necesita un paso de configuración (ver README). Habitaciones, Encargos, Comisiones y Tutores siguen con contenido de ejemplo, pendiente de los listados reales.
     </div>
 
     <div class="seccion">
       <h2>Accesos rápidos</h2>
       <div class="grid-tarjetas">
+
+        <a class="tarjeta" href="bienvenida.html">
+          <span class="icono">🎉</span>
+          <h3>Bienvenida · Primeras 48h</h3>
+          <p>Programa de llegada para los residentes nuevos (6-8 de septiembre).</p>
+        </a>
 
         <a class="tarjeta destacada" href="https://compositor.org/comidas/penafiel.php" target="_blank" rel="noopener">
           <span class="etiqueta-externo">Enlace externo</span>
@@ -94,6 +103,12 @@
           <span class="icono">🎓</span>
           <h3>Tutores</h3>
           <p>Listado de tutores y sus áreas.</p>
+        </a>
+
+        <a class="tarjeta" href="ficha.html">
+          <span class="icono">📝</span>
+          <h3>Ficha de residente</h3>
+          <p>Formulario obligatorio de datos, autorizaciones y aceptación del reglamento.</p>
         </a>
 
       </div>
