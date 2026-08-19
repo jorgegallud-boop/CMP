@@ -179,6 +179,58 @@ nav.main-nav a.activo {
   }
 }
 
+/* ---------- Widget de cuenta (login por roles) ---------- */
+
+.auth-widget {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-left: auto;
+}
+
+.auth-widget .auth-entrar {
+  color: var(--blanco);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  padding: 0.35rem 0.7rem;
+}
+
+.auth-widget .auth-entrar:hover {
+  background: rgba(255, 255, 255, 0.14);
+  text-decoration: none;
+}
+
+.auth-widget .auth-rol {
+  font-weight: 600;
+  color: var(--dorado-claro);
+  white-space: nowrap;
+}
+
+.auth-widget .auth-select {
+  font-size: 0.8rem;
+  padding: 0.25rem 0.4rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: var(--azul-oscuro);
+  color: var(--blanco);
+}
+
+.auth-widget .auth-salir {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  color: var(--blanco);
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.auth-widget .auth-salir:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
 /* ---------- Hero (portada) ---------- */
 
 .hero {

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entrar · CMP 26-27</title>
+<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/auth.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-bar">
+    <a class="brand" href="index.html">
+      <img class="logo-icon" src="img/logo-icon-white.png" alt="Colegio Mayor Peñafiel">
+      <span class="titulos">
+        <span class="titulo-principal">CMP 26-27</span>
+      </span>
+    </a>
+  </div>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Inicio</a> / Entrar</div>
+    <h1>Entrar</h1>
+  </div>
+</div>
+
+<main>
+  <div class="container">
+
+    <div class="aviso" style="max-width:520px; margin:0 auto 1.5rem;">
+      Clave compartida por rol — no es una cuenta personal. Pide la clave de tu rol (residente, colegial o Dirección) si no la tienes.
+    </div>
+
+    <form class="formulario" id="form-login" style="max-width:420px; margin:0 auto;">
+      <fieldset>
+        <legend>¿Quién eres?</legend>
+        <div class="campo">
+          <label for="rol">Rol</label>
+          <select id="rol" name="rol" required>
+            <option value="residente">Residente</option>
+            <option value="colegial">Colegial</option>
+            <option value="direccion">Dirección</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="clave">Clave</label>
+          <input type="password" id="clave" name="clave" required autofocus>
+        </div>
+      </fieldset>
+      <div class="form-envio">
+        <button type="submit" class="form-boton" id="boton-entrar">Entrar</button>
+        <span class="form-estado" id="estado-login"></span>
+      </div>
+    </form>
+
+  </div>
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var form = document.getElementById("form-login");
+  var estado = document.getElementById("estado-login");
+  var params = new URLSearchParams(window.location.search);
+  var destino = params.get("redirect") || "index.html";
+
+  form.addEventListener("submit", async function (evento) {
+    evento.preventDefault();
+    var rol = document.getElementById("rol").value;
+    var clave = document.getElementById("clave").value;
+    estado.textContent = "Comprobando…";
+    estado.className = "form-estado enviando";
+
+    var ok = await CMP_AUTH.comprobarClave(rol, clave);
+    if (ok) {
+      CMP_AUTH.iniciarSesion(rol);
+      estado.textContent = "";
+      window.location.href = destino;
+    } else {
+      estado.textContent = "Clave incorrecta.";
+      estado.className = "form-estado";
+      estado.style.color = "#b3261e";
+    }
+  });
+});
+</script>
+
+</body>
+</html>

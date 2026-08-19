@@ -6,6 +6,8 @@
 <title>Horarios · CMP 26-27</title>
 <link rel="icon" href="img/favicon.png" type="image/png">
 <link rel="stylesheet" href="css/style.css">
+<script src="js/auth.js"></script>
+<script>CMP_AUTH.requerirRol(['residente']);</script>
 </head>
 <body>
 
@@ -22,8 +24,8 @@
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="bienvenida.html">Bienvenida</a></li>
-        <li><a href="https://compositor.org/comidas/penafiel.php" target="_blank" rel="noopener">Comidas ↗</a></li>
-        <li><a href="https://arreglos-cmp.glide.page/" target="_blank" rel="noopener">Arreglos ↗</a></li>
+        <li><a href="https://compositor.org/comidas/penafiel.php" target="_blank" rel="noopener" onclick="return CMP_AUTH.permitirEnlace(event, ['residente'], this.href)">Comidas ↗</a></li>
+        <li><a href="https://arreglos-cmp.glide.page/" target="_blank" rel="noopener" onclick="return CMP_AUTH.permitirEnlace(event, ['residente','colegial'], this.href)">Arreglos ↗</a></li>
         <li><a href="habitaciones.html">Habitaciones</a></li>
         <li><a href="residentes.html">Residentes</a></li>
         <li><a href="encargos.html">Encargos</a></li>
@@ -35,8 +37,10 @@
         <li><a href="tutores.html">Tutores</a></li>
         <li><a href="ficha.html">Ficha de residente</a></li>
         <li><a href="ficha-colegial.html">Ficha de colegial</a></li>
+        <li><a href="direccion.html">Dirección</a></li>
       </ul>
     </nav>
+    <div id="auth-widget" class="auth-widget"></div>
   </div>
 </header>
 
