@@ -2,30 +2,39 @@
  * CMP 26-27 — Ficha de residente
  *
  * Este script recibe los envíos del formulario ficha.html y añade una fila
- * a la hoja de cálculo "CMP 26-27 · Fichas de residente (respuestas)".
+ * a la hoja "Fichas de residente" del Excel "26-27" del usuario (no está
+ * atado a la hoja donde vive el propio script — escribe en otra hoja de
+ * cálculo distinta, identificada por su ID).
  *
  * CÓMO INSTALARLO (una sola vez):
- * 1. Abre la hoja de cálculo en Google Drive:
- *    "CMP 26-27 · Fichas de residente (respuestas)"
- * 2. Menú Extensiones → Apps Script.
- * 3. Borra el contenido de Code.gs que aparezca por defecto y pega TODO
+ * 1. En cualquier hoja de cálculo de Google Drive (da igual cuál, el script
+ *    escribe en otra hoja por ID): Extensiones → Apps Script.
+ * 2. Borra el contenido de Code.gs que aparezca por defecto y pega TODO
  *    este archivo.
+ * 3. Sustituye SPREADSHEET_ID por el ID real de la hoja de destino (está en
+ *    la URL: https://docs.google.com/spreadsheets/d/ESTE_ID/edit) y
+ *    SHEET_NAME por el nombre de la pestaña donde se deben guardar las
+ *    respuestas (debe existir de antemano, con la fila de cabeceras ya
+ *    puesta).
  * 4. Guarda (icono de disquete).
  * 5. Implementar → Nueva implementación → tipo "Aplicación web".
  *      - Ejecutar como: Yo (tu cuenta)
  *      - Quién tiene acceso: Cualquier usuario
  * 6. Autoriza los permisos que pida Google (es tu propio script).
  * 7. Copia la URL que termina en /exec.
- * 8. Pégala en ficha.html, en la constante APPS_SCRIPT_URL (búscala con
- *    "EDITAR AQUÍ").
+ * 8. Pégala en ficha.html, en el atributo action del formulario (búscala
+ *    con "EDITAR AQUÍ").
  *
- * Solo tú (el propietario de la hoja) puedes ver las respuestas: el
- * formulario únicamente puede añadir filas nuevas, nunca leer las que ya
- * hay.
+ * Solo quien tenga acceso a esa hoja de cálculo puede ver las respuestas:
+ * el formulario únicamente puede añadir filas nuevas, nunca leer las que
+ * ya hay.
  */
 
+var SPREADSHEET_ID = "1uqe79CoVcQP1_38VDEWgKXH1OxMIDDR9zCqTa1CvqDk"; // Excel "26-27"
+var SHEET_NAME = "Fichas de residente";
+
 function doPost(e) {
-  var hoja = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
+  var hoja = SpreadsheetApp.openById(SPREADSHEET_ID).getSheetByName(SHEET_NAME);
   var p = e.parameter;
 
   var si = function (valor) {
