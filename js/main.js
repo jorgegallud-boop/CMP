@@ -28,17 +28,28 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Portada y menú: cada tarjeta/enlace solo se muestra si el rol tiene
-  // acceso (según su atributo data-roles, lista separada por comas).
-  // Dirección los ve todos, sin filtrar.
-  if (typeof CMP_AUTH !== "undefined" && CMP_AUTH.rolReal() !== "direccion") {
+  // Portada: cada tarjeta solo se muestra si el rol tiene acceso (según su
+  // atributo data-roles, lista separada por comas) — incluida Dirección,
+  // que en portada ve solo lo suyo, igual que los demás roles.
+  if (typeof CMP_AUTH !== "undefined") {
     var rolActual = CMP_AUTH.rolReal();
-    document.querySelectorAll(".tarjeta[data-roles], .main-nav li[data-roles]").forEach(function (elemento) {
-      var roles = elemento.getAttribute("data-roles").split(",");
+    document.querySelectorAll(".tarjeta[data-roles]").forEach(function (tarjeta) {
+      var roles = tarjeta.getAttribute("data-roles").split(",");
       if (roles.indexOf(rolActual) === -1) {
-        elemento.style.display = "none";
+        tarjeta.style.display = "none";
       }
     });
+
+    // Menú (☰ arriba a la derecha): igual, salvo Dirección, que ahí sí ve
+    // todas las opciones sin filtrar.
+    if (rolActual !== "direccion") {
+      document.querySelectorAll(".main-nav li[data-roles]").forEach(function (item) {
+        var roles = item.getAttribute("data-roles").split(",");
+        if (roles.indexOf(rolActual) === -1) {
+          item.style.display = "none";
+        }
+      });
+    }
   }
 
   // Portada: las tarjetas de fichas se ocultan en cuanto el usuario ya las ha enviado
