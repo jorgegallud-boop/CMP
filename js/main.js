@@ -1,3 +1,12 @@
+// CMP 26-27 — registro del service worker (permite instalar la web como app)
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("service-worker.js").catch(function () {
+      // Si falla (por ejemplo, abierto como archivo local sin servidor), no pasa nada.
+    });
+  });
+}
+
 // CMP 26-27 — comportamiento del menú de navegación en móvil
 document.addEventListener("DOMContentLoaded", function () {
   var toggle = document.querySelector(".nav-toggle");
