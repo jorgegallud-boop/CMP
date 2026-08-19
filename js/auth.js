@@ -61,17 +61,30 @@ var CMP_AUTH = (function () {
     localStorage.setItem(CLAVE_ROL_VISTA, rol);
   }
 
-  // Redirige a login.html si el rol en vista no está en la lista de
-  // roles permitidos para la página actual. Dirección tiene acceso a todo
-  // automáticamente (no hace falta incluirla en la lista) salvo que esté
-  // previsualizando la web como otro rol con el selector "Ver como".
-  function requerirRol(rolesPermitidos) {
-    if (rolReal() === "direccion" && rolVista() === "direccion") return;
+  // Redirige si el rol en vista no está en la lista de roles permitidos
+  // para la página actual. Dirección tiene acceso a todo automáticamente
+  // (no hace falta incluirla en la lista) salvo que esté previsualizando
+  // la web como otro rol con el selector "Ver como", o que la página pida
+  // explícitamente { sinBypassDireccion: true } (páginas que Dirección
+  // solo ve cambiando a "Ver como Residente/Colegial").
+  function requerirRol(rolesPermitidos, opciones) {
+    opciones = opciones || {};
+    if (!opciones.sinBypassDireccion && rolReal() === "direccion" && rolVista() === "direccion") return;
+
     var rol = rolVista();
-    if (!rol || rolesPermitidos.indexOf(rol) === -1) {
-      var aqui = window.location.pathname.split("/").pop();
-      window.location.href = "login.html?redirect=" + encodeURIComponent(aqui);
+    if (rol && rolesPermitidos.indexOf(rol) !== -1) return;
+
+    if (rolReal() === "direccion") {
+      // Ya está autenticado como Dirección, solo que esta vista no tiene
+      // acceso aquí: a portada (tiene el selector "Ver como" a mano), no
+      // a la pantalla de login — para no arriesgarse a que inicie sesión
+      // como otro rol y pierda su sesión de Dirección.
+      window.location.href = "index.html";
+      return;
     }
+
+    var aqui = window.location.pathname.split("/").pop();
+    window.location.href = "login.html?redirect=" + encodeURIComponent(aqui);
   }
 
   // Para enlaces externos (App de comidas, Ficha de arreglos...): si el
@@ -82,7 +95,11 @@ var CMP_AUTH = (function () {
     var rol = rolVista();
     if (rol && rolesPermitidos.indexOf(rol) !== -1) return true;
     evento.preventDefault();
-    window.location.href = "login.html?redirect=" + encodeURIComponent(destino);
+    if (rolReal() === "direccion") {
+      window.location.href = "index.html";
+    } else {
+      window.location.href = "login.html?redirect=" + encodeURIComponent(destino);
+    }
     return false;
   }
 
