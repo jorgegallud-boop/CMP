@@ -28,14 +28,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Portada: cada tarjeta solo se muestra si el rol en vista tiene acceso
-  // (según su atributo data-roles, lista separada por comas)
-  if (typeof CMP_AUTH !== "undefined") {
-    var rolActual = CMP_AUTH.rolVista();
-    document.querySelectorAll(".tarjeta[data-roles]").forEach(function (tarjeta) {
-      var roles = tarjeta.getAttribute("data-roles").split(",");
+  // Portada y menú: cada tarjeta/enlace solo se muestra si el rol tiene
+  // acceso (según su atributo data-roles, lista separada por comas).
+  // Dirección los ve todos, sin filtrar.
+  if (typeof CMP_AUTH !== "undefined" && CMP_AUTH.rolReal() !== "direccion") {
+    var rolActual = CMP_AUTH.rolReal();
+    document.querySelectorAll(".tarjeta[data-roles], .main-nav li[data-roles]").forEach(function (elemento) {
+      var roles = elemento.getAttribute("data-roles").split(",");
       if (roles.indexOf(rolActual) === -1) {
-        tarjeta.style.display = "none";
+        elemento.style.display = "none";
       }
     });
   }

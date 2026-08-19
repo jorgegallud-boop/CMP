@@ -10,7 +10,7 @@
 <meta name="theme-color" content="#12233d">
 <link rel="stylesheet" href="css/style.css">
 <script src="js/auth.js"></script>
-<script>CMP_AUTH.requerirRol(['residente'], { sinBypassDireccion: true });</script>
+<script>CMP_AUTH.requerirRol(['residente']);</script>
 </head>
 <body>
 
@@ -26,21 +26,21 @@
     <nav class="main-nav">
       <ul>
         <li><a href="index.html">Inicio</a></li>
-        <li><a href="bienvenida.html">Bienvenida</a></li>
-        <li><a href="https://compositor.org/comidas/penafiel.php" target="_blank" rel="noopener" onclick="return CMP_AUTH.permitirEnlace(event, ['residente'], this.href)">Comidas ↗</a></li>
-        <li><a href="https://arreglos-cmp.glide.page/" target="_blank" rel="noopener" onclick="return CMP_AUTH.permitirEnlace(event, ['residente','colegial'], this.href)">Arreglos ↗</a></li>
-        <li><a href="habitaciones.html">Habitaciones</a></li>
-        <li><a href="residentes.html">Residentes</a></li>
-        <li><a href="encargos.html">Encargos</a></li>
-        <li><a href="comisiones.html">Comisiones</a></li>
-        <li><a href="horarios.html">Horarios</a></li>
-        <li><a href="misas.html">Misas</a></li>
-        <li><a href="calendario.html">Calendario</a></li>
-        <li><a href="reglamento.html">Reglamento</a></li>
-        <li><a href="tutores.html">Tutores</a></li>
-        <li><a href="ficha.html">Ficha de residente</a></li>
-        <li><a href="ficha-colegial.html">Ficha de colegial</a></li>
-        <li><a href="direccion.html">Dirección</a></li>
+        <li data-roles="residente"><a href="bienvenida.html">Bienvenida</a></li>
+        <li data-roles="residente"><a href="https://compositor.org/comidas/penafiel.php" target="_blank" rel="noopener" onclick="return CMP_AUTH.permitirEnlace(event, ['residente'], this.href)">Comidas ↗</a></li>
+        <li data-roles="residente,colegial"><a href="https://arreglos-cmp.glide.page/" target="_blank" rel="noopener" onclick="return CMP_AUTH.permitirEnlace(event, ['residente','colegial'], this.href)">Arreglos ↗</a></li>
+        <li data-roles="residente"><a href="habitaciones.html">Habitaciones</a></li>
+        <li data-roles="residente"><a href="residentes.html">Residentes</a></li>
+        <li data-roles="residente"><a href="encargos.html">Encargos</a></li>
+        <li data-roles="residente"><a href="comisiones.html">Comisiones</a></li>
+        <li data-roles="residente"><a href="horarios.html">Horarios</a></li>
+        <li data-roles="direccion"><a href="misas.html">Misas</a></li>
+        <li data-roles="residente"><a href="calendario.html">Calendario</a></li>
+        <li data-roles="residente"><a href="reglamento.html">Reglamento</a></li>
+        <li data-roles="residente"><a href="tutores.html">Tutores</a></li>
+        <li data-roles="residente,direccion"><a href="ficha.html">Ficha de residente</a></li>
+        <li data-roles="colegial,direccion"><a href="ficha-colegial.html">Ficha de colegial</a></li>
+        <li data-roles="direccion"><a href="direccion.html">Dirección</a></li>
       </ul>
     </nav>
     <div id="auth-widget" class="auth-widget"></div>
