@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CMP 26-27</title>
 <link rel="icon" href="img/favicon.png" type="image/png">
-<meta name="description" content="Web de residentes del Colegio Mayor · Curso 2026-2027. Comidas, habitaciones, encargos, comisiones, horarios, reglamento y tutores.">
 <link rel="stylesheet" href="css/style.css">
 <script src="js/auth.js"></script>
 <script>CMP_AUTH.requerirRol(['residente', 'colegial', 'direccion']);</script>
@@ -30,63 +29,63 @@
     <div class="seccion">
       <div class="grid-tarjetas grid-inicio">
 
-        <a class="tarjeta" href="bienvenida.html" id="tarjeta-bienvenida">
+        <a class="tarjeta" href="bienvenida.html" id="tarjeta-bienvenida" data-roles="residente">
           <h3>Bienvenida</h3>
         </a>
 
-        <a class="tarjeta" href="https://compositor.org/comidas/penafiel.php" target="_blank" rel="noopener" onclick="return CMP_AUTH.permitirEnlace(event, ['residente'], this.href)">
+        <a class="tarjeta" href="https://compositor.org/comidas/penafiel.php" target="_blank" rel="noopener" data-roles="residente" onclick="return CMP_AUTH.permitirEnlace(event, ['residente'], this.href)">
           <h3>App de comidas</h3>
         </a>
 
-        <a class="tarjeta" href="https://arreglos-cmp.glide.page/" target="_blank" rel="noopener" onclick="return CMP_AUTH.permitirEnlace(event, ['residente','colegial'], this.href)">
+        <a class="tarjeta" href="https://arreglos-cmp.glide.page/" target="_blank" rel="noopener" data-roles="residente,colegial" onclick="return CMP_AUTH.permitirEnlace(event, ['residente','colegial'], this.href)">
           <h3>Ficha de arreglos</h3>
         </a>
 
-        <a class="tarjeta" href="habitaciones.html">
+        <a class="tarjeta" href="habitaciones.html" data-roles="residente">
           <h3>Habitaciones</h3>
         </a>
 
-        <a class="tarjeta" href="residentes.html">
+        <a class="tarjeta" href="residentes.html" data-roles="residente">
           <h3>Residentes</h3>
         </a>
 
-        <a class="tarjeta" href="encargos.html">
+        <a class="tarjeta" href="encargos.html" data-roles="residente">
           <h3>Encargos</h3>
         </a>
 
-        <a class="tarjeta" href="comisiones.html">
+        <a class="tarjeta" href="comisiones.html" data-roles="residente">
           <h3>Comisiones</h3>
         </a>
 
-        <a class="tarjeta" href="horarios.html">
+        <a class="tarjeta" href="horarios.html" data-roles="residente">
           <h3>Horarios</h3>
         </a>
 
-        <a class="tarjeta" href="misas.html">
+        <a class="tarjeta" href="misas.html" data-roles="direccion">
           <h3>Misas</h3>
         </a>
 
-        <a class="tarjeta" href="calendario.html">
+        <a class="tarjeta" href="calendario.html" data-roles="residente">
           <h3>Calendario</h3>
         </a>
 
-        <a class="tarjeta" href="reglamento.html">
+        <a class="tarjeta" href="reglamento.html" data-roles="residente">
           <h3>Reglamento</h3>
         </a>
 
-        <a class="tarjeta" href="tutores.html">
+        <a class="tarjeta" href="tutores.html" data-roles="residente">
           <h3>Tutores</h3>
         </a>
 
-        <a class="tarjeta" href="ficha.html" id="tarjeta-ficha">
+        <a class="tarjeta" href="ficha.html" id="tarjeta-ficha" data-roles="residente,direccion">
           <h3>Ficha de residente</h3>
         </a>
 
-        <a class="tarjeta" href="ficha-colegial.html" id="tarjeta-ficha-colegial">
+        <a class="tarjeta" href="ficha-colegial.html" id="tarjeta-ficha-colegial" data-roles="colegial,direccion">
           <h3>Ficha de colegial</h3>
         </a>
 
-        <a class="tarjeta" href="direccion.html">
+        <a class="tarjeta" href="direccion.html" data-roles="direccion">
           <h3>Dirección</h3>
         </a>
 

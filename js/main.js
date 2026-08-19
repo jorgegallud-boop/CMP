@@ -19,6 +19,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  // Portada: cada tarjeta solo se muestra si el rol en vista tiene acceso
+  // (según su atributo data-roles, lista separada por comas)
+  if (typeof CMP_AUTH !== "undefined") {
+    var rolActual = CMP_AUTH.rolVista();
+    document.querySelectorAll(".tarjeta[data-roles]").forEach(function (tarjeta) {
+      var roles = tarjeta.getAttribute("data-roles").split(",");
+      if (roles.indexOf(rolActual) === -1) {
+        tarjeta.style.display = "none";
+      }
+    });
+  }
+
   // Portada: las tarjetas de fichas se ocultan en cuanto el usuario ya las ha enviado
   [
     { id: "tarjeta-ficha", clave: "cmp2627_ficha_residente_enviada" },
