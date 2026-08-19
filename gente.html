@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tutores · CMP 26-27</title>
+<title>Gente · CMP 26-27</title>
 <link rel="icon" href="img/favicon.png" type="image/png">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="img/icon-apple-touch.png">
 <meta name="theme-color" content="#12233d">
 <link rel="stylesheet" href="css/style.css">
 <script src="js/auth.js"></script>
-<script>CMP_AUTH.requerirRol(['residente']);</script>
+<script>CMP_AUTH.requerirRol([]);</script>
 </head>
 <body>
 
@@ -50,44 +50,57 @@
 
 <div class="page-header">
   <div class="container">
-    <div class="breadcrumb"><a href="index.html">Inicio</a> / Tutores</div>
-    <h1>Tutores</h1>
+    <div class="breadcrumb"><a href="index.html">Inicio</a> / Gente</div>
+    <h1>Gente</h1>
   </div>
 </div>
 
 <main>
   <div class="container">
 
+    <!-- EDITAR AQUÍ: añade o quita filas <tr> según corresponda -->
     <div class="seccion">
+      <h2>Los de Casa</h2>
       <div class="tabla-wrap">
         <table>
-          <caption>Ejemplo de listado — editar con los datos reales</caption>
           <thead>
             <tr>
-              <th>Tutor/a</th>
-              <th>Área / Curso</th>
-              <th>Contacto</th>
+              <th>Nombre</th>
+              <th>Cumpleaños</th>
+              <th>Padres</th>
             </tr>
           </thead>
-          <!-- EDITAR AQUÍ: añade o quita filas <tr> según los tutores reales -->
           <tbody>
-            <tr>
-              <td>Nombre Apellido</td>
-              <td>1º curso</td>
-              <td>correo@ejemplo.com</td>
-            </tr>
-            <tr>
-              <td>Nombre Apellido</td>
-              <td>2º curso</td>
-              <td>correo@ejemplo.com</td>
-            </tr>
-            <tr>
-              <td>Nombre Apellido</td>
-              <td>Cursos superiores</td>
-              <td>correo@ejemplo.com</td>
-            </tr>
+            <tr><td>Jorge</td><td>13 de mayo</td><td>Manolo y Cristina</td></tr>
+            <tr><td>Óscar</td><td>16 de noviembre</td><td>Miguel (+) y Pilar</td></tr>
+            <tr><td>Alberto</td><td>6 de abril</td><td>Alberto y Bárbara</td></tr>
+            <tr><td>Jaime</td><td>13 de noviembre</td><td>Florentino (+) y Angelines</td></tr>
+            <tr><td>D Alberto</td><td>13 de enero</td><td>José Luis y Carmen</td></tr>
+            <tr><td>Mingo</td><td>16 de septiembre</td><td>Domingo (+) y Ana María</td></tr>
+            <tr><td>Michel</td><td>22 de marzo</td><td>José María (+) y Mª Dolores (+)</td></tr>
+            <tr><td>Hugo</td><td>26 de octubre</td><td>Hugo y Mª del Carmen (+)</td></tr>
+            <tr><td>Gonzalo</td><td>29 de octubre</td><td>Francisco Javier y María del Pilar</td></tr>
+            <tr><td>Rafa</td><td>20 de julio</td><td>Manuel y Maricruz</td></tr>
+            <tr><td>Pablo</td><td>6 de octubre</td><td>Jesús y Arancha</td></tr>
+            <tr><td>D Pedro</td><td>19 de enero</td><td>Guillermo y Mercedes</td></tr>
+            <tr><td>Joaquín</td><td>16 de agosto</td><td>Joaquín y Mase</td></tr>
+            <tr><td>Nano</td><td>1 de noviembre</td><td>Nico y Olenka</td></tr>
+            <tr><td>Alex</td><td>2 de febrero</td><td>Óscar y Ana</td></tr>
+            <tr><td>Antón</td><td>6 de septiembre</td><td>Antón y María</td></tr>
+            <tr><td>Fosco</td><td>19 de noviembre</td><td>Alberto y Elena</td></tr>
+            <tr><td>José Antonio</td><td>23 de noviembre</td><td>José Antonio y xxx</td></tr>
+            <tr><td>Juan</td><td>6 de septiembre</td><td>Óscar y Ana</td></tr>
+            <tr><td>Teje</td><td>16 de noviembre</td><td>Fernando y Carmen</td></tr>
           </tbody>
         </table>
+      </div>
+      <p class="texto-suave" style="margin-top:0.6rem;">(+) indica que ha fallecido.</p>
+    </div>
+
+    <div class="seccion">
+      <h2>Directores</h2>
+      <div class="aviso pendiente">
+        Pendiente de rellenar — la web del curso pasado no tenía datos cargados en esta sección.
       </div>
     </div>
 
