@@ -33,6 +33,11 @@ document.addEventListener("DOMContentLoaded", function () {
       form.style.display = "none";
       panelGracias.style.display = "block";
       panelGracias.scrollIntoView({ behavior: "smooth" });
+      try {
+        localStorage.setItem("cmp2627_ficha_enviada", "1");
+      } catch (e) {
+        // localStorage no disponible (modo privado, etc.): no pasa nada, solo no se ocultará la tarjeta en portada
+      }
     }, { once: true });
   });
 });

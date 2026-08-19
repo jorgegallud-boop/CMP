@@ -298,6 +298,37 @@ main {
   background: linear-gradient(135deg, #fffaf0, var(--blanco));
 }
 
+/* Rejilla compacta de la portada: tarjetas en fila (icono + texto), más por fila */
+.grid-inicio {
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.6rem;
+  margin-top: 0;
+}
+
+.grid-inicio .tarjeta {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.8rem 1rem;
+}
+
+.grid-inicio .tarjeta .icono {
+  font-size: 1.3rem;
+}
+
+.grid-inicio .tarjeta h3 {
+  font-size: 0.92rem;
+  line-height: 1.25;
+}
+
+body.pagina-inicio main {
+  padding: 1.25rem 0 2rem;
+}
+
+body.pagina-inicio .seccion {
+  margin-bottom: 0;
+}
+
 .etiqueta-externo {
   display: inline-block;
   font-size: 0.7rem;
