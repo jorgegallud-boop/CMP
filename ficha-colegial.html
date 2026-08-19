@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ficha de residente · CMP 26-27</title>
+<title>Ficha de colegial · CMP 26-27</title>
 <link rel="icon" href="img/favicon.png" type="image/png">
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -42,8 +42,8 @@
 
 <div class="page-header">
   <div class="container">
-    <div class="breadcrumb"><a href="index.html">Inicio</a> / Ficha de residente</div>
-    <h1>Ficha de residente</h1>
+    <div class="breadcrumb"><a href="index.html">Inicio</a> / Ficha de colegial</div>
+    <h1>Ficha de colegial</h1>
   </div>
 </div>
 
@@ -51,7 +51,7 @@
   <div class="container">
 
     <div id="aviso-configuracion" class="aviso pendiente" style="display:none;">
-      <strong>Formulario sin configurar.</strong> Falta indicar la URL del Apps Script en <code>ficha.html</code> (constante <code>APPS_SCRIPT_URL</code> / atributo <code>action</code> del formulario). Instrucciones en <a href="docs/apps-script-ficha-residente.gs">docs/apps-script-ficha-residente.gs</a>.
+      <strong>Formulario sin configurar.</strong> Falta indicar la URL del Apps Script como <code>action</code> del formulario. Instrucciones en <a href="docs/apps-script-ficha-residente.gs">docs/apps-script-ficha-residente.gs</a>.
     </div>
 
     <div class="panel-gracias" id="panel-gracias">
@@ -61,10 +61,10 @@
 
     <!-- EDITAR AQUÍ: pega la URL "/exec" de tu Apps Script como action del formulario -->
     <form class="formulario" id="form-ficha" action="https://script.google.com/macros/s/AKfycbxGhlhggVxPl8rXOVXhn5dB66aBYo_PSphhveX8dabRY6IWln66zRPwLBTGRrFVbkCM/exec" method="POST" target="ficha-iframe-destino">
-      <input type="hidden" name="tipo" value="residente">
+      <input type="hidden" name="tipo" value="colegial">
 
       <fieldset>
-        <legend>Datos del residente</legend>
+        <legend>Datos del colegial</legend>
         <div class="fila-campos">
           <div class="campo">
             <label for="nombre">Nombre</label>
@@ -143,18 +143,6 @@
       </fieldset>
 
       <fieldset>
-        <legend>Aceptación del reglamento de régimen interno</legend>
-        <div class="texto-legal">
-          <p>Habiendo sido aceptado como residente del Colegio Mayor Peñafiel, declaro conocer, haber leído, aceptar y comprometerme a cumplir las normas contenidas en el <a href="reglamento.html" target="_blank">Reglamento</a> de dicho centro, y haber leído y aceptado las condiciones del contrato de alojamiento.</p>
-          <p>El plazo de esta aceptación será por tiempo indefinido, en tanto permanezca como residente del Colegio Mayor Peñafiel, sito en Valladolid, calle Estudios, 6. Las partes se someten a los Juzgados y Tribunales de Valladolid para resolver cuantas divergencias pudieran surgir por incumplimiento de este Reglamento.</p>
-        </div>
-        <div class="check-consentimiento">
-          <input type="checkbox" id="acepta_reglamento" name="acepta_reglamento" required>
-          <label for="acepta_reglamento">Declaro conocer, haber leído y aceptar el Reglamento y las condiciones del contrato de alojamiento.</label>
-        </div>
-      </fieldset>
-
-      <fieldset>
         <legend>Autorización de urgencia médica</legend>
         <div class="texto-legal">
           <p>Autorizo a los directores del Colegio Mayor Peñafiel a tomar las medidas médicas urgentes que fueran imprescindibles en caso de ser imposible obtener mi consentimiento previo.</p>
@@ -173,6 +161,21 @@
         <div class="check-consentimiento">
           <input type="checkbox" id="acepta_lopd" name="acepta_lopd" required>
           <label for="acepta_lopd">He leído y acepto el tratamiento de mis datos conforme al aviso legal anterior.</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Datos bancarios — cuota de colegial</legend>
+        <p class="texto-suave" style="margin-top:-0.5rem;">Opcional: puedes dejarlo en blanco y facilitarlo más adelante. Se usa únicamente para domiciliar el cobro de la cuota de colegial (importe pendiente de confirmar).</p>
+        <div class="fila-campos">
+          <div class="campo">
+            <label for="titular_cuenta">Titular de la cuenta</label>
+            <input type="text" id="titular_cuenta" name="titular_cuenta">
+          </div>
+          <div class="campo">
+            <label for="iban">IBAN</label>
+            <input type="text" id="iban" name="iban" placeholder="ESXX XXXX XXXX XXXX XXXX XXXX">
+          </div>
         </div>
       </fieldset>
 

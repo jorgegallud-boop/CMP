@@ -9,6 +9,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (!form) return;
 
+  var campoTipo = form.querySelector('input[name="tipo"]');
+  var tipo = campoTipo ? campoTipo.value : "residente";
+  var claveLocalStorage = "cmp2627_ficha_" + tipo + "_enviada";
+
   var sinConfigurar = form.action.indexOf("PEGA_AQUI_TU_URL_DE_APPS_SCRIPT") !== -1;
   if (sinConfigurar && avisoConfig) {
     avisoConfig.style.display = "block";
@@ -34,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
       panelGracias.style.display = "block";
       panelGracias.scrollIntoView({ behavior: "smooth" });
       try {
-        localStorage.setItem("cmp2627_ficha_enviada", "1");
+        localStorage.setItem(claveLocalStorage, "1");
       } catch (e) {
         // localStorage no disponible (modo privado, etc.): no pasa nada, solo no se ocultará la tarjeta en portada
       }

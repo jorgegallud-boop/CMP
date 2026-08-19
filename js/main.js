@@ -19,26 +19,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Portada: la tarjeta de Bienvenida solo se muestra durante el 6-8 de septiembre de 2026
-  var tarjetaBienvenida = document.getElementById("tarjeta-bienvenida");
-  if (tarjetaBienvenida) {
-    var hoy = new Date();
-    var inicioBienvenida = new Date(2026, 8, 6); // 6 de septiembre de 2026
-    var finBienvenida = new Date(2026, 8, 8, 23, 59, 59); // 8 de septiembre de 2026, fin del día
-    if (hoy < inicioBienvenida || hoy > finBienvenida) {
-      tarjetaBienvenida.style.display = "none";
-    }
-  }
-
-  // Portada: la tarjeta de Ficha de residente se oculta en cuanto el usuario ya la ha enviado
-  var tarjetaFicha = document.getElementById("tarjeta-ficha");
-  if (tarjetaFicha) {
+  // Portada: las tarjetas de fichas se ocultan en cuanto el usuario ya las ha enviado
+  [
+    { id: "tarjeta-ficha", clave: "cmp2627_ficha_residente_enviada" },
+    { id: "tarjeta-ficha-colegial", clave: "cmp2627_ficha_colegial_enviada" },
+  ].forEach(function (ficha) {
+    var tarjeta = document.getElementById(ficha.id);
+    if (!tarjeta) return;
     try {
-      if (localStorage.getItem("cmp2627_ficha_enviada") === "1") {
-        tarjetaFicha.style.display = "none";
+      if (localStorage.getItem(ficha.clave) === "1") {
+        tarjeta.style.display = "none";
       }
     } catch (e) {
       // localStorage no disponible (modo privado, etc.): se deja la tarjeta visible
     }
-  }
+  });
 });
