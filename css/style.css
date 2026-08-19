@@ -302,6 +302,16 @@ main {
   padding-left: 0.6rem;
 }
 
+.seccion h3 {
+  font-size: 1.02rem;
+  margin: 1.4rem 0 0.6rem;
+  color: var(--azul-claro);
+}
+
+.seccion h3:first-of-type {
+  margin-top: 0.4rem;
+}
+
 /* ---------- Tarjetas de la portada ---------- */
 
 .grid-tarjetas {
