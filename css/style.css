@@ -298,27 +298,26 @@ main {
   background: linear-gradient(135deg, #fffaf0, var(--blanco));
 }
 
-/* Rejilla compacta de la portada: tarjetas en fila (icono + texto), más por fila */
+/* Rejilla compacta de la portada: botones de texto, sin iconos, más por fila */
 .grid-inicio {
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 0.6rem;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.5rem;
   margin-top: 0;
 }
 
 .grid-inicio .tarjeta {
   flex-direction: row;
   align-items: center;
-  gap: 0.65rem;
-  padding: 0.8rem 1rem;
-}
-
-.grid-inicio .tarjeta .icono {
-  font-size: 1.3rem;
+  padding: 0.7rem 0.9rem;
+  border-left: 3px solid var(--dorado);
+  border-radius: 8px;
 }
 
 .grid-inicio .tarjeta h3 {
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
 body.pagina-inicio main {
