@@ -504,6 +504,13 @@ table {
   font-size: 0.94rem;
 }
 
+/* Nombre y apellidos siempre en una sola línea; el resto de columnas
+   puede empujar la tabla y desplazarse (.tabla-wrap ya tiene scroll). */
+.tabla-nombres td:first-child,
+.tabla-nombres th:first-child {
+  white-space: nowrap;
+}
+
 table caption {
   text-align: left;
   padding: 0.75rem 1rem 0;
