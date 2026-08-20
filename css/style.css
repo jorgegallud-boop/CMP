@@ -215,7 +215,7 @@ nav.main-nav a.activo {
 
 .auth-widget .auth-rol {
   font-weight: 600;
-  color: var(--blanco);
+  color: var(--naranja);
   white-space: nowrap;
 }
 
@@ -433,7 +433,7 @@ main {
   line-height: 1.25;
   font-weight: 600;
   letter-spacing: 0.01em;
-  color: var(--naranja);
+  color: var(--blanco);
 }
 
 body.pagina-inicio main {
