@@ -415,17 +415,17 @@ main {
   flex-direction: row;
   align-items: center;
   padding: 0.9rem 1rem;
-  background: var(--naranja);
+  background: var(--azul);
   border: none;
   border-radius: var(--radio);
 }
 
 .grid-inicio .tarjeta:hover {
-  background: var(--azul);
+  background: var(--naranja);
 }
 
 .grid-inicio .tarjeta:hover h3 {
-  color: var(--blanco);
+  color: var(--azul);
 }
 
 .grid-inicio .tarjeta h3 {
@@ -433,6 +433,7 @@ main {
   line-height: 1.25;
   font-weight: 600;
   letter-spacing: 0.01em;
+  color: var(--naranja);
 }
 
 body.pagina-inicio main {
