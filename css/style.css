@@ -2,24 +2,32 @@
    CMP 26-27 — hoja de estilos
    ========================================================================== */
 
-/* Azul marino como color estructural (fondos, cabeceras); naranja como
-   único acento, para texto destacado, enlaces y resultados — alineado
-   con el naranja de la marca real (cmpenafiel.org). */
+/* Azul marino como color estructural (fondos, cabeceras, tablas). El
+   naranja de marca queda reservado a un máximo de dos usos por
+   pantalla: el CTA principal (.boton / .form-boton) y el elemento
+   activo o destacado (enlace de menú activo, día destacado del
+   calendario, tarjeta.destacada). El resto de acentos decorativos
+   (bordes de tarjeta, títulos de sección, avisos) usan un neutro
+   cálido tipo piedra, para no competir con el naranja. */
 :root {
   --azul-oscuro: #12233d;
   --azul: #1d3a63;
-  --azul-claro: #a8571a;    /* naranja — enlaces, subtítulos, foco */
-  --dorado: #e2861b;        /* naranja de marca — bordes, botones, destacados */
-  --dorado-claro: #fbe4c6;  /* naranja claro — fondos de aviso, texto suave sobre azul */
-  --gris-fondo: #f4f5f7;
-  --gris-borde: #dde1e7;
+  --azul-claro: #2f5a94;        /* azul secundario — enlaces, h3, foco */
+  --dorado: #e2861b;            /* naranja de marca — CTA y elemento activo/destacado, solo */
+  --dorado-claro: #fbe4c6;      /* naranja claro — fondo de evento destacado / tarjeta destacada */
+  --acento-suave: #b9ab8c;      /* piedra — bordes decorativos (h2, tarjeta, aviso) */
+  --acento-suave-clara: #ece5d5; /* piedra clara — fondo de aviso, insignias, casilla de consentimiento */
+  --gris-fondo: #f6f3ee;        /* arena cálida, en vez del gris frío de antes */
+  --gris-borde: #e2dccf;
   --texto: #1f2430;
   --texto-suave: #5a6274;
   --blanco: #ffffff;
   --ok: #2e7d4f;
-  --radio: 12px;
-  --sombra: 0 2px 10px rgba(18, 35, 61, 0.08);
-  --sombra-hover: 0 6px 18px rgba(18, 35, 61, 0.14);
+  --radio: 8px;                 /* radio discreto por defecto (tablas, formularios, bloques) */
+  --radio-tarjeta: 18px;        /* radio más suave, solo para tarjetas de portada/contenido */
+  --font-titulos: "Libre Franklin", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --sombra: 0 4px 16px rgba(18, 35, 61, 0.06);
+  --sombra-hover: 0 10px 28px rgba(18, 35, 61, 0.1);
 }
 
 * {
@@ -66,7 +74,7 @@ header.site-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: var(--sombra);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .header-bar {
@@ -110,14 +118,15 @@ header.site-header {
 }
 
 .brand .titulo-principal {
-  font-size: 1.15rem;
+  font-family: var(--font-titulos);
+  font-size: 1.3rem;
   font-weight: 700;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
 }
 
 .brand .subtitulo {
   font-size: 0.75rem;
-  color: var(--dorado-claro);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 nav.main-nav {
@@ -141,9 +150,15 @@ nav.main-nav a {
   white-space: nowrap;
 }
 
-nav.main-nav a:hover,
-nav.main-nav a.activo {
+nav.main-nav a:hover {
   background: rgba(255, 255, 255, 0.14);
+  text-decoration: none;
+}
+
+nav.main-nav a.activo {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--dorado);
+  font-weight: 700;
   text-decoration: none;
 }
 
@@ -207,7 +222,7 @@ nav.main-nav a.activo {
 
 .auth-widget .auth-rol {
   font-weight: 600;
-  color: var(--dorado-claro);
+  color: var(--blanco);
   white-space: nowrap;
 }
 
@@ -244,8 +259,9 @@ nav.main-nav a.activo {
 }
 
 .hero h1 {
+  font-family: var(--font-titulos);
   margin: 0 0 0.5rem;
-  font-size: 2.1rem;
+  font-size: 2.6rem;
 }
 
 .hero p {
@@ -269,13 +285,15 @@ nav.main-nav a.activo {
 }
 
 .page-header h1 {
+  font-family: var(--font-titulos);
   margin: 0;
-  font-size: 1.6rem;
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 .page-header p {
   margin: 0;
-  color: var(--dorado-claro);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .breadcrumb {
@@ -298,15 +316,17 @@ main {
 }
 
 .seccion h2 {
-  font-size: 1.3rem;
+  font-family: var(--font-titulos);
+  font-weight: 700;
+  font-size: 1.5rem;
   margin-bottom: 0.9rem;
   color: var(--azul-oscuro);
-  border-left: 4px solid var(--dorado);
+  border-left: 4px solid var(--acento-suave);
   padding-left: 0.6rem;
 }
 
 .seccion h3 {
-  font-size: 1.02rem;
+  font-size: 1.15rem;
   margin: 1.4rem 0 0.6rem;
   color: var(--azul-claro);
 }
@@ -355,7 +375,7 @@ main {
 .tarjeta {
   background: var(--blanco);
   border: 1px solid var(--gris-borde);
-  border-radius: var(--radio);
+  border-radius: var(--radio-tarjeta);
   padding: 1.3rem;
   box-shadow: var(--sombra);
   transition: box-shadow 0.15s ease, transform 0.15s ease;
@@ -387,23 +407,23 @@ main {
 }
 
 .tarjeta.destacada {
-  border-color: var(--dorado);
-  background: linear-gradient(135deg, #fffaf0, var(--blanco));
+  border: 2px solid var(--dorado);
+  background: var(--dorado-claro);
 }
 
 /* Rejilla compacta de la portada: botones de texto, sin iconos, más por fila */
 .grid-inicio {
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 0.75rem;
   margin-top: 0;
 }
 
 .grid-inicio .tarjeta {
   flex-direction: row;
   align-items: center;
-  padding: 0.7rem 0.9rem;
-  border-left: 3px solid var(--dorado);
-  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  border-left: 3px solid var(--acento-suave);
+  border-radius: var(--radio);
 }
 
 .grid-inicio .tarjeta h3 {
@@ -426,7 +446,7 @@ body.pagina-inicio .seccion {
   font-size: 0.7rem;
   font-weight: 600;
   color: var(--azul-oscuro);
-  background: var(--dorado-claro);
+  background: var(--acento-suave-clara);
   border-radius: 999px;
   padding: 0.1rem 0.55rem;
   align-self: flex-start;
@@ -503,15 +523,15 @@ tbody tr:last-child td {
 }
 
 tbody tr:hover {
-  background: #f8f9fb;
+  background: #f4f0e8;
 }
 
 /* ---------- Avisos / notas ---------- */
 
 .aviso {
-  background: #fff8e6;
-  border: 1px solid var(--dorado-claro);
-  border-left: 4px solid var(--dorado);
+  background: var(--acento-suave-clara);
+  border: 1px solid var(--gris-borde);
+  border-left: 4px solid var(--acento-suave);
   border-radius: 8px;
   padding: 0.9rem 1.1rem;
   font-size: 0.9rem;
@@ -521,7 +541,7 @@ tbody tr:hover {
 .aviso.pendiente {
   background: #eef3fb;
   border-color: #b9cbe6;
-  border-left-color: #2f5a94;
+  border-left-color: var(--azul-claro);
 }
 
 .aviso strong {
@@ -600,8 +620,9 @@ tbody tr:hover {
   background: linear-gradient(135deg, var(--azul-oscuro), var(--azul-claro));
   color: var(--blanco);
   padding: 0.8rem 1.1rem;
+  font-family: var(--font-titulos);
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   letter-spacing: 0.01em;
 }
 
@@ -718,7 +739,7 @@ tbody tr:hover {
   font-weight: 700;
   color: var(--azul-oscuro);
   padding: 0 0 0.9rem;
-  border-bottom: 2px solid var(--dorado-claro);
+  border-bottom: 2px solid var(--acento-suave);
   width: 100%;
   margin-bottom: 1rem;
 }
@@ -789,8 +810,8 @@ tbody tr:hover {
   display: flex;
   align-items: flex-start;
   gap: 0.6rem;
-  background: #fff8e6;
-  border: 1px solid var(--dorado-claro);
+  background: var(--acento-suave-clara);
+  border: 1px solid var(--acento-suave);
   border-radius: 8px;
   padding: 0.75rem 1rem;
 }
@@ -876,7 +897,7 @@ footer.site-footer {
 }
 
 footer.site-footer a {
-  color: var(--dorado-claro);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 /* ---------- Utilidades ---------- */
@@ -898,13 +919,12 @@ footer.site-footer a {
     --texto: #ece7de;
     --texto-suave: #b7ae9c;
     --blanco: #221f1a;
+    --azul-claro: #6f9bdc;
     --dorado-claro: #4a3a22;
-    --sombra: 0 2px 10px rgba(0, 0, 0, 0.35);
-    --sombra-hover: 0 6px 18px rgba(0, 0, 0, 0.45);
-  }
-
-  a {
-    color: #e2861b;
+    --acento-suave: #8a7c5c;
+    --acento-suave-clara: #2a2416;
+    --sombra: 0 4px 16px rgba(0, 0, 0, 0.35);
+    --sombra-hover: 0 10px 28px rgba(0, 0, 0, 0.45);
   }
 
   thead th {
@@ -916,8 +936,7 @@ footer.site-footer a {
   }
 
   .aviso {
-    background: #2b2013;
-    border-color: #4a3a22;
+    border-left-color: #8a7c5c;
   }
 
   .aviso.pendiente {
@@ -926,12 +945,7 @@ footer.site-footer a {
   }
 
   .aviso strong {
-    color: var(--dorado-claro);
-  }
-
-  .check-consentimiento {
-    background: #2b2013;
-    border-color: #4a3a22;
+    color: var(--acento-suave);
   }
 
   .texto-legal {
@@ -942,10 +956,6 @@ footer.site-footer a {
   .panel-gracias {
     background: #142a1c;
     border-color: #2f5b40;
-  }
-
-  .tarjeta.destacada {
-    background: linear-gradient(135deg, #2a2216, var(--blanco));
   }
 
   .campo input[type="text"],
