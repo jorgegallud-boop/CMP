@@ -10,7 +10,7 @@
 <meta name="theme-color" content="#12233d">
 <link rel="stylesheet" href="css/style.css">
 <script src="js/auth.js"></script>
-<script>CMP_AUTH.requerirRol(['residente']);</script>
+<script>CMP_AUTH.requerirRol(['residente', 'colegial']);</script>
 </head>
 <body>
 
@@ -27,7 +27,7 @@
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li data-roles="direccion"><a href="contemplativos.html">#contemplativos</a></li>
-        <li data-roles="residente"><a href="bienvenida.html">Bienvenida</a></li>
+        <li data-roles="residente,colegial"><a href="bienvenida.html">Bienvenida</a></li>
         <li data-roles="residente"><a href="https://compositor.org/comidas/penafiel.php" target="_blank" rel="noopener" onclick="return CMP_AUTH.permitirEnlace(event, ['residente'], this.href)">Comidas ↗</a></li>
         <li data-roles="residente,colegial"><a href="https://arreglos-cmp.glide.page/" target="_blank" rel="noopener" onclick="return CMP_AUTH.permitirEnlace(event, ['residente','colegial'], this.href)">Arreglos ↗</a></li>
         <li data-roles="residente"><a href="habitaciones.html">Habitaciones</a></li>
@@ -59,68 +59,64 @@
 <main>
   <div class="container">
 
-    <div class="seccion">
-      <h2>🎉 Domingo 6 de septiembre — Llegada y bienvenida</h2>
+    <div class="seccion" data-roles="residente,direccion">
+      <h2>6 de septiembre</h2>
       <div class="tabla-wrap">
         <table>
           <thead>
-            <tr><th>Hora</th><th>Actividad</th><th>Lugar</th></tr>
+            <tr><th>Hora</th><th>Actividad</th></tr>
           </thead>
           <tbody>
-            <tr><td><strong>Desde 18:00</strong></td><td>Bienvenida</td><td>—</td></tr>
-            <tr><td>19:00 <span class="texto-suave">(orientativo)</span></td><td>Sesión introductoria — antes de la cena de bienvenida <span class="texto-suave">(era la primera sesión explicativa del año pasado)</span></td><td>Sala de Estar, 1ª planta</td></tr>
-            <tr><td><strong>21:15</strong></td><td>Cena de Bienvenida</td><td>Comedor, 2ª planta</td></tr>
-            <tr><td><strong>22:00</strong></td><td>Presentaciones</td><td>Sala de Estar, 1ª planta</td></tr>
-            <tr><td>—</td><td>Fuegos artificiales (Estadio) / Concierto (Plaza Mayor)</td><td>—</td></tr>
+            <tr><td><strong>Desde 16:00</strong></td><td>Llegada</td></tr>
+            <tr><td><strong>20:00</strong></td><td>Sesión introductoria (Sala de Estar)</td></tr>
+            <tr><td><strong>21:15</strong></td><td>Cena de Bienvenida (Comedor)</td></tr>
+            <tr><td><strong>22:00</strong></td><td>Presentaciones (El Doctorado)</td></tr>
           </tbody>
         </table>
       </div>
     </div>
 
-    <div class="seccion">
+    <div class="seccion" data-roles="residente,direccion">
       <h2>📋 Lunes 7 de septiembre — <em>borrador</em></h2>
       <div class="tabla-wrap">
         <table>
           <thead>
-            <tr><th>Hora</th><th>Actividad</th><th>Lugar</th></tr>
+            <tr><th>Hora</th><th>Actividad</th></tr>
           </thead>
           <tbody>
-            <tr><td><strong>9:45 – 10:30</strong></td><td>Desayuno</td><td>Comedor, 2ª planta</td></tr>
-            <tr><td><strong>11:30</strong></td><td>Misa (opcional)</td><td>—</td></tr>
-            <tr><td><strong>12:30</strong></td><td>Triangular fútbol sala</td><td>Pista deportiva exterior</td></tr>
-            <tr><td><strong>14:30</strong></td><td>Comida</td><td>Comedor, 2ª planta</td></tr>
-            <tr><td><strong>15:00</strong></td><td>Café + tertulia</td><td>Sala de Estar, 1ª planta</td></tr>
-            <tr><td><strong>17:00</strong></td><td>Sesión explicativa</td><td>Sala de Estar, 1ª planta</td></tr>
-            <tr><td>—</td><td>Torneo de pádel (Viana) / Paseo por Valladolid</td><td>—</td></tr>
-            <tr><td><strong>21:15</strong></td><td>Cena</td><td>Sala de Estar, 1ª planta</td></tr>
-            <tr><td><strong>22:00</strong></td><td>Casetas</td><td>—</td></tr>
+            <tr><td><strong>9:45 – 10:30</strong></td><td>Desayuno (Comedor)</td></tr>
+            <tr><td><strong>Mañana</strong></td><td>Jornadas de presentación en las facultades</td></tr>
+            <tr><td><strong>11:30</strong></td><td>Misa (opcional)</td></tr>
+            <tr><td><strong>12:30</strong></td><td>Triangular fútbol sala (pista deportiva exterior)</td></tr>
+            <tr><td><strong>14:30</strong></td><td>Comida (Comedor)</td></tr>
+            <tr><td><strong>15:00</strong></td><td>Café + tertulia (Sala de Estar)</td></tr>
+            <tr><td><strong>17:00</strong></td><td>Sesión explicativa (Sala de Estar)</td></tr>
+            <tr><td>—</td><td>Torneo de pádel (Viana) / Paseo por Valladolid</td></tr>
+            <tr><td><strong>21:15</strong></td><td>Cena (Sala de Estar)</td></tr>
+            <tr><td><strong>22:00</strong></td><td>Casetas</td></tr>
           </tbody>
         </table>
       </div>
     </div>
 
-    <div class="seccion">
+    <div class="seccion" data-roles="residente,colegial,direccion">
       <h2>🍖 Martes 8 de septiembre — Aldebarán</h2>
       <div class="tabla-wrap">
         <table>
           <thead>
-            <tr><th>Hora</th><th>Actividad</th><th>Lugar</th></tr>
+            <tr><th>Hora</th><th>Actividad</th></tr>
           </thead>
           <tbody>
-            <tr><td><strong>9:45 – 10:30</strong></td><td>Desayuno</td><td>Comedor, 2ª planta</td></tr>
-            <tr><td><strong>10:45</strong></td><td>Sesión explicativa</td><td>Sala de Estar, 1ª planta</td></tr>
-            <tr><td><strong>11:30</strong></td><td>Misa (opcional)</td><td>—</td></tr>
-            <tr><td><strong>12:30</strong></td><td>Salida hacia Aldebarán (deporte y piscina)</td><td>—</td></tr>
-            <tr><td><strong>14:00</strong></td><td>Aperitivo (comisiones y presentaciones)</td><td>—</td></tr>
-            <tr><td><strong>14:30</strong></td><td>Barbacoa</td><td>Aldebarán</td></tr>
-            <tr><td><strong>17:30</strong></td><td>Regreso</td><td>—</td></tr>
+            <tr><td><strong>9:45 – 10:30</strong></td><td>Desayuno (Comedor)</td></tr>
+            <tr><td><strong>10:45</strong></td><td>Sesión explicativa (Sala de Estar)</td></tr>
+            <tr><td><strong>11:30</strong></td><td>Misa (opcional)</td></tr>
+            <tr><td><strong>12:30</strong></td><td>Salida hacia Aldebarán (deporte y piscina)</td></tr>
+            <tr><td><strong>14:00</strong></td><td>Aperitivo (comisiones y presentaciones)</td></tr>
+            <tr><td><strong>14:30</strong></td><td>Barbacoa (Aldebarán)</td></tr>
+            <tr><td><strong>17:30</strong></td><td>Regreso</td></tr>
           </tbody>
         </table>
       </div>
-    </div>
-
-    <div class="aviso" style="margin-top:0.5rem;">
-      La clave wifi y el alta de acceso por huella se indican presencialmente a la llegada (no se publican aquí por seguridad).
     </div>
 
   </div>

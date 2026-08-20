@@ -50,6 +50,15 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
     }
+
+    // Contenido dentro de una página (por ejemplo, secciones de Bienvenida):
+    // igual que la portada, se filtra para todos los roles según data-roles.
+    document.querySelectorAll(".seccion[data-roles]").forEach(function (seccion) {
+      var roles = seccion.getAttribute("data-roles").split(",");
+      if (roles.indexOf(rolActual) === -1) {
+        seccion.style.display = "none";
+      }
+    });
   }
 
   // Portada: las tarjetas de fichas se ocultan en cuanto el usuario ya las ha enviado
