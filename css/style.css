@@ -312,6 +312,34 @@ main {
   margin-top: 0.4rem;
 }
 
+.seccion details {
+  border: 1px solid var(--gris-borde);
+  border-radius: var(--radio);
+  margin-bottom: 0.9rem;
+  padding: 0.7rem 1rem;
+  background: var(--blanco);
+}
+
+.seccion details + p.texto-suave {
+  margin-top: 0.9rem;
+}
+
+.seccion summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--azul-oscuro);
+}
+
+.seccion details ol {
+  margin: 0.9rem 0 0.2rem;
+  padding-left: 1.3rem;
+}
+
+.seccion details li {
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+}
+
 /* ---------- Tarjetas de la portada ---------- */
 
 .grid-tarjetas {
