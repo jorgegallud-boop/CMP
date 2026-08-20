@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Portada: cada tarjeta solo se muestra si el rol tiene acceso (según su
-  // atributo data-roles, lista separada por comas) — incluida Dirección,
+  // atributo data-roles, lista separada por comas) — incluido Staff,
   // que en portada ve solo lo suyo, igual que los demás roles.
   if (typeof CMP_AUTH !== "undefined") {
     var rolActual = CMP_AUTH.rolReal();
@@ -40,9 +40,9 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // Menú (☰ arriba a la derecha): igual, salvo Dirección, que ahí sí ve
+    // Menú (☰ arriba a la derecha): igual, salvo Staff, que ahí sí ve
     // todas las opciones sin filtrar.
-    if (rolActual !== "direccion") {
+    if (rolActual !== "staff") {
       document.querySelectorAll(".main-nav li[data-roles]").forEach(function (item) {
         var roles = item.getAttribute("data-roles").split(",");
         if (roles.indexOf(rolActual) === -1) {

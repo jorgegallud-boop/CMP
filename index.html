@@ -10,7 +10,7 @@
 <meta name="theme-color" content="#12233d">
 <link rel="stylesheet" href="css/style.css">
 <script src="js/auth.js"></script>
-<script>CMP_AUTH.requerirRol(['residente', 'colegial', 'direccion']);</script>
+<script>CMP_AUTH.requerirRol(['residente', 'colegial', 'staff']);</script>
 </head>
 <body class="pagina-inicio">
 
@@ -32,19 +32,39 @@
     <div class="seccion">
       <div class="grid-tarjetas grid-inicio">
 
-        <a class="tarjeta" href="contemplativos.html" data-roles="direccion">
+        <a class="tarjeta" href="contemplativos.html" data-roles="staff">
           <h3>#contemplativos</h3>
         </a>
 
-        <a class="tarjeta" href="bienvenida.html" id="tarjeta-bienvenida" data-roles="residente,colegial,direccion">
+        <a class="tarjeta" href="retiro-mensual.html" data-roles="staff">
+          <h3>Retiro mensual</h3>
+        </a>
+
+        <a class="tarjeta" href="horario-sm.html" data-roles="staff">
+          <h3>Horario SM</h3>
+        </a>
+
+        <a class="tarjeta" href="turnos.html" data-roles="staff">
+          <h3>Turnos</h3>
+        </a>
+
+        <a class="tarjeta" href="encargos-sm.html" data-roles="staff">
+          <h3>Encargos SM</h3>
+        </a>
+
+        <a class="tarjeta" href="datos-interes.html" data-roles="staff">
+          <h3>Datos de interés</h3>
+        </a>
+
+        <a class="tarjeta" href="bienvenida.html" id="tarjeta-bienvenida" data-roles="residente,colegial,staff">
           <h3>Bienvenida</h3>
         </a>
 
-        <a class="tarjeta" href="https://compositor.org/comidas/penafiel.php" target="_blank" rel="noopener" data-roles="residente,direccion" onclick="return CMP_AUTH.permitirEnlace(event, ['residente'], this.href)">
+        <a class="tarjeta" href="https://compositor.org/comidas/penafiel.php" target="_blank" rel="noopener" data-roles="residente,staff" onclick="return CMP_AUTH.permitirEnlace(event, ['residente'], this.href)">
           <h3>App de comidas</h3>
         </a>
 
-        <a class="tarjeta" href="https://arreglos-cmp.glide.page/" target="_blank" rel="noopener" data-roles="residente,colegial,direccion" onclick="return CMP_AUTH.permitirEnlace(event, ['residente','colegial'], this.href)">
+        <a class="tarjeta" href="https://arreglos-cmp.glide.page/" target="_blank" rel="noopener" data-roles="residente,colegial,staff" onclick="return CMP_AUTH.permitirEnlace(event, ['residente','colegial'], this.href)">
           <h3>Ficha de arreglos</h3>
         </a>
 
@@ -52,15 +72,15 @@
           <h3>Habitaciones</h3>
         </a>
 
-        <a class="tarjeta" href="residentes.html" data-roles="residente,direccion">
+        <a class="tarjeta" href="residentes.html" data-roles="residente,staff">
           <h3>Residentes</h3>
         </a>
 
-        <a class="tarjeta" href="colegiales.html" data-roles="direccion">
+        <a class="tarjeta" href="colegiales.html" data-roles="staff">
           <h3>Colegiales</h3>
         </a>
 
-        <a class="tarjeta" href="gente.html" data-roles="direccion">
+        <a class="tarjeta" href="gente.html" data-roles="staff">
           <h3>Gente</h3>
         </a>
 
@@ -76,11 +96,11 @@
           <h3>Horarios</h3>
         </a>
 
-        <a class="tarjeta" href="misas.html" data-roles="direccion">
+        <a class="tarjeta" href="misas.html" data-roles="staff">
           <h3>Misas</h3>
         </a>
 
-        <a class="tarjeta" href="calendario.html" data-roles="residente,direccion">
+        <a class="tarjeta" href="calendario.html" data-roles="residente,staff">
           <h3>Calendario</h3>
         </a>
 

@@ -1,4 +1,4 @@
-// CMP 26-27 — login por roles (residente / colegial / dirección)
+// CMP 26-27 — login por roles (residente / colegial / staff)
 //
 // AVISO: esto NO es seguridad real. Es un filtro básico con clave
 // compartida por rol, pensado para separar contenido por buena fe, no
@@ -11,19 +11,19 @@
 // una clave, genera el hash nuevo (por ejemplo con SubtleCrypto en la
 // consola del navegador) y sustitúyelo aquí.
 //
-// Dirección ve y puede entrar en todo, sin excepciones ni necesidad de
+// Staff ve y puede entrar en todo, sin excepciones ni necesidad de
 // "previsualizar" otro rol.
 
 var CMP_AUTH = (function () {
   var HASHES = {
-    direccion: "a4774b8b884430a86a8c0942f40d3e4b4583604ca994a8253bc55dbc722389bb",
+    staff: "a4774b8b884430a86a8c0942f40d3e4b4583604ca994a8253bc55dbc722389bb",
     residente: "5edd6da0f348703b56e93ca9d05adcef2695c4df75bbf4e311138cc21de22856",
     colegial: "1ebbd962921246ab1e5b6f446da1f7f52b58eb79c294aefe0e10895385c9187a",
   };
 
   var CLAVE_ROL = "cmp2627_rol_real";
 
-  var NOMBRES = { direccion: "Dirección", residente: "Residente", colegial: "Colegial" };
+  var NOMBRES = { staff: "Staff", residente: "Residente", colegial: "Colegial" };
 
   async function sha256Hex(texto) {
     var datos = new TextEncoder().encode(texto);
@@ -51,10 +51,10 @@ var CMP_AUTH = (function () {
   }
 
   // Redirige si el rol no está en la lista de roles permitidos para la
-  // página actual. Dirección tiene acceso a todo automáticamente (no
-  // hace falta incluirla en la lista).
+  // página actual. Staff tiene acceso a todo automáticamente (no hace
+  // falta incluirlo en la lista).
   function requerirRol(rolesPermitidos) {
-    if (rolReal() === "direccion") return;
+    if (rolReal() === "staff") return;
 
     var rol = rolReal();
     if (rol && rolesPermitidos.indexOf(rol) !== -1) return;
@@ -67,7 +67,7 @@ var CMP_AUTH = (function () {
   // rol no tiene acceso, cancela la navegación y manda a login.html con
   // la URL externa como destino final tras iniciar sesión.
   function permitirEnlace(evento, rolesPermitidos, destino) {
-    if (rolReal() === "direccion") return true;
+    if (rolReal() === "staff") return true;
     var rol = rolReal();
     if (rol && rolesPermitidos.indexOf(rol) !== -1) return true;
     evento.preventDefault();
