@@ -16,7 +16,7 @@
 
 var CMP_AUTH = (function () {
   var HASHES = {
-    staff: "a4774b8b884430a86a8c0942f40d3e4b4583604ca994a8253bc55dbc722389bb",
+    staff: "652aafc22482e5bde55a99ed8b55241bc7b5b7da818080c354a36b780b30c1fc",
     residente: "5edd6da0f348703b56e93ca9d05adcef2695c4df75bbf4e311138cc21de22856",
     colegial: "1ebbd962921246ab1e5b6f446da1f7f52b58eb79c294aefe0e10895385c9187a",
   };
