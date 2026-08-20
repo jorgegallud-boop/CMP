@@ -1,79 +1,16 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Exámenes del retiro · CMP 26-27</title>
-<link rel="icon" href="img/favicon.png" type="image/png">
-<link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="img/icon-apple-touch.png">
-<meta name="theme-color" content="#12233d">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
-<script src="js/auth.js"></script>
-<script>CMP_AUTH.requerirRol([]);</script>
-</head>
-<body>
+// Examen del retiro mensual: muestra automáticamente el texto que
+// corresponde al mes actual y a si el año en curso es par o impar.
+// Los 16 textos completos (copia del Sites del curso pasado) están
+// también en examenes-retiro.html.
+(function () {
+  var NOMBRES_MES = ["", "enero", "febrero", "marzo", "abril", "mayo", "junio",
+    "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
 
-<header class="site-header">
-  <div class="header-bar">
-    <a class="brand" href="index.html">
-      <img class="logo-icon" src="img/logo-icon-white.png" alt="Colegio Mayor Peñafiel">
-      <span class="titulos">
-        <span class="titulo-principal">CMP 26-27</span>
-      </span>
-    </a>
-    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰ Menú</button>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li data-roles="staff"><a href="contemplativos.html">#contemplativos</a></li>
-        <li data-roles="staff"><a href="retiro-mensual.html">Retiro mensual</a></li>
-        <li data-roles="staff"><a href="horario-sm.html">Horario sm</a></li>
-        <li data-roles="staff"><a href="turnos.html">Turnos</a></li>
-        <li data-roles="staff"><a href="encargos-sm.html">Encargos sm</a></li>
-        <li data-roles="staff"><a href="datos-interes.html">Cosas de interés</a></li>
-        <li data-roles="residente,colegial"><a href="bienvenida.html">Bienvenida</a></li>
-        <li data-roles="residente"><a href="https://compositor.org/comidas/penafiel.php" target="_blank" rel="noopener" onclick="return CMP_AUTH.permitirEnlace(event, ['residente'], this.href)">Comidas ↗</a></li>
-        <li data-roles="residente,colegial"><a href="https://arreglos-cmp.glide.page/" target="_blank" rel="noopener" onclick="return CMP_AUTH.permitirEnlace(event, ['residente','colegial'], this.href)">Arreglos ↗</a></li>
-        <li data-roles="residente"><a href="habitaciones.html">Habitaciones</a></li>
-        <li data-roles="residente"><a href="residentes.html">Residentes</a></li>
-        <li data-roles="staff"><a href="colegiales.html">Colegiales</a></li>
-        <li data-roles="staff"><a href="gente.html">Los de Casa</a></li>
-        <li data-roles="residente"><a href="encargos.html">Encargos</a></li>
-        <li data-roles="residente"><a href="comisiones.html">Comisiones</a></li>
-        <li data-roles="residente"><a href="horarios.html">Horarios</a></li>
-        <li data-roles="staff"><a href="misas.html">Misas</a></li>
-        <li data-roles="residente"><a href="calendario.html">Calendario</a></li>
-        <li data-roles="residente"><a href="reglamento.html">Reglamento</a></li>
-        <li data-roles="residente"><a href="tutores.html">Tutores</a></li>
-        <li data-roles="residente,staff"><a href="ficha.html">Ficha de residente</a></li>
-        <li data-roles="colegial,staff"><a href="ficha-colegial.html">Ficha de colegial</a></li>
-      </ul>
-    </nav>
-    <div id="auth-widget" class="auth-widget"></div>
-  </div>
-</header>
-
-<div class="page-header">
-  <div class="container">
-    <div class="breadcrumb"><a href="index.html">Inicio</a> / <a href="retiro-mensual.html">Retiro mensual</a> / Exámenes del retiro</div>
-    <h1>Exámenes del retiro</h1>
-  </div>
-</div>
-
-<main>
-  <div class="container">
-
-    <p class="texto-suave">Copia de los 16 textos de examen que había en el Sites del curso pasado (uno por mes, distinto según el año es par o impar), guardados aquí antes de borrar esa web. Haz clic en cada mes para desplegar el texto.</p>
-
-    <div class="seccion">
-      <h2>Septiembre</h2>
-      <details>
-        <summary>Años impares — «Viendo la fe de ellos...»</summary>
-        <ol>
+  var EXAMENES = {
+    9: {
+      impar: {
+        titulo: "Años impares — «Viendo la fe de ellos...»",
+        html: `<ol>
           <li>«Vivo, pero no soy yo el que vive, es Cristo quien vive en mí» (Gal 2,20). ¿Deseo cada vez con más intensidad que la vida de Cristo sea mi vida?</li>
           <li>¿Tengo fe en el amor incondicional de Dios por mí, que me quiere y conoce como soy? ¿Reconozco los talentos que me ha dado y me ilusiona cultivarlos para llevar a cabo las maravillas que Él ha soñado conmigo?</li>
           <li>«No soy digno de que entres en mi casa (...). Pero dilo de palabra y mi criado quedará sano» (Lc 7,6-7). ¿Me apoyo en esta oración, llena de fe y humildad, cuando pido por tantas intenciones para el bien de las almas?</li>
@@ -84,11 +21,11 @@
           <li>«Emitte lucem tuam et veritatem tuam, envía tu luz y tu verdad» (Sal 43,3). ¿Amo la luz de Dios y me acerco a ella en la oración para conocerme mejor? ¿Soy sincero en la oración, muestro con humildad mis heridas al Señor y dejo que Él las cure?</li>
           <li>¿Procuro abrir mi corazón en la dirección espiritual, sabiendo que Dios se sirve de quien me escucha para ayudarme?</li>
           <li>«Mirad a la doncella de Nazaret. Convencida de su pequeñez, nada la distrae de Dios» (Beato Álvaro, Carta pastoral, 2-II-1979). ¿Cuento con la ayuda de mi madre la Virgen para trabajar con alegría para el Señor?</li>
-        </ol>
-      </details>
-      <details>
-        <summary>Años pares — «Nosotros no sabemos pedir como conviene»</summary>
-        <ol>
+        </ol>`
+      },
+      par: {
+        titulo: "Años pares — «Nosotros no sabemos pedir como conviene»",
+        html: `<ol>
           <li>El Espíritu Santo trae a nuestra memoria las palabras del Evangelio: «Conviene orar perseverantemente y no desfallecer» (Lc 18,1). La oración es el fundamento de toda labor sobrenatural; con la oración somos omnipotentes (Amigos de Dios, n. 238). ¿Confío en la fuerza de la oración para vivir plenamente mi misión? ¿Desarrollo el instinto de rezar para superar los obstáculos que voy encontrando en mi camino?</li>
           <li>«Tú, en cambio, cuando ores, entra en tu cuarto, cierra la puerta y ora a tu Padre, que está en lo secreto, y tu Padre, que ve en lo secreto, te lo recompensará» (Mt 6,6). En mis ratos de oración, ¿busco entrar en lo más íntimo de mi corazón para, desde ahí, dirigirme al Señor? ¿Intento encontrar los mejores lugares y momentos para mi oración?</li>
           <li>«Cuando recéis, no uséis muchas palabras, como los gentiles, que se imaginan que por hablar mucho les harán caso. No seáis como ellos, pues vuestro Padre sabe lo que os hace falta antes de que lo pidáis» (Mt 6,7-8). ¿Estoy convencido de que Dios me escucha siempre y quiere para mí lo mejor?</li>
@@ -99,15 +36,13 @@
           <li>«La mies es abundante y los obreros pocos; rogad, pues, al dueño de la mies que envíe obreros a su mies» (Lc 10,2). ¿Procuro seguir esta petición de Cristo Sacerdote, y rezo con la ilusión de mover su Corazón para que envíe más apóstoles a su Obra?</li>
           <li>Si no hacéis de los chicos hombres de oración, habéis perdido el tiempo (Instrucción, 9-I-1935, n. 133). ¿Me ilusiona compartir con mis amigos la fe y aprender juntos a hablar con Dios? ¿Acudo a san José para me enseñe a ser buen maestro de oración?</li>
           <li>Madre nuestra, tú has traído a la tierra a Jesús, que nos revela el amor de nuestro Padre Dios; ayúdanos a reconocerlo, en medio de los afanes de cada día; remueve nuestra inteligencia y nuestra voluntad, para que sepamos escuchar la voz de Dios, el impulso de la gracia (Es Cristo que pasa, n. 174). ¿Cómo podría ayudar más a las personas que trato a escuchar la voz de Dios y el estímulo de su cariño?</li>
-        </ol>
-      </details>
-    </div>
-
-    <div class="seccion">
-      <h2>Octubre</h2>
-      <details>
-        <summary>Años impares — «Se han abierto los caminos divinos de la tierra»</summary>
-        <ol>
+        </ol>`
+      }
+    },
+    10: {
+      impar: {
+        titulo: "Años impares — «Se han abierto los caminos divinos de la tierra»",
+        html: `<ol>
           <li>Gratias tibi, Deus, gratias tibi! Un cántico de acción de gracias tiene que ser la vida de cada uno, porque ¿cómo se ha hecho el Opus Dei? Lo has hecho Tú, Señor, con cuatro chisgarabís... (Notas de una meditación, 27-III-1975). ¿Me llena de agradecimiento descubrir que Dios cuenta conmigo para hacer la Obra?</li>
           <li>Nuestro Padre se preguntaba con frecuencia: «¿Son mis amigos, mi Ángel Custodio y los Custodios de los demás?» (Beato Álvaro del Portillo, Entrevista sobre el fundador del Opus Dei, pp. 126-127). ¿Cómo podría apoyarme más en su intercesión?</li>
           <li>Por tanto, tened una profunda convicción de que el cielo está empeñado en que se realice (Instrucción, 19-III-1934, n. 47). ¿Me llena de paz saber que es Dios quien hace la Obra y que siendo fiel no debo inquietarme ante la falta aparente de frutos?</li>
@@ -118,16 +53,14 @@
           <li>Las grandes audacias son siempre de los niños. –¿Quién pide... la luna? (Camino, n. 857). ¿Es mi confianza en el Amor de mi Padre Dios así de audaz?</li>
           <li>¿Me muevo en el mundo con la soltura de un hijo que sabe que su Padre se lo ha dado por heredad? ¿Quiero servir a través de mi trabajo a la sociedad en la que vivo?</li>
           <li>Pero el trabajo en sí mismo no es una pena, ni una maldición o un castigo (...). Es hora de que los cristianos digamos muy alto que el trabajo es un don de Dios (Es Cristo que pasa, n. 47). ¿Me apasiona dar forma al mundo a través de mi labor profesional y sé que a través de ella participo en la misión redentora de Cristo, también cuando enfrento el dolor y la cruz?</li>
-        </ol>
-      </details>
-      <p class="texto-suave">Años pares: no había versión propia en el Sites (solo existía la de años impares).</p>
-    </div>
-
-    <div class="seccion">
-      <h2>Noviembre</h2>
-      <details>
-        <summary>Años impares — «La misericordia de Dios Padre nos ha dado como Rey a su Hijo»</summary>
-        <ol>
+        </ol>`
+      },
+      par: null
+    },
+    11: {
+      impar: {
+        titulo: "Años impares — «La misericordia de Dios Padre nos ha dado como Rey a su Hijo»",
+        html: `<ol>
           <li>«Jesús desea reinar, antes que nada en el corazón, en tu corazón» (Es Cristo que pasa, n. 31). ¿Qué es lo que llena mi corazón? ¿Deseo que el Señor sea dueño de todos mis deseos, afectos y pensamientos, hasta los más pequeños y aparentemente intrascendentes? ¿Sueño con alcanzar la gracia de que mi corazón vibre al mismo ritmo que el suyo?</li>
           <li>«Especialmente te consagramos nuestros pobres corazones, para que no tengamos otra libertad que la de amarte a Ti, Señor» (Consagración del Opus Dei al Sagrado Corazón de Jesús). ¿Cómo procuro guardar mi corazón entero y libre para amar al Señor? ¿Pongo los medios para apegarme a Dios y todo lo suyo, y evitar lo que me aparta de Él?</li>
           <li>«Cuando el cariño pasa por el Corazón Sacratísimo de Jesús y por el Dulcísimo Corazón de María, la caridad fraterna se ejercita con toda su fuerza humana y divina» (Carta 14-II-1974, n. 23). ¿Comparto con los de Casa el cariño que recibo del Señor? ¿Le agradezco cómo me quieren mis hermanos?</li>
@@ -138,12 +71,11 @@
           <li>¿Deseo contribuir con mi trabajo y apostolado a «recapitular en Cristo todas las cosas» (Ef 1,10)? ¿Me intereso por lo que sucede en la sociedad en la que vivo y cumplo con mis deberes ciudadanos? ¿Cómo podría seguir desarrollando mis talentos para servir mejor a la sociedad?</li>
           <li>«Respetaréis sinceramente las legítimas opiniones de los demás, y sabréis no solo renunciar a vuestra opinión, cuando veáis que no respondía bien a la verdad, sino también aceptar otro criterio, sin sentiros humillados por haber cambiado de parecer» (Carta 9-I-1951, n. 25). ¿Amo apasionadamente la libertad de los demás en todo lo opinable, sin provocar enfrentamientos ni tensiones innecesarias? ¿Me doy cuenta de la riqueza que supone convivir con personas distintas y lo que puedo aprender de ellas?</li>
           <li>¿Están mis palabras llenas de caridad con todos, también con los que creo que se equivocan? ¿Procuro difundir, con mis comentarios y actitudes, un ambiente de fraternidad cristiana, que valora la dignidad de cada persona, especialmente de los pobres y marginados?</li>
-        </ol>
-      </details>
-      <details>
-        <summary>Años pares — «Nosotros no sabemos pedir como conviene»</summary>
-        <p class="texto-suave">Igual que el de septiembre de años pares (así estaba en el Sites).</p>
-        <ol>
+        </ol>`
+      },
+      par: {
+        titulo: "Años pares — «Nosotros amamos, porque Él nos amó primero»",
+        html: `<ol>
           <li>Me acojo a tus méritos infinitos, a los méritos de tu Madre, a los del Patriarca San José. Y añado: ¡y al oro de mis hijos, que brilla en el mundo entero! (…) Y concluyo diciéndote: y a esas chispicas de luz que hay en mi pobre vida (Mientras nos hablaba por el camino, p. 355). ¿Se apoya mi lucha en este fundamento fuerte y seguro?</li>
           <li>Tendrás más facilidad para cumplir tu deber al pensar en la ayuda que te prestan tus hermanos (Camino, 549). ¿Cuento con la comunión de los santos para seguir dando pasos en el camino hacia la santidad? ¿Me sé apoyado por la oración de todos?</li>
           <li>«Nosotros amamos, porque Él nos amó primero» (1 Jn 4,19). ¿Me dejo arrastrar por este amor en mis luchas –grandes o pequeñas– por alcanzar la santidad?</li>
@@ -154,16 +86,13 @@
           <li>«Simón, hijo de Juan, ¿me amas? (…) Pastorea mis ovejas» (Jn 21,16). ¿Veo mi dedicación a las almas como un modo de corresponder al cariño de Jesús por mí? ¿Deseo enamorarme mucho del Señor para transmitir a los demás la alegría de estar junto a Él?</li>
           <li>Mis buenas amigas las Ánimas benditas del Purgatorio (Apuntes íntimos, n. 823). ¿Rezo y ofrezco sacrificios por ellas y confío en la ayuda que pueden prestarnos?</li>
           <li>Llenaos de alegría, pensando que nuestra oración se une a la de aquellos que convivieron con Jesucristo, a la incesante plegaria de la Iglesia triunfante, purgante y militante, y a la de todos los cristianos que vendrán (Notas de una reunión familiar, septiembre de 1973; cit. en Crónica X-1973, p. 31). ¿Llena mi alma esta forma de rezar unido a toda la Iglesia?</li>
-        </ol>
-        <p class="texto-suave">Nota: en el Sites, la página de noviembre de años pares tenía en realidad el texto de «Nosotros amamos, porque Él nos amó primero» (visto arriba) — parece ser el texto correcto para noviembre par, no un error de copia como el de junio.</p>
-      </details>
-    </div>
-
-    <div class="seccion">
-      <h2>Enero</h2>
-      <details>
-        <summary>Años impares — «Para que mi alegría esté en vosotros»</summary>
-        <ol>
+        </ol>`
+      }
+    },
+    1: {
+      impar: {
+        titulo: "Años impares — «Para que mi alegría esté en vosotros»",
+        html: `<ol>
           <li>«Después de ser bautizado, Jesús salió del agua (...) Y una voz desde los cielos dijo: Este es mi Hijo, el amado, en quien me he complacido» (Mt 3,16-17). ¿Descubro la mirada complaciente de Dios sobre mí, su hijo amado, incluso cuando no he sabido corresponder a su amor infinito?</li>
           <li>En Caná María pide, insiste, sin desanimarse, con perseverancia. –Y cómo logra (Camino, n. 502). ¿Acudo a mi madre, la Virgen Santísima, para que me ayude a orar con esa audacia y sencillez?</li>
           <li>¿Tengo en mi alma la confianza necesaria en mi Padre Dios para pedirle, como el niño pequeño, ¡la luna! (cfr. Camino, n. 857)? ¿Rezo por grandes intenciones, como la santidad de todos en la Obra, la extensión de la labor apostólica, la conversión de la gente alejada del Señor?</li>
@@ -174,11 +103,11 @@
           <li>¿Hay algo en mi carácter que me haga difícil compartir con mis amigos y familiares la alegría que Dios me ha regalado?</li>
           <li>¿Busco cuidar la vida en familia, para que mis hermanos puedan experimentar el «ciento por uno» (Mc 10,30) que nos ha prometido el Señor? ¿Me intereso por sus cosas, sé estar en los detalles, les dedico tiempo?</li>
           <li>San Josemaría sentía vivamente la alegría del apostolado: Un nuevo loco..., para el manicomio (Camino, n. 808). ¿Fomento el sueño apostólico de que mis amigos puedan llegar a ser amigos íntimos de Jesucristo? ¿Cómo podría hablarles más sobre la amistad con Él?</li>
-        </ol>
-      </details>
-      <details>
-        <summary>Años pares — «Hacer visible a todos el rostro del Padre»</summary>
-        <ol>
+        </ol>`
+      },
+      par: {
+        titulo: "Años pares — «Hacer visible a todos el rostro del Padre»",
+        html: `<ol>
           <li>Para que Él reine en mí, necesito su gracia abundante: únicamente así hasta el último latido, hasta la última respiración, hasta la mirada menos intensa, hasta la palabra más corriente, hasta la sensación más elemental se traducirán en un hosanna a mi Cristo Rey (Santo Rosario, 3º misterio luminoso). ¿Deseo que la gracia trasforme mi capacidad de querer a Dios y a los demás? ¿Confío en que el Señor me lo concederá con abundancia, al pedírselo con fe y humildad?</li>
           <li>Nuestro Padre nos anima a seguir tan de cerca al Señor, que oigamos el rumor de sus pisadas, que escuchemos el aliento de su respiración, que percibamos sus más íntimas confidencias con los que había escogido (Memoria del Beato Josemaría, p. 250). ¿Considero que cada norma del plan de vida me ofrece un encuentro con Jesucristo? ¿De qué maneras podría seguir cuidándolas, para manifestar más mi amor hacia Él?</li>
           <li>«Hoy se ha cumplido esta Escritura que acabáis de oír» (Lc 4,21). ¿Busco en la meditación del Evangelio la luz que me ayuda a comprender la situación de mi alma y el sentido de lo que sucede a mi alrededor?</li>
@@ -189,15 +118,13 @@
           <li>«Vio una gran multitud y se llenó de compasión por ella, porque estaban como ovejas que no tienen pastor…» (Mc 6,34). En mis ratos de oración, ¿pido a Jesús que vea el mundo con sus mismos ojos y que mi corazón vibre por las almas como el suyo?</li>
           <li>«… y se puso a enseñarles muchas cosas» (Mc 6,34). ¿Alimento mi vida interior con las palabras del Señor para tener convicciones firmes y ser una persona auténtica? ¿Cómo podría poner más cariño y esmero en los medios de formación que imparto?</li>
           <li>¿Procuro comprender a mis amigos para ayudarles a corresponder a la acción del Espíritu Santo, a la efusión permanente de las riquezas del Corazón divino? (Es Cristo que pasa, n. 132). ¿Hay alguno al que le pueda abrir nuevos horizontes de entrega?</li>
-        </ol>
-      </details>
-    </div>
-
-    <div class="seccion">
-      <h2>Febrero</h2>
-      <details>
-        <summary>Años impares — «La historia de las misericordias de Dios»</summary>
-        <ol>
+        </ol>`
+      }
+    },
+    2: {
+      impar: {
+        titulo: "Años impares — «La historia de las misericordias de Dios»",
+        html: `<ol>
           <li>«Yo soy la madre del amor hermoso y del temor, del conocimiento y de la santa esperanza» (Si 24,18). ¿Agradezco profundamente al Señor ese amor hermoso que me ha mostrado al llamarme? ¿Procuro acudir a santa María para custodiar este amor y hacer que crezca cada día más y más?</li>
           <li>Lección de amor hermoso, de vida limpia, de un corazón sensible y apasionado, para que aprendamos a ser fieles al servicio de la Iglesia (Amigos de Dios, n. 277). ¿Veo que mi fidelidad a la elección divina es el mejor servicio que puedo hacer a la Iglesia? ¿Qué formas puede tomar esta fidelidad en este momento de mi vida?</li>
           <li>«Que cada uno permanezca en la vocación en que fue llamado» (1 Cor 7,20). ¿Fomento en mi corazón el deseo sincero de permanecer siempre con el Señor? ¿Con qué detalles puedo mostrarle que quiero que se adueñe más de mi corazón y de mis afectos?</li>
@@ -208,11 +135,11 @@
           <li>«En nombre de Cristo os rogamos: reconciliaos con Dios» (2 Cor 5,20). ¿Me ilusiona que a través de mi amistad y mi trato mucha gente se acerque al perdón de Dios en la confesión y a la dirección espiritual con el sacerdote?</li>
           <li>«Si alguno quiere venir detrás de mí, que se niegue a sí mismo, que tome su cruz cada día, y que me siga» (Lc 9,23). ¿Sé distinguir a Cristo que me espera abrazado a la Cruz cuando me encuentro con el sacrificio en mis tareas ordinarias? ¿Quiero acompañarlo, por más que esto implique ciertas renuncias?</li>
           <li>«Tanto amó Dios al mundo que le entregó a su Hijo Unigénito» (Jn 3,16). ¿Participo de este amor del Señor por el mundo y transmito a mi alrededor optimismo? ¿Procuro ofrecer a Dios lo que me agrada de mi ambiente, y también mi esfuerzo por sanar lo que está enfermo?</li>
-        </ol>
-      </details>
-      <details>
-        <summary>Años pares — «Comenzar y recomenzar»</summary>
-        <ol>
+        </ol>`
+      },
+      par: {
+        titulo: "Años pares — «Comenzar y recomenzar»",
+        html: `<ol>
           <li>«Vino Jesús a Galilea predicando el Evangelio de Dios, y diciendo: –El tiempo se ha cumplido y el Reino de Dios está al llegar; convertíos y creed en el Evangelio» (Mc 1,14-15). ¿Procuro oír la voz de Jesús que me llama a una nueva conversión? ¿Cuáles pueden ser los pasos que el Señor está queriendo que dé en este momento, con su gracia?</li>
           <li>«Y vuelto hacia la mujer, le dijo a Simón: "¿Ves a esta mujer? (...): le son perdonados sus muchos pecados, porque ha amado mucho. Aquel a quien poco se le perdona, poco ama» (Lc 7,44.47). ¿Me acerco confiado al Señor para que me perdone las veces que haga falta, y procuro recomenzar como un hijo que quiere agradar a su Padre del Cielo?</li>
           <li>¿Encuentro en el examen de conciencia una oportunidad para hacer de hijo pródigo todas las jornadas (Amigos de Dios, n. 214), y dejarme abrazar por mi Padre Dios? ¿Agradezco la ayuda que el Señor me concede a lo largo del día, pido perdón por mis faltas de generosidad y formulo propósitos para crecer en el amor a Dios?</li>
@@ -223,16 +150,13 @@
           <li>Lo mismo que dio origen a tu entrega, hijo mío, habrá de conservarla (Carta 24-III-1931, n. 12). ¿Comprendo que renovar la entrega es renovar el amor que me llevó a darle todo al Señor? ¿Cómo podría seguir haciendo memoria de su amor y de su cercanía? ¿Rezo por todos los de Casa y su fidelidad, consciente de que somos eslabones de una misma cadena?</li>
           <li>«José, hijo de David, no temas recibir a María, tu esposa, porque lo que en ella ha sido concebido es obra del Espíritu Santo» (Mt 1,20). ¿Agradezco al Señor la familia sobrenatural que me ha dado? ¿En este momento de mi vida, cómo la puedo seguir cuidando con el mismo esmero de san José?</li>
           <li>«José se levantó, tomó al niño y a su madre, de noche, se fue a Egipto y se quedó hasta la muerte de Herodes» (Mt 2,14-15). ¿Recibo con gozo los encargos que me confían, a pesar de que a veces impliquen sacrificio? ¿Sé descubrir detrás de ellos la mano amorosa del Señor y procuro dedicarme a ellos como una manifestación de mi cariño hacia Él?</li>
-        </ol>
-      </details>
-    </div>
-
-    <div class="seccion">
-      <h2>Marzo</h2>
-      <p class="texto-suave">El texto es el mismo en años pares e impares.</p>
-      <details>
-        <summary>«Y tu Padre, que ve en lo oculto, te recompensará»</summary>
-        <ol>
+        </ol>`
+      }
+    },
+    3: {
+      ambos: {
+        titulo: "«Y tu Padre, que ve en lo oculto, te recompensará»",
+        html: `<ol>
           <li>«Jesús, lleno del Espíritu Santo, regresó del Jordán y fue conducido por el Espíritu al desierto» (Lc 4,1). ¿Cómo podría secundar la acción del Espíritu Santo en mi alma durante estos días de Cuaresma? ¿Le invoco durante mis ratos de oración para que me ayude a descubrir en qué aspectos de mi vida el Señor me invita a una nueva conversión?</li>
           <li>El Señor nos regala en la Cuaresma un spatium verae paenitentiae (un tiempo de verdadera penitencia), como pedimos cada día en las Preces. ¿Agradezco a Dios esta oportunidad para purificarme y celebrar con alegría la Pascua? ¿Procuro cuidar mi lista de pequeñas mortificaciones para que mi corazón esté más centrado en Cristo?</li>
           <li>La Cuaresma nos pone delante de estas preguntas fundamentales: ¿avanzo en mi fidelidad a Cristo?, ¿en deseos de santidad?, ¿en generosidad apostólica en mi vida diaria, en mi trabajo ordinario entre mis compañeros de profesión? (Es Cristo que pasa, n. 58).</li>
@@ -243,15 +167,13 @@
           <li>«Seguidme y os haré pescadores de hombres» (Mt 4,19). ¿Procuro renovar mi compromiso de amor con el Señor confiando plenamente en que nunca me faltará su compañía? ¿Me ilusiona pensar en tantas almas con las que podré compartir la alegría de vivir con Cristo?</li>
           <li>Nuestro Padre identificaba, entre otros, algunos elementos de la sed de almas: El cúmulo de sacrificios, que sabéis ofrecer; la sonrisa, que os viene a la boca, porque sois hijos de Dios: filiación, que os llena de una serena felicidad (…), que los demás ven y envidian. Añadid, a todo esto, vuestro garbo y vuestra simpatía humana, y tendremos el contenido del compelle intrare (Carta 24-X-1942, n. 9). ¿Pido al Señor que esto se haga realidad también en mi vida?</li>
           <li>¿Me apoyo en san José para aprender a cuidar de los demás, viendo en ellos a Jesús?</li>
-        </ol>
-      </details>
-    </div>
-
-    <div class="seccion">
-      <h2>Abril</h2>
-      <details>
-        <summary>Años impares — «Los amó hasta el fin»</summary>
-        <ol>
+        </ol>`
+      }
+    },
+    4: {
+      impar: {
+        titulo: "Años impares — «Los amó hasta el fin»",
+        html: `<ol>
           <li>«Me amó y se entregó a sí mismo por mí» (Gal 2,20). ¿Procuro contemplar la Pasión de Jesús desde esta perspectiva de amor? ¿Me dejo conquistar de nuevo por el Señor al constatar hasta qué punto llegó en su entrega por mí?</li>
           <li>Queremos sufrir todo lo que tu sufriste, ofrecerte nuestro pobre corazón contrito (Via Crucis, Prólogo). La contemplación de los padecimientos de Cristo, ¿desemboca en actos de amor y propósitos sinceros de mejora?</li>
           <li>«Stabat mater dolorosa, iuxta crucem lacrimosa» («La madre piadosa estaba junto a la Cruz y lloraba», Secuencia Stabat Mater). ¿Con qué detalles puedo consolar yo a Jesús y a mi madre, la Virgen María?</li>
@@ -262,11 +184,11 @@
           <li>«Yo os he elegido a vosotros, y os he destinado para que vayáis y deis fruto, y vuestro fruto permanezca» (Jn 15,16). ¿Soy consciente de que, con la fuerza de la Resurrección, mi vida de entrega siempre será fecunda? ¿Miro con esperanza el campo del mundo y transmito optimismo en la labor apostólica?</li>
           <li>Hay en nuestra época anhelos grandes y actitudes rastreras, heroísmos y cobardías, ilusiones y desengaños; criaturas que sueñan con un mundo nuevo más justo y más humano (Es Cristo que pasa, n. 132). ¿Trato de comprender a fondo y con delicadeza los anhelos de mis amigos y compañeros, e intento descubrir los afanes nobles que el Señor ha sembrado en sus almas?</li>
           <li>En mi lugar de trabajo, en mi centro, en las labores apostólicas que atiendo, ¿procuro ser fermento de alegría cristiana? ¿Busco con creatividad caminos para que más personas lleguen a un trato personal con Jesús?</li>
-        </ol>
-      </details>
-      <details>
-        <summary>Años pares — «¿Saber que me quieres tanto, Dios mío, y... no me he vuelto loco?»</summary>
-        <ol>
+        </ol>`
+      },
+      par: {
+        titulo: "Años pares — «¿Saber que me quieres tanto, Dios mío, y... no me he vuelto loco?»",
+        html: `<ol>
           <li>«Quedaos aquí y velad conmigo» (Mt 26,38): Jesús nos invita a unirnos a su oración y entrar en sintonía con su Corazón. ¿Me ilusiona permanecer junto a Él en los ratos de oración? ¿Qué medios podría poner para fomentar el recogimiento y evitar las distracciones?</li>
           <li>«Y adelantándose un poco, se postró rostro en tierra mientras oraba diciendo: Padre mío, si es posible, aleja de mí este cáliz; pero que no sea tal como yo quiero, sino como quieres tú» (Mt 26,39). ¿Busco en la oración las fuerzas para identificarme con la voluntad de Dios, también cuando me supone esfuerzo o, en alguna ocasión, incluso heroísmo?</li>
           <li>«Si alguno quiere venir en pos de mí, que se niegue a sí mismo, tome su cruz y me siga» (Mt 16,24). ¿Estoy convencido de que tomar mi cruz –las cosas que me cuestan– implica cumplir, con la fuerza de la gracia, el pequeño deber de cada instante?</li>
@@ -277,15 +199,14 @@
           <li>«Por Cristo, con él y en él…» (Canon Romano). ¿Acudo a la Santa Misa con el deseo de unir toda mi vida al sacrificio de Jesús? ¿Me doy cuenta de que así me uno a su misión de salvar a la humanidad de todos los tiempos?</li>
           <li>«Esto es mi cuerpo, que se entrega por vosotros; haced esto en memoria mía» (Lc 22,19). ¿Encuentro en el sacrificio eucarístico la fuente que renueva mi entrega diaria? ¿Le pido al Señor que me enseñe a darme a los demás, como Él se entrega por mí?</li>
           <li>Para mí, la primera devoción mariana –me gusta verlo así– es la Santa Misa (Artículo La Virgen del Pilar en "Libro de Aragón", 1976, p. 31). ¿De qué modos procuro vivir la Misa de la mano de santa María? ¿Acudo a Ella para que me ayude a recibir a su Hijo con su misma pureza, humildad y devoción?</li>
-        </ol>
-      </details>
-    </div>
-
-    <div class="seccion">
-      <h2>Mayo</h2>
-      <details>
-        <summary>Años pares — «no hable, oígale»</summary>
-        <ol>
+        </ol>`
+      }
+    },
+    5: {
+      impar: null,
+      par: {
+        titulo: "Años pares — «no hable, oígale»",
+        html: `<ol>
           <li>«Todos ellos perseveraban unánimes en la oración, junto con algunas mujeres y con María, la madre de Jesús, y sus hermanos» (Hch 1,14). ¿Acudo a nuestra Madre para que me enseñe a rezar con fe y audacia?</li>
           <li>Al Divino Consolador le pedimos el don de piedad, que nos dé el sentido de nuestra filiación divina, la conciencia gozosa y sobrenatural de ser hijos de Dios y, en Jesucristo, hermanos de todos los hombres (Consagración del Opus Dei al Espíritu Santo). ¿Le pido al Espíritu Santo que inflame mi corazón con ese mismo amor que me llevará a unirme a la voluntad del Padre?</li>
           <li>¡Ven, oh Santo Espíritu!: ilumina mi entendimiento, para conocer tus mandatos (Oración, abril 1934). ¿Agradezco y atesoro las luces que el Espíritu Santo me envía en la oración, en los medios de formación y a través de las personas con las que convivo? ¿Sé acudir a esas luces en mis ratos de oración y en los días de retiro?</li>
@@ -296,16 +217,13 @@
           <li>Jesús ha mantenido sus promesas: ha resucitado, ha subido a los cielos y, en unión con el Eterno Padre, nos envía el Espíritu Santo para que nos santifique y nos dé la vida (Es Cristo que pasa, n. 128). ¿Me sé acompañado a toda hora por el Espíritu Santo en mi misión de llevar la alegría y el Amor de Dios a mis hermanos, amigos y familiares?</li>
           <li>Cristo. María. El Papa. ¿No acabamos de indicar, en tres palabras, los amores que compendian toda la fe católica? (Instrucción, 19-III-1934, n. 31). ¿Me lleva el amor a Cristo a rezar por el Papa, a ser altavoz de sus enseñanzas y a fomentar activamente mi cariño hacia su persona? ¿Acudo a la Virgen para que cuide de él y de todos los pastores de la Iglesia?</li>
           <li>«Que todos sean uno, como tú, Padre, en mí, y yo en ti, que ellos también sean uno en nosotros» (Jn 17,21). ¿Vivo como propias las necesidades, esperanzas y dificultades de toda la Iglesia? ¿Rezo por los cristianos de todo el mundo, especialmente por los perseguidos?</li>
-        </ol>
-      </details>
-      <p class="texto-suave">Años impares: no había versión propia en el Sites (solo existía la de años pares).</p>
-    </div>
-
-    <div class="seccion">
-      <h2>Junio</h2>
-      <details>
-        <summary>Años impares — «El Corazón de Cristo, fuente de infinitos tesoros de amor»</summary>
-        <ol>
+        </ol>`
+      }
+    },
+    6: {
+      impar: {
+        titulo: "Años impares — «El Corazón de Cristo, fuente de infinitos tesoros de amor»",
+        html: `<ol>
           <li>El Corazón de Jesús rebosa de amor a su Padre, a mí... y a cada persona. ¿Trato de meterme ahí en mi oración, especialmente cuando noto que se enfría mi vida de entrega a Dios y a los demás?</li>
           <li>Cor Iesu Sacratissimum et Misericors, dona nobis pacem (Corazón Sacratísimo y Misericordioso de Jesús, concédenos la paz). ¿Me refugio en la Misericordia de Dios cuando percibo que estoy perdiendo la paz? ¿Encuentro en mis ratos de oración la fuente de la serenidad que busca mi alma?</li>
           <li>«Aprended de mí que soy manso y humilde de corazón» (Mt 11,29). ¿Fomento en mi alma los deseos de empaparme de la mansedumbre y humildad de Cristo? ¿Cómo reacciono ante el sufrimiento, ante el dolor? ¿Considero que me une al corazón de Cristo, que sufre por amor y que puedo consolarle?</li>
@@ -316,21 +234,46 @@
           <li>San Josemaría nos decía a sus hijos que nos quería con corazón de padre y de madre (Carta 6-V-1945, n. 23). ¿Me siento arropado por su cariño e intercesión mientras me empeño por recorrer fielmente el camino que nos abrió en la tierra?</li>
           <li>¿Me ilusiona conocer bien la vida de nuestro Padre y sus escritos, para continuar en mi ambiente y época la misión que el Señor le encomendó? ¿Está la Obra en el centro de mi corazón, como lo estaba en el de san Josemaría?</li>
           <li>San Josemaría se ponía como ejemplo de hombre que sabe querer (Notas de una tertulia, 6-X-1968). ¿Pido a Dios la gracia de que mis hermanos encuentren en mí ese mismo cariño?</li>
-        </ol>
-      </details>
-      <details>
-        <summary>Años pares — texto pendiente de corregir</summary>
-        <div class="aviso pendiente">
-          En el Sites, la página de junio de años pares tenía por error el mismo texto que septiembre de años pares
-          («Nosotros no sabemos pedir como conviene», ver arriba en Septiembre). No hay un texto propio de junio par
-          guardado — si alguien lo escribió en su momento, no llegó a esa página.
-        </div>
-      </details>
-    </div>
+        </ol>`
+      },
+      par: { pendiente: true }
+    }
+  };
 
-  </div>
-</main>
+  function renderizar() {
+    var summary = document.getElementById("examen-mes-titulo");
+    var contenido = document.getElementById("examen-mes-contenido");
+    if (!summary || !contenido) return;
 
-<script src="js/main.js"></script>
-</body>
-</html>
+    var ahora = new Date();
+    var mes = ahora.getMonth() + 1;
+    var anio = ahora.getFullYear();
+    var paridad = (anio % 2 === 0) ? "par" : "impar";
+    var nombreMes = NOMBRES_MES[mes];
+    var datos = EXAMENES[mes];
+
+    if (!datos) {
+      summary.textContent = "Examen de " + nombreMes;
+      contenido.innerHTML = "<p>No hay texto de examen guardado para " + nombreMes + " (tampoco lo había en el Sites del curso pasado).</p>";
+      return;
+    }
+
+    if (datos.ambos) {
+      summary.textContent = "Examen de " + nombreMes + " — " + datos.ambos.titulo;
+      contenido.innerHTML = datos.ambos.html;
+      return;
+    }
+
+    var version = datos[paridad];
+    if (!version || version.pendiente) {
+      summary.textContent = "Examen de " + nombreMes;
+      contenido.innerHTML = "<p>No hay texto propio guardado para " + nombreMes + " de años " + paridad + "es (estamos en " + anio + ").</p>";
+      return;
+    }
+
+    summary.textContent = "Examen de " + nombreMes + " — " + version.titulo;
+    contenido.innerHTML = version.html;
+  }
+
+  document.addEventListener("DOMContentLoaded", renderizar);
+})();

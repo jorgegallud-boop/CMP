@@ -31,11 +31,10 @@
         <li><a href="index.html">Inicio</a></li>
         <li data-roles="staff"><a href="contemplativos.html">#contemplativos</a></li>
         <li data-roles="staff"><a href="retiro-mensual.html">Retiro mensual</a></li>
-        <li data-roles="staff"><a href="horario-sm.html">Horario SM</a></li>
+        <li data-roles="staff"><a href="horario-sm.html">Horario sm</a></li>
         <li data-roles="staff"><a href="turnos.html">Turnos</a></li>
-        <li data-roles="staff"><a href="encargos-sm.html">Encargos SM</a></li>
-        <li data-roles="staff"><a href="datos-interes.html">Datos de interés</a></li>
-        <li data-roles="staff"><a href="material-interes.html">Material formativo</a></li>
+        <li data-roles="staff"><a href="encargos-sm.html">Encargos sm</a></li>
+        <li data-roles="staff"><a href="datos-interes.html">Cosas de interés</a></li>
         <li data-roles="residente,colegial"><a href="bienvenida.html">Bienvenida</a></li>
         <li data-roles="residente"><a href="https://compositor.org/comidas/penafiel.php" target="_blank" rel="noopener" onclick="return CMP_AUTH.permitirEnlace(event, ['residente'], this.href)">Comidas ↗</a></li>
         <li data-roles="residente,colegial"><a href="https://arreglos-cmp.glide.page/" target="_blank" rel="noopener" onclick="return CMP_AUTH.permitirEnlace(event, ['residente','colegial'], this.href)">Arreglos ↗</a></li>
@@ -96,12 +95,17 @@
 
     <div class="seccion">
       <h2>Examen</h2>
-      <p>Los 16 textos de examen del Sites del curso pasado (uno por mes, según el año par o impar) están guardados en <a href="examenes-retiro.html">esta página</a>, ya que esa web se va a borrar.</p>
+      <details>
+        <summary id="examen-mes-titulo">Examen de este mes</summary>
+        <div id="examen-mes-contenido"></div>
+      </details>
+      <p class="texto-suave" style="margin-top:0.8rem;">También puedes <a href="examenes-retiro.html">ver los 16 textos completos</a>.</p>
     </div>
 
   </div>
 </main>
 
 <script src="js/main.js"></script>
+<script src="js/examenes-retiro.js"></script>
 </body>
 </html>
