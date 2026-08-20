@@ -415,13 +415,12 @@ main {
   align-items: center;
   padding: 0.9rem 1rem;
   background: var(--naranja);
-  border-left: 4px solid var(--azul);
+  border: none;
   border-radius: var(--radio);
 }
 
 .grid-inicio .tarjeta:hover {
   background: var(--azul);
-  border-left-color: var(--naranja);
 }
 
 .grid-inicio .tarjeta:hover h3 {
