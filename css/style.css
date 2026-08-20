@@ -10,15 +10,14 @@
    (bordes de tarjeta, títulos de sección, avisos) usan un neutro
    cálido tipo piedra, para no competir con el naranja. */
 :root {
-  --azul-oscuro: #12233d;
-  --azul: #1d3a63;
-  --azul-claro: #2f5a94;        /* azul secundario — enlaces, h3, foco */
-  --dorado: #e2861b;            /* naranja de marca — CTA y elemento activo/destacado, solo */
+  --azul-oscuro: #12233d;        /* único azul marino — todos los fondos oscuros usan este mismo tono */
+  --azul-claro: #2f5a94;        /* azul secundario — enlaces, h3, foco (no es "marino", es acento de texto) */
+  --dorado: #e2861b;            /* naranja de marca — CTA, elemento activo/destacado y acento de portada */
   --dorado-claro: #fbe4c6;      /* naranja claro — fondo de evento destacado / tarjeta destacada */
-  --acento-suave: #b9ab8c;      /* piedra — bordes decorativos (h2, tarjeta, aviso) */
+  --acento-suave: #b9ab8c;      /* piedra — bordes decorativos (h2, aviso, formulario) */
   --acento-suave-clara: #ece5d5; /* piedra clara — fondo de aviso, insignias, casilla de consentimiento */
   --gris-fondo: #f6f3ee;        /* arena cálida, en vez del gris frío de antes */
-  --gris-borde: #e2dccf;
+  --gris-borde: #d8cbb0;
   --texto: #1f2430;
   --texto-suave: #5a6274;
   --blanco: #ffffff;
@@ -26,8 +25,8 @@
   --radio: 8px;                 /* radio discreto por defecto (tablas, formularios, bloques) */
   --radio-tarjeta: 18px;        /* radio más suave, solo para tarjetas de portada/contenido */
   --font-titulos: "Libre Franklin", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --sombra: 0 4px 16px rgba(18, 35, 61, 0.06);
-  --sombra-hover: 0 10px 28px rgba(18, 35, 61, 0.1);
+  --sombra: 0 4px 16px rgba(18, 35, 61, 0.1);
+  --sombra-hover: 0 10px 28px rgba(18, 35, 61, 0.16);
 }
 
 * {
@@ -69,7 +68,7 @@ a:hover {
 /* ---------- Header / navegación ---------- */
 
 header.site-header {
-  background: linear-gradient(135deg, var(--azul-oscuro), var(--azul));
+  background: var(--azul-oscuro);
   color: var(--blanco);
   position: sticky;
   top: 0;
@@ -252,7 +251,7 @@ nav.main-nav a.activo {
 /* ---------- Hero (portada) ---------- */
 
 .hero {
-  background: linear-gradient(135deg, var(--azul-oscuro), var(--azul-claro));
+  background: var(--azul-oscuro);
   color: var(--blanco);
   padding: 3rem 1.25rem;
   text-align: center;
@@ -411,9 +410,9 @@ main {
   background: var(--dorado-claro);
 }
 
-/* Rejilla compacta de la portada: botones de texto, sin iconos, más por fila */
+/* Rejilla de la portada: dos columnas fijas, botones a media anchura */
 .grid-inicio {
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 0.75rem;
   margin-top: 0;
 }
@@ -421,8 +420,8 @@ main {
 .grid-inicio .tarjeta {
   flex-direction: row;
   align-items: center;
-  padding: 0.85rem 1rem;
-  border-left: 3px solid var(--acento-suave);
+  padding: 0.9rem 1rem;
+  border-left: 4px solid var(--dorado);
   border-radius: var(--radio);
 }
 
@@ -617,7 +616,7 @@ tbody tr:hover {
 }
 
 .mes-bloque .cabecera-mes {
-  background: linear-gradient(135deg, var(--azul-oscuro), var(--azul-claro));
+  background: var(--azul-oscuro);
   color: var(--blanco);
   padding: 0.8rem 1.1rem;
   font-family: var(--font-titulos);
@@ -821,7 +820,7 @@ tbody tr:hover {
   width: 18px;
   height: 18px;
   flex-shrink: 0;
-  accent-color: var(--azul);
+  accent-color: var(--azul-oscuro);
 }
 
 .check-consentimiento label {
