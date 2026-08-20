@@ -7,7 +7,10 @@
 <link rel="icon" href="img/favicon.png" type="image/png">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="img/icon-apple-touch.png">
-<meta name="theme-color" content="#12233d">
+<meta name="theme-color" content="#1c1a17">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <script src="js/auth.js"></script>
 <script>CMP_AUTH.requerirRol(['residente']);</script>
@@ -65,131 +68,448 @@
 <main>
   <div class="container">
 
-    <!-- EDITAR AQUÍ: añade, quita o corrige eventos (bloque .mes-bloque por mes, <li> por evento) -->
+    <!-- EDITAR AQUÍ: añade, quita o corrige eventos (bloque .mes-bloque por mes, .dia por día) -->
     <div class="seccion">
       <div class="grid-calendario">
+
     <div class="mes-bloque">
       <div class="cabecera-mes">Septiembre</div>
-      <ul>
-        <li><span class="evento-dia">6</span><span class="evento-texto">Llegada nuevos</span></li>
-        <li><span class="evento-dia">7</span><span class="evento-texto">Convivencia (nuevos)</span></li>
-        <li class="evento-destacado"><span class="evento-dia">8</span><span class="evento-texto">Aldebarán</span></li>
-        <li><span class="evento-dia">12</span><span class="evento-texto">Plan viejos</span></li>
-        <li><span class="evento-dia">13</span><span class="evento-texto">Futsal burguer</span></li>
-        <li class="evento-grupo evento-convivencia"><span class="evento-dia">18–20</span><span class="evento-texto">Convivencia (Santander)</span></li>
-        <li><span class="evento-dia">22</span><span class="evento-texto">Sesión formativa 1</span></li>
-        <li><span class="evento-dia">24</span><span class="evento-texto">Retiro mensual</span></li>
-        <li class="evento-grupo evento-retiro"><span class="evento-dia">25–27</span><span class="evento-texto">Curso de retiro (Llendón) — Pep Borrell el día 26 (19h)</span></li>
-      </ul>
+      <div class="dias-semana"><span>L</span><span>M</span><span>X</span><span>J</span><span>V</span><span>S</span><span>D</span></div>
+      <div class="dias-grid">
+        <div class="dia vacio"></div>
+        <div class="dia"><span class="num">1</span></div>
+        <div class="dia"><span class="num">2</span></div>
+        <div class="dia"><span class="num">3</span></div>
+        <div class="dia"><span class="num">4</span></div>
+        <div class="dia"><span class="num">5</span></div>
+        <div class="dia"><span class="num">6</span><span class="evt">Llegada nuevos</span></div>
+        <div class="dia"><span class="num">7</span><span class="evt">Convivencia (nuevos)</span></div>
+        <div class="dia destacado"><span class="num">8</span><span class="evt">Aldebarán</span></div>
+        <div class="dia"><span class="num">9</span></div>
+        <div class="dia"><span class="num">10</span></div>
+        <div class="dia"><span class="num">11</span></div>
+        <div class="dia"><span class="num">12</span><span class="evt">Plan viejos</span></div>
+        <div class="dia"><span class="num">13</span><span class="evt">Futsal burguer</span></div>
+        <div class="dia"><span class="num">14</span></div>
+        <div class="dia"><span class="num">15</span></div>
+        <div class="dia"><span class="num">16</span></div>
+        <div class="dia"><span class="num">17</span></div>
+        <div class="dia convivencia" title="Convivencia (Santander)"><span class="num">18</span><span class="evt">Convivencia (Santander)</span></div>
+        <div class="dia convivencia"><span class="num">19</span></div>
+        <div class="dia convivencia"><span class="num">20</span></div>
+        <div class="dia"><span class="num">21</span></div>
+        <div class="dia"><span class="num">22</span><span class="evt">Sesión formativa 1</span></div>
+        <div class="dia"><span class="num">23</span></div>
+        <div class="dia"><span class="num">24</span><span class="evt">Retiro mensual</span></div>
+        <div class="dia retiro" title="Curso de retiro (Llendón) — Pep Borrell el día 26 (19h)"><span class="num">25</span><span class="evt">Curso de retiro (Llendón)</span></div>
+        <div class="dia retiro"><span class="num">26</span></div>
+        <div class="dia retiro"><span class="num">27</span></div>
+        <div class="dia"><span class="num">28</span></div>
+        <div class="dia"><span class="num">29</span></div>
+        <div class="dia"><span class="num">30</span></div>
+      </div>
     </div>
 
     <div class="mes-bloque">
       <div class="cabecera-mes">Octubre</div>
-      <ul>
-        <li><span class="evento-dia">1</span><span class="evento-texto">Adoración al Santísimo</span></li>
-        <li class="evento-destacado"><span class="evento-dia">8</span><span class="evento-texto">Acto de apertura</span></li>
-        <li class="evento-grupo evento-convivencia"><span class="evento-dia">10–12</span><span class="evento-texto">Convivencia (paella el día 10)</span></li>
-        <li><span class="evento-dia">13</span><span class="evento-texto">Sesión formativa 2</span></li>
-        <li class="evento-grupo evento-retiro"><span class="evento-dia">16–18</span><span class="evento-texto">Curso de retiro (Llendón)</span></li>
-        <li><span class="evento-dia">23</span><span class="evento-texto">CMP talent</span></li>
-      </ul>
+      <div class="dias-semana"><span>L</span><span>M</span><span>X</span><span>J</span><span>V</span><span>S</span><span>D</span></div>
+      <div class="dias-grid">
+        <div class="dia vacio"></div>
+        <div class="dia vacio"></div>
+        <div class="dia vacio"></div>
+        <div class="dia"><span class="num">1</span><span class="evt">Adoración al Santísimo</span></div>
+        <div class="dia"><span class="num">2</span></div>
+        <div class="dia"><span class="num">3</span></div>
+        <div class="dia"><span class="num">4</span></div>
+        <div class="dia"><span class="num">5</span></div>
+        <div class="dia"><span class="num">6</span></div>
+        <div class="dia"><span class="num">7</span></div>
+        <div class="dia destacado"><span class="num">8</span><span class="evt">Acto de apertura</span></div>
+        <div class="dia"><span class="num">9</span></div>
+        <div class="dia convivencia" title="Convivencia (paella el día 10)"><span class="num">10</span><span class="evt">Convivencia</span></div>
+        <div class="dia convivencia"><span class="num">11</span></div>
+        <div class="dia convivencia"><span class="num">12</span></div>
+        <div class="dia"><span class="num">13</span><span class="evt">Sesión formativa 2</span></div>
+        <div class="dia"><span class="num">14</span></div>
+        <div class="dia"><span class="num">15</span></div>
+        <div class="dia retiro" title="Curso de retiro (Llendón)"><span class="num">16</span><span class="evt">Curso de retiro (Llendón)</span></div>
+        <div class="dia retiro"><span class="num">17</span></div>
+        <div class="dia retiro"><span class="num">18</span></div>
+        <div class="dia"><span class="num">19</span></div>
+        <div class="dia"><span class="num">20</span></div>
+        <div class="dia"><span class="num">21</span></div>
+        <div class="dia"><span class="num">22</span></div>
+        <div class="dia"><span class="num">23</span><span class="evt">CMP talent</span></div>
+        <div class="dia"><span class="num">24</span></div>
+        <div class="dia"><span class="num">25</span></div>
+        <div class="dia"><span class="num">26</span></div>
+        <div class="dia"><span class="num">27</span></div>
+        <div class="dia"><span class="num">28</span></div>
+        <div class="dia"><span class="num">29</span></div>
+        <div class="dia"><span class="num">30</span></div>
+        <div class="dia"><span class="num">31</span></div>
+      </div>
     </div>
 
     <div class="mes-bloque">
       <div class="cabecera-mes">Noviembre</div>
-      <ul>
-        <li><span class="evento-dia">5</span><span class="evento-texto">Adoración al Santísimo</span></li>
-        <li><span class="evento-dia">13</span><span class="evento-texto">Fiesta karaoke</span></li>
-        <li><span class="evento-dia">16</span><span class="evento-texto">Concierto</span></li>
-        <li><span class="evento-dia">17</span><span class="evento-texto">Sesión formativa 3</span></li>
-        <li><span class="evento-dia">19</span><span class="evento-texto">Retiro mensual</span></li>
-        <li><span class="evento-dia">21</span><span class="evento-texto">Fase local UNIV</span></li>
-        <li><span class="evento-dia">27</span><span class="evento-texto">Cena s</span></li>
-      </ul>
+      <div class="dias-semana"><span>L</span><span>M</span><span>X</span><span>J</span><span>V</span><span>S</span><span>D</span></div>
+      <div class="dias-grid">
+        <div class="dia vacio"></div>
+        <div class="dia vacio"></div>
+        <div class="dia vacio"></div>
+        <div class="dia vacio"></div>
+        <div class="dia vacio"></div>
+        <div class="dia vacio"></div>
+        <div class="dia"><span class="num">1</span></div>
+        <div class="dia"><span class="num">2</span></div>
+        <div class="dia"><span class="num">3</span></div>
+        <div class="dia"><span class="num">4</span></div>
+        <div class="dia"><span class="num">5</span><span class="evt">Adoración al Santísimo</span></div>
+        <div class="dia"><span class="num">6</span></div>
+        <div class="dia"><span class="num">7</span></div>
+        <div class="dia"><span class="num">8</span></div>
+        <div class="dia"><span class="num">9</span></div>
+        <div class="dia"><span class="num">10</span></div>
+        <div class="dia"><span class="num">11</span></div>
+        <div class="dia"><span class="num">12</span></div>
+        <div class="dia"><span class="num">13</span><span class="evt">Fiesta karaoke</span></div>
+        <div class="dia"><span class="num">14</span></div>
+        <div class="dia"><span class="num">15</span></div>
+        <div class="dia"><span class="num">16</span><span class="evt">Concierto</span></div>
+        <div class="dia"><span class="num">17</span><span class="evt">Sesión formativa 3</span></div>
+        <div class="dia"><span class="num">18</span></div>
+        <div class="dia"><span class="num">19</span><span class="evt">Retiro mensual</span></div>
+        <div class="dia"><span class="num">20</span></div>
+        <div class="dia"><span class="num">21</span><span class="evt">Fase local UNIV</span></div>
+        <div class="dia"><span class="num">22</span></div>
+        <div class="dia"><span class="num">23</span></div>
+        <div class="dia"><span class="num">24</span></div>
+        <div class="dia"><span class="num">25</span></div>
+        <div class="dia"><span class="num">26</span></div>
+        <div class="dia"><span class="num">27</span><span class="evt">Cena s</span></div>
+        <div class="dia"><span class="num">28</span></div>
+        <div class="dia"><span class="num">29</span></div>
+        <div class="dia"><span class="num">30</span></div>
+      </div>
     </div>
 
     <div class="mes-bloque">
       <div class="cabecera-mes">Diciembre</div>
-      <ul>
-        <li><span class="evento-dia">3</span><span class="evento-texto">Adoración al Santísimo</span></li>
-        <li class="evento-grupo evento-retiro"><span class="evento-dia">4–8</span><span class="evento-texto">Retiro (Llendón)</span></li>
-        <li><span class="evento-dia">9</span><span class="evento-texto">Sesión formativa 4</span></li>
-        <li><span class="evento-dia">11</span><span class="evento-texto">Cena Navidad</span></li>
-      </ul>
+      <div class="dias-semana"><span>L</span><span>M</span><span>X</span><span>J</span><span>V</span><span>S</span><span>D</span></div>
+      <div class="dias-grid">
+        <div class="dia vacio"></div>
+        <div class="dia"><span class="num">1</span></div>
+        <div class="dia"><span class="num">2</span></div>
+        <div class="dia"><span class="num">3</span><span class="evt">Adoración al Santísimo</span></div>
+        <div class="dia retiro" title="Retiro (Llendón)"><span class="num">4</span><span class="evt">Retiro (Llendón)</span></div>
+        <div class="dia retiro"><span class="num">5</span></div>
+        <div class="dia retiro"><span class="num">6</span></div>
+        <div class="dia retiro"><span class="num">7</span></div>
+        <div class="dia retiro"><span class="num">8</span></div>
+        <div class="dia"><span class="num">9</span><span class="evt">Sesión formativa 4</span></div>
+        <div class="dia"><span class="num">10</span></div>
+        <div class="dia"><span class="num">11</span><span class="evt">Cena Navidad</span></div>
+        <div class="dia"><span class="num">12</span></div>
+        <div class="dia"><span class="num">13</span></div>
+        <div class="dia"><span class="num">14</span></div>
+        <div class="dia"><span class="num">15</span></div>
+        <div class="dia"><span class="num">16</span></div>
+        <div class="dia"><span class="num">17</span></div>
+        <div class="dia"><span class="num">18</span></div>
+        <div class="dia"><span class="num">19</span></div>
+        <div class="dia"><span class="num">20</span></div>
+        <div class="dia"><span class="num">21</span></div>
+        <div class="dia"><span class="num">22</span></div>
+        <div class="dia"><span class="num">23</span></div>
+        <div class="dia"><span class="num">24</span></div>
+        <div class="dia"><span class="num">25</span></div>
+        <div class="dia"><span class="num">26</span></div>
+        <div class="dia"><span class="num">27</span></div>
+        <div class="dia"><span class="num">28</span></div>
+        <div class="dia"><span class="num">29</span></div>
+        <div class="dia"><span class="num">30</span></div>
+        <div class="dia"><span class="num">31</span></div>
+      </div>
     </div>
 
     <div class="mes-bloque">
       <div class="cabecera-mes">Enero</div>
-      <ul>
-        <li><span class="evento-dia">15</span><span class="evento-texto">Amigo invisible</span></li>
-      </ul>
+      <div class="dias-semana"><span>L</span><span>M</span><span>X</span><span>J</span><span>V</span><span>S</span><span>D</span></div>
+      <div class="dias-grid">
+        <div class="dia vacio"></div>
+        <div class="dia vacio"></div>
+        <div class="dia vacio"></div>
+        <div class="dia vacio"></div>
+        <div class="dia"><span class="num">1</span></div>
+        <div class="dia"><span class="num">2</span></div>
+        <div class="dia"><span class="num">3</span></div>
+        <div class="dia"><span class="num">4</span></div>
+        <div class="dia"><span class="num">5</span></div>
+        <div class="dia"><span class="num">6</span></div>
+        <div class="dia"><span class="num">7</span></div>
+        <div class="dia"><span class="num">8</span></div>
+        <div class="dia"><span class="num">9</span></div>
+        <div class="dia"><span class="num">10</span></div>
+        <div class="dia"><span class="num">11</span></div>
+        <div class="dia"><span class="num">12</span></div>
+        <div class="dia"><span class="num">13</span></div>
+        <div class="dia"><span class="num">14</span></div>
+        <div class="dia"><span class="num">15</span><span class="evt">Amigo invisible</span></div>
+        <div class="dia"><span class="num">16</span></div>
+        <div class="dia"><span class="num">17</span></div>
+        <div class="dia"><span class="num">18</span></div>
+        <div class="dia"><span class="num">19</span></div>
+        <div class="dia"><span class="num">20</span></div>
+        <div class="dia"><span class="num">21</span></div>
+        <div class="dia"><span class="num">22</span></div>
+        <div class="dia"><span class="num">23</span></div>
+        <div class="dia"><span class="num">24</span></div>
+        <div class="dia"><span class="num">25</span></div>
+        <div class="dia"><span class="num">26</span></div>
+        <div class="dia"><span class="num">27</span></div>
+        <div class="dia"><span class="num">28</span></div>
+        <div class="dia"><span class="num">29</span></div>
+        <div class="dia"><span class="num">30</span></div>
+        <div class="dia"><span class="num">31</span></div>
+      </div>
     </div>
 
     <div class="mes-bloque">
       <div class="cabecera-mes">Febrero</div>
-      <ul>
-        <li><span class="evento-dia">4</span><span class="evento-texto">Adoración al Santísimo</span></li>
-        <li><span class="evento-dia">5</span><span class="evento-texto">Fiesta carnaval</span></li>
-        <li><span class="evento-dia">10</span><span class="evento-texto">Ceniza</span></li>
-        <li><span class="evento-dia">16</span><span class="evento-texto">Sesión formativa 5</span></li>
-        <li><span class="evento-dia">20</span><span class="evento-texto">Fútbol CI</span></li>
-        <li><span class="evento-dia">21</span><span class="evento-texto">Arapiles</span></li>
-        <li><span class="evento-dia">24</span><span class="evento-texto">Sutura</span></li>
-        <li><span class="evento-dia">27</span><span class="evento-texto">Cabañas</span></li>
-        <li><span class="evento-dia">28</span><span class="evento-texto">Cabañas</span></li>
-      </ul>
+      <div class="dias-semana"><span>L</span><span>M</span><span>X</span><span>J</span><span>V</span><span>S</span><span>D</span></div>
+      <div class="dias-grid">
+        <div class="dia"><span class="num">1</span></div>
+        <div class="dia"><span class="num">2</span></div>
+        <div class="dia"><span class="num">3</span></div>
+        <div class="dia"><span class="num">4</span><span class="evt">Adoración al Santísimo</span></div>
+        <div class="dia"><span class="num">5</span><span class="evt">Fiesta carnaval</span></div>
+        <div class="dia"><span class="num">6</span></div>
+        <div class="dia"><span class="num">7</span></div>
+        <div class="dia"><span class="num">8</span></div>
+        <div class="dia"><span class="num">9</span></div>
+        <div class="dia"><span class="num">10</span><span class="evt">Ceniza</span></div>
+        <div class="dia"><span class="num">11</span></div>
+        <div class="dia"><span class="num">12</span></div>
+        <div class="dia"><span class="num">13</span></div>
+        <div class="dia"><span class="num">14</span></div>
+        <div class="dia"><span class="num">15</span></div>
+        <div class="dia"><span class="num">16</span><span class="evt">Sesión formativa 5</span></div>
+        <div class="dia"><span class="num">17</span></div>
+        <div class="dia"><span class="num">18</span></div>
+        <div class="dia"><span class="num">19</span></div>
+        <div class="dia"><span class="num">20</span><span class="evt">Fútbol CI</span></div>
+        <div class="dia"><span class="num">21</span><span class="evt">Arapiles</span></div>
+        <div class="dia"><span class="num">22</span></div>
+        <div class="dia"><span class="num">23</span></div>
+        <div class="dia"><span class="num">24</span><span class="evt">Sutura</span></div>
+        <div class="dia"><span class="num">25</span></div>
+        <div class="dia"><span class="num">26</span></div>
+        <div class="dia"><span class="num">27</span><span class="evt">Cabañas</span></div>
+        <div class="dia"><span class="num">28</span><span class="evt">Cabañas</span></div>
+      </div>
     </div>
 
     <div class="mes-bloque">
       <div class="cabecera-mes">Marzo</div>
-      <ul>
-        <li class="evento-grupo"><span class="evento-dia">1–7</span><span class="evento-texto">Semana grande (incluye Adoración al Santísimo el día 4)</span></li>
-        <li><span class="evento-dia">11</span><span class="evento-texto">Retiro mensual</span></li>
-        <li><span class="evento-dia">14</span><span class="evento-texto">Torneo Intercolegial</span></li>
-        <li><span class="evento-dia">16</span><span class="evento-texto">Sesión formativa 6</span></li>
-        <li class="evento-grupo"><span class="evento-dia">20–28</span><span class="evento-texto">Univ</span></li>
-      </ul>
+      <div class="dias-semana"><span>L</span><span>M</span><span>X</span><span>J</span><span>V</span><span>S</span><span>D</span></div>
+      <div class="dias-grid">
+        <div class="dia grupo" title="Semana grande (incluye Adoración al Santísimo el día 4)"><span class="num">1</span><span class="evt">Semana grande</span></div>
+        <div class="dia grupo"><span class="num">2</span></div>
+        <div class="dia grupo"><span class="num">3</span></div>
+        <div class="dia grupo"><span class="num">4</span></div>
+        <div class="dia grupo"><span class="num">5</span></div>
+        <div class="dia grupo"><span class="num">6</span></div>
+        <div class="dia grupo"><span class="num">7</span></div>
+        <div class="dia"><span class="num">8</span></div>
+        <div class="dia"><span class="num">9</span></div>
+        <div class="dia"><span class="num">10</span></div>
+        <div class="dia"><span class="num">11</span><span class="evt">Retiro mensual</span></div>
+        <div class="dia"><span class="num">12</span></div>
+        <div class="dia"><span class="num">13</span></div>
+        <div class="dia"><span class="num">14</span><span class="evt">Torneo Intercolegial</span></div>
+        <div class="dia"><span class="num">15</span></div>
+        <div class="dia"><span class="num">16</span><span class="evt">Sesión formativa 6</span></div>
+        <div class="dia"><span class="num">17</span></div>
+        <div class="dia"><span class="num">18</span></div>
+        <div class="dia"><span class="num">19</span></div>
+        <div class="dia grupo" title="Univ"><span class="num">20</span><span class="evt">Univ</span></div>
+        <div class="dia grupo"><span class="num">21</span></div>
+        <div class="dia grupo"><span class="num">22</span></div>
+        <div class="dia grupo"><span class="num">23</span></div>
+        <div class="dia grupo"><span class="num">24</span></div>
+        <div class="dia grupo"><span class="num">25</span></div>
+        <div class="dia grupo"><span class="num">26</span></div>
+        <div class="dia grupo"><span class="num">27</span></div>
+        <div class="dia grupo"><span class="num">28</span></div>
+        <div class="dia"><span class="num">29</span></div>
+        <div class="dia"><span class="num">30</span></div>
+        <div class="dia"><span class="num">31</span></div>
+      </div>
     </div>
 
     <div class="mes-bloque">
       <div class="cabecera-mes">Abril</div>
-      <ul>
-        <li><span class="evento-dia">1</span><span class="evento-texto">Adoración al Santísimo</span></li>
-        <li><span class="evento-dia">13</span><span class="evento-texto">Sesión formativa 7</span></li>
-        <li><span class="evento-dia">15</span><span class="evento-texto">Retiro mensual</span></li>
-      </ul>
+      <div class="dias-semana"><span>L</span><span>M</span><span>X</span><span>J</span><span>V</span><span>S</span><span>D</span></div>
+      <div class="dias-grid">
+        <div class="dia vacio"></div>
+        <div class="dia vacio"></div>
+        <div class="dia vacio"></div>
+        <div class="dia"><span class="num">1</span><span class="evt">Adoración al Santísimo</span></div>
+        <div class="dia"><span class="num">2</span></div>
+        <div class="dia"><span class="num">3</span></div>
+        <div class="dia"><span class="num">4</span></div>
+        <div class="dia"><span class="num">5</span></div>
+        <div class="dia"><span class="num">6</span></div>
+        <div class="dia"><span class="num">7</span></div>
+        <div class="dia"><span class="num">8</span></div>
+        <div class="dia"><span class="num">9</span></div>
+        <div class="dia"><span class="num">10</span></div>
+        <div class="dia"><span class="num">11</span></div>
+        <div class="dia"><span class="num">12</span></div>
+        <div class="dia"><span class="num">13</span><span class="evt">Sesión formativa 7</span></div>
+        <div class="dia"><span class="num">14</span></div>
+        <div class="dia"><span class="num">15</span><span class="evt">Retiro mensual</span></div>
+        <div class="dia"><span class="num">16</span></div>
+        <div class="dia"><span class="num">17</span></div>
+        <div class="dia"><span class="num">18</span></div>
+        <div class="dia"><span class="num">19</span></div>
+        <div class="dia"><span class="num">20</span></div>
+        <div class="dia"><span class="num">21</span></div>
+        <div class="dia"><span class="num">22</span></div>
+        <div class="dia"><span class="num">23</span></div>
+        <div class="dia"><span class="num">24</span></div>
+        <div class="dia"><span class="num">25</span></div>
+        <div class="dia"><span class="num">26</span></div>
+        <div class="dia"><span class="num">27</span></div>
+        <div class="dia"><span class="num">28</span></div>
+        <div class="dia"><span class="num">29</span></div>
+        <div class="dia"><span class="num">30</span></div>
+      </div>
     </div>
 
     <div class="mes-bloque">
       <div class="cabecera-mes">Mayo</div>
-      <ul>
-        <li><span class="evento-dia">6</span><span class="evento-texto">Adoración al Santísimo</span></li>
-        <li><span class="evento-dia">8</span><span class="evento-texto">Becas padres</span></li>
-        <li><span class="evento-dia">13</span><span class="evento-texto">Barbacoa Aldebarán</span></li>
-        <li><span class="evento-dia">18</span><span class="evento-texto">Sesión formativa 8</span></li>
-        <li><span class="evento-dia">21</span><span class="evento-texto">CMP awards</span></li>
-        <li><span class="evento-dia">23</span><span class="evento-texto">Comida piscina</span></li>
-      </ul>
+      <div class="dias-semana"><span>L</span><span>M</span><span>X</span><span>J</span><span>V</span><span>S</span><span>D</span></div>
+      <div class="dias-grid">
+        <div class="dia vacio"></div>
+        <div class="dia vacio"></div>
+        <div class="dia vacio"></div>
+        <div class="dia vacio"></div>
+        <div class="dia vacio"></div>
+        <div class="dia"><span class="num">1</span></div>
+        <div class="dia"><span class="num">2</span></div>
+        <div class="dia"><span class="num">3</span></div>
+        <div class="dia"><span class="num">4</span></div>
+        <div class="dia"><span class="num">5</span></div>
+        <div class="dia"><span class="num">6</span><span class="evt">Adoración al Santísimo</span></div>
+        <div class="dia"><span class="num">7</span></div>
+        <div class="dia"><span class="num">8</span><span class="evt">Becas padres</span></div>
+        <div class="dia"><span class="num">9</span></div>
+        <div class="dia"><span class="num">10</span></div>
+        <div class="dia"><span class="num">11</span></div>
+        <div class="dia"><span class="num">12</span></div>
+        <div class="dia"><span class="num">13</span><span class="evt">Barbacoa Aldebarán</span></div>
+        <div class="dia"><span class="num">14</span></div>
+        <div class="dia"><span class="num">15</span></div>
+        <div class="dia"><span class="num">16</span></div>
+        <div class="dia"><span class="num">17</span></div>
+        <div class="dia"><span class="num">18</span><span class="evt">Sesión formativa 8</span></div>
+        <div class="dia"><span class="num">19</span></div>
+        <div class="dia"><span class="num">20</span></div>
+        <div class="dia"><span class="num">21</span><span class="evt">CMP awards</span></div>
+        <div class="dia"><span class="num">22</span></div>
+        <div class="dia"><span class="num">23</span><span class="evt">Comida piscina</span></div>
+        <div class="dia"><span class="num">24</span></div>
+        <div class="dia"><span class="num">25</span></div>
+        <div class="dia"><span class="num">26</span></div>
+        <div class="dia"><span class="num">27</span></div>
+        <div class="dia"><span class="num">28</span></div>
+        <div class="dia"><span class="num">29</span></div>
+        <div class="dia"><span class="num">30</span></div>
+        <div class="dia"><span class="num">31</span></div>
+      </div>
     </div>
 
     <div class="mes-bloque">
       <div class="cabecera-mes">Junio</div>
-      <ul>
-        <li><span class="evento-dia">3</span><span class="evento-texto">Adoración al Santísimo</span></li>
-        <li><span class="evento-dia">4</span><span class="evento-texto">Aldebarán</span></li>
-        <li><span class="evento-dia">12</span><span class="evento-texto">Barbacoa fin</span></li>
-      </ul>
+      <div class="dias-semana"><span>L</span><span>M</span><span>X</span><span>J</span><span>V</span><span>S</span><span>D</span></div>
+      <div class="dias-grid">
+        <div class="dia vacio"></div>
+        <div class="dia"><span class="num">1</span></div>
+        <div class="dia"><span class="num">2</span></div>
+        <div class="dia"><span class="num">3</span><span class="evt">Adoración al Santísimo</span></div>
+        <div class="dia"><span class="num">4</span><span class="evt">Aldebarán</span></div>
+        <div class="dia"><span class="num">5</span></div>
+        <div class="dia"><span class="num">6</span></div>
+        <div class="dia"><span class="num">7</span></div>
+        <div class="dia"><span class="num">8</span></div>
+        <div class="dia"><span class="num">9</span></div>
+        <div class="dia"><span class="num">10</span></div>
+        <div class="dia"><span class="num">11</span></div>
+        <div class="dia"><span class="num">12</span><span class="evt">Barbacoa fin</span></div>
+        <div class="dia"><span class="num">13</span></div>
+        <div class="dia"><span class="num">14</span></div>
+        <div class="dia"><span class="num">15</span></div>
+        <div class="dia"><span class="num">16</span></div>
+        <div class="dia"><span class="num">17</span></div>
+        <div class="dia"><span class="num">18</span></div>
+        <div class="dia"><span class="num">19</span></div>
+        <div class="dia"><span class="num">20</span></div>
+        <div class="dia"><span class="num">21</span></div>
+        <div class="dia"><span class="num">22</span></div>
+        <div class="dia"><span class="num">23</span></div>
+        <div class="dia"><span class="num">24</span></div>
+        <div class="dia"><span class="num">25</span></div>
+        <div class="dia"><span class="num">26</span></div>
+        <div class="dia"><span class="num">27</span></div>
+        <div class="dia"><span class="num">28</span></div>
+        <div class="dia"><span class="num">29</span></div>
+        <div class="dia"><span class="num">30</span></div>
+      </div>
     </div>
 
     <div class="mes-bloque">
       <div class="cabecera-mes">Julio</div>
-      <ul>
-        <li><span class="evento-dia">3</span><span class="evento-texto">Campo de trabajo</span></li>
-        <li><span class="evento-dia">11</span><span class="evento-texto">VLG - 19</span></li>
-        <li><span class="evento-dia">19</span><span class="evento-texto">Cv s - 25</span></li>
-        <li><span class="evento-dia">25</span><span class="evento-texto">JUP - 31</span></li>
-      </ul>
+      <div class="dias-semana"><span>L</span><span>M</span><span>X</span><span>J</span><span>V</span><span>S</span><span>D</span></div>
+      <div class="dias-grid">
+        <div class="dia vacio"></div>
+        <div class="dia vacio"></div>
+        <div class="dia vacio"></div>
+        <div class="dia"><span class="num">1</span></div>
+        <div class="dia"><span class="num">2</span></div>
+        <div class="dia"><span class="num">3</span><span class="evt">Campo de trabajo</span></div>
+        <div class="dia"><span class="num">4</span></div>
+        <div class="dia"><span class="num">5</span></div>
+        <div class="dia"><span class="num">6</span></div>
+        <div class="dia"><span class="num">7</span></div>
+        <div class="dia"><span class="num">8</span></div>
+        <div class="dia"><span class="num">9</span></div>
+        <div class="dia"><span class="num">10</span></div>
+        <div class="dia"><span class="num">11</span><span class="evt">VLG - 19</span></div>
+        <div class="dia"><span class="num">12</span></div>
+        <div class="dia"><span class="num">13</span></div>
+        <div class="dia"><span class="num">14</span></div>
+        <div class="dia"><span class="num">15</span></div>
+        <div class="dia"><span class="num">16</span></div>
+        <div class="dia"><span class="num">17</span></div>
+        <div class="dia"><span class="num">18</span></div>
+        <div class="dia"><span class="num">19</span><span class="evt">Cv s - 25</span></div>
+        <div class="dia"><span class="num">20</span></div>
+        <div class="dia"><span class="num">21</span></div>
+        <div class="dia"><span class="num">22</span></div>
+        <div class="dia"><span class="num">23</span></div>
+        <div class="dia"><span class="num">24</span></div>
+        <div class="dia"><span class="num">25</span><span class="evt">JUP - 31</span></div>
+        <div class="dia"><span class="num">26</span></div>
+        <div class="dia"><span class="num">27</span></div>
+        <div class="dia"><span class="num">28</span></div>
+        <div class="dia"><span class="num">29</span></div>
+        <div class="dia"><span class="num">30</span></div>
+        <div class="dia"><span class="num">31</span></div>
+      </div>
     </div>
+
       </div>
     </div>
 
