@@ -668,12 +668,13 @@ tbody tr:hover td {
   border-bottom: none;
 }
 
-/* Día suelto: círculo en blanco con anillo azul */
+/* Día suelto: pastilla en blanco con anillo azul (letra del día + número) */
 .mes-bloque .evento-dia {
   flex-shrink: 0;
-  width: 2.15rem;
+  min-width: 2.15rem;
   height: 2.15rem;
-  border-radius: 50%;
+  padding: 0 0.5rem;
+  border-radius: 999px;
   background: var(--blanco);
   border: 1px solid var(--azul);
   color: var(--azul);
@@ -681,7 +682,8 @@ tbody tr:hover td {
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
+  white-space: nowrap;
 }
 
 .mes-bloque .evento-texto {
