@@ -70,9 +70,10 @@ header.site-header {
 }
 
 .header-bar {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
+  gap: 1.5rem;
   padding: 0.9rem 1.25rem;
   max-width: 1080px;
   margin: 0 auto;
@@ -83,6 +84,7 @@ header.site-header {
   align-items: center;
   gap: 0.65rem;
   color: var(--blanco);
+  justify-self: start;
 }
 
 .brand:hover {
@@ -185,7 +187,9 @@ nav.main-nav a.activo {
   }
 
   .header-bar {
+    display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
   }
 }
 
@@ -197,7 +201,7 @@ nav.main-nav a.activo {
   gap: 0.5rem;
   font-size: 0.85rem;
   color: var(--blanco);
-  margin-left: auto;
+  justify-self: end;
 }
 
 .auth-widget .auth-entrar {
