@@ -584,7 +584,7 @@ tbody tr:hover {
 
 .grid-calendario {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
   gap: 1.25rem;
 }
 
@@ -626,14 +626,13 @@ tbody tr:hover {
 }
 
 .mes-bloque .dia {
-  min-height: 3.4rem;
+  min-height: 3.6rem;
   border-right: 1px solid var(--gris-borde);
   border-bottom: 1px solid var(--gris-borde);
-  padding: 0.25rem 0.3rem;
+  padding: 0.3rem 0.35rem;
   display: flex;
   flex-direction: column;
-  gap: 0.1rem;
-  overflow: hidden;
+  gap: 0.15rem;
 }
 
 .mes-bloque .dias-grid .dia:nth-child(7n) {
@@ -652,12 +651,12 @@ tbody tr:hover {
 }
 
 .mes-bloque .dia .evt {
-  font-size: 0.62rem;
-  line-height: 1.15;
+  font-size: 0.72rem;
+  line-height: 1.25;
   color: var(--texto);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .mes-bloque .dia.destacado {
