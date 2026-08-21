@@ -412,10 +412,12 @@ main {
 .grid-inicio .tarjeta {
   flex-direction: row;
   align-items: center;
-  padding: 0.9rem 1rem;
+  justify-content: center;
+  padding: 0.9rem 1.25rem;
   background: var(--azul);
   border: none;
-  border-radius: var(--radio);
+  border-radius: 999px;
+  text-align: center;
 }
 
 .grid-inicio .tarjeta:hover {
