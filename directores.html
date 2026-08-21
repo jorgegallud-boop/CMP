@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Directores · CMP 26-27</title>
+<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="img/icon-apple-touch.png">
+<meta name="theme-color" content="#12233d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/auth.js"></script>
+<script>CMP_AUTH.requerirRol([]);</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-bar">
+    <a class="brand" href="index.html">
+      <img class="logo-icon" src="img/logo-icon-white.png" alt="Colegio Mayor Peñafiel">
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰ Menú</button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li data-roles="staff"><a href="gente-hub.html">Gente</a></li>
+        <li data-roles="staff"><a href="cosas-practicas.html">Cosas prácticas</a></li>
+        <li data-roles="staff"><a href="contemplativos.html">#contemplativos</a></li>
+        <li data-roles="residente,colegial"><a href="bienvenida.html">Bienvenida</a></li>
+        <li data-roles="residente"><a href="https://compositor.org/comidas/penafiel.php" target="_blank" rel="noopener" onclick="return CMP_AUTH.permitirEnlace(event, ['residente'], this.href)">Comidas ↗</a></li>
+        <li data-roles="residente,colegial"><a href="https://arreglos-cmp.glide.page/" target="_blank" rel="noopener" onclick="return CMP_AUTH.permitirEnlace(event, ['residente','colegial'], this.href)">Arreglos ↗</a></li>
+        <li data-roles="residente"><a href="habitaciones.html">Habitaciones</a></li>
+        <li data-roles="residente"><a href="residentes.html">Residentes</a></li>
+        <li data-roles="residente"><a href="encargos.html">Encargos</a></li>
+        <li data-roles="residente"><a href="comisiones.html">Comisiones</a></li>
+        <li data-roles="residente"><a href="horarios.html">Horarios</a></li>
+        <li data-roles="residente"><a href="calendario.html">Calendario</a></li>
+        <li data-roles="residente"><a href="reglamento.html">Reglamento</a></li>
+        <li data-roles="residente"><a href="tutores.html">Tutores</a></li>
+        <li data-roles="residente,staff"><a href="ficha.html">Ficha de residente</a></li>
+        <li data-roles="colegial,staff"><a href="ficha-colegial.html">Ficha de colegial</a></li>
+      </ul>
+    </nav>
+    <div id="auth-widget" class="auth-widget"></div>
+  </div>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Inicio</a> / Directores</div>
+    <h1>Directores</h1>
+  </div>
+</div>
+
+<main>
+  <div class="container">
+
+    <div class="seccion">
+      <h3>Consejo General</h3>
+      <div class="tabla-wrap">
+        <table>
+          <tbody>
+            <tr><td>Prelado</td><td>D. Fernando Ocáriz Braña</td></tr>
+            <tr><td>Vicario Auxiliar</td><td>D. Mariano Fazio</td></tr>
+            <tr><td>Vicario General</td><td>D. Javier del Castillo</td></tr>
+            <tr><td>Vicario Secretario Central</td><td>D. José Andrés Carvajal</td></tr>
+            <tr><td>Vicesecretario de san Miguel</td><td>Josemaría Sánchez Blanco</td></tr>
+            <tr><td>Vicesecretario de san Gabriel</td><td>Marcelo Henrique Valenga</td></tr>
+            <tr><td>Vicesecretario de san Rafael</td><td>Andrew Laird</td></tr>
+            <tr><td>Prefecto de Estudios</td><td>D. Ángel José Gómez Montoro</td></tr>
+            <tr><td>Administrador General</td><td>José de Jesús Chávez Hernández</td></tr>
+            <tr><td>Delegado para la región de España</td><td>D. Javier de Juan Pardo</td></tr>
+            <tr><td>Custodes</td><td>D. Jorge Gisbert y D. Vicente de Castro</td></tr>
+            <tr><td>Prefecto para la formación espiritual central</td><td>D. Pau Agulles</td></tr>
+            <tr><td>Agente de Preces</td><td>Fr. Paul O'Callaghan</td></tr>
+            <tr><td>Canciller de la Prelatura</td><td>D. Jorge Gisbert</td></tr>
+            <tr><td>Director de la oficina del apostolado de la opinión pública del Consejo General</td><td>Juan Pablo Cannata</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Comisión regional de España</h3>
+      <div class="tabla-wrap">
+        <table>
+          <tbody>
+            <tr><td>Vicario</td><td>D. Ignacio Barrera Rodríguez</td></tr>
+            <tr><td>Defensor</td><td>Marcos García Jorge</td></tr>
+            <tr><td>Delegado</td><td>Javier de Juan Pardo</td></tr>
+            <tr><td>Vicario Secretario</td><td>Álvaro Cortés Márquez</td></tr>
+            <tr><td>Secretario</td><td>Ricardo Vela</td></tr>
+            <tr><td>Vocal de san Miguel y Director de Agregados</td><td>Juan Antonio Díaz González</td></tr>
+            <tr><td>Vocal de san Gabriel</td><td>Fernando Cabello García</td></tr>
+            <tr><td>Vocal de san Rafael</td><td>Fernando Navarro de Castro</td></tr>
+            <tr><td>Delegado de estudios</td><td>Juan Alberto González Olivar</td></tr>
+            <tr><td>Administrador</td><td>José Fernández Capo</td></tr>
+            <tr><td>Oficial suplente del adr</td><td>Javier González-Gallarza</td></tr>
+            <tr><td>Prefecto para la formación espiritual regional</td><td>D. Nicolás de Luján Said</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Delegación del Noroeste de España</h3>
+      <div class="tabla-wrap">
+        <table>
+          <tbody>
+            <tr><td>Vicario</td><td>Miguel Llamas Díez</td></tr>
+            <tr><td>Subdirector y Administrador</td><td>Valentín López Valdés</td></tr>
+            <tr><td>Vicario Secretario</td><td>D. Javier Martínez González</td></tr>
+            <tr><td>Secretario y Vocal de estudios</td><td>Raúl Ortega Cotarelo</td></tr>
+            <tr><td>Vocal de san Gabriel</td><td>Ernesto López-Barajas González</td></tr>
+            <tr><td>Vocal de san Miguel y Director de Agregados</td><td>Álvaro Baños Atance</td></tr>
+            <tr><td>Vocal de san Rafael</td><td>Luis Fernández Vaciero</td></tr>
+            <tr><td>Prefecto para la formación espiritual de la delegación</td><td>D. Santiago De Apellániz Sainz-Trápaga</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script src="js/main.js"></script>
+</body>
+</html>

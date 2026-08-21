@@ -22,6 +22,28 @@
     <a class="brand" href="index.html">
       <img class="logo-icon" src="img/logo-icon-white.png" alt="Colegio Mayor Peñafiel">
     </a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰ Menú</button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li data-roles="staff"><a href="gente-hub.html">Gente</a></li>
+        <li data-roles="staff"><a href="cosas-practicas.html">Cosas prácticas</a></li>
+        <li data-roles="staff"><a href="contemplativos.html">#contemplativos</a></li>
+        <li data-roles="residente,colegial"><a href="bienvenida.html">Bienvenida</a></li>
+        <li data-roles="residente"><a href="https://compositor.org/comidas/penafiel.php" target="_blank" rel="noopener" onclick="return CMP_AUTH.permitirEnlace(event, ['residente'], this.href)">Comidas ↗</a></li>
+        <li data-roles="residente,colegial"><a href="https://arreglos-cmp.glide.page/" target="_blank" rel="noopener" onclick="return CMP_AUTH.permitirEnlace(event, ['residente','colegial'], this.href)">Arreglos ↗</a></li>
+        <li data-roles="residente"><a href="habitaciones.html">Habitaciones</a></li>
+        <li data-roles="residente"><a href="residentes.html">Residentes</a></li>
+        <li data-roles="residente"><a href="encargos.html">Encargos</a></li>
+        <li data-roles="residente"><a href="comisiones.html">Comisiones</a></li>
+        <li data-roles="residente"><a href="horarios.html">Horarios</a></li>
+        <li data-roles="residente"><a href="calendario.html">Calendario</a></li>
+        <li data-roles="residente"><a href="reglamento.html">Reglamento</a></li>
+        <li data-roles="residente"><a href="tutores.html">Tutores</a></li>
+        <li data-roles="residente,staff"><a href="ficha.html">Ficha de residente</a></li>
+        <li data-roles="colegial,staff"><a href="ficha-colegial.html">Ficha de colegial</a></li>
+      </ul>
+    </nav>
     <div id="auth-widget" class="auth-widget"></div>
   </div>
 </header>
@@ -32,28 +54,12 @@
     <div class="seccion">
       <div class="grid-tarjetas grid-inicio">
 
-        <a class="tarjeta" href="contemplativos.html" data-roles="staff">
-          <h3>#contemplativos</h3>
+        <a class="tarjeta grupo" href="gente-hub.html" data-roles="staff">
+          <h3>Gente</h3>
         </a>
 
-        <a class="tarjeta" href="retiro-mensual.html" data-roles="staff">
-          <h3>Retiro mensual</h3>
-        </a>
-
-        <a class="tarjeta" href="horario-sm.html" data-roles="staff">
-          <h3>Horario sm</h3>
-        </a>
-
-        <a class="tarjeta" href="turnos.html" data-roles="staff">
-          <h3>Turnos</h3>
-        </a>
-
-        <a class="tarjeta" href="encargos-sm.html" data-roles="staff">
-          <h3>Encargos sm</h3>
-        </a>
-
-        <a class="tarjeta" href="datos-interes.html" data-roles="staff">
-          <h3>Cosas de interés</h3>
+        <a class="tarjeta grupo" href="cosas-practicas.html" data-roles="staff">
+          <h3>Cosas prácticas</h3>
         </a>
 
         <a class="tarjeta" href="bienvenida.html" id="tarjeta-bienvenida" data-roles="residente,colegial,staff">
@@ -64,7 +70,7 @@
           <h3>App de comidas</h3>
         </a>
 
-        <a class="tarjeta" href="https://arreglos-cmp.glide.page/" target="_blank" rel="noopener" data-roles="residente,colegial,staff" onclick="return CMP_AUTH.permitirEnlace(event, ['residente','colegial'], this.href)">
+        <a class="tarjeta" href="https://arreglos-cmp.glide.page/" target="_blank" rel="noopener" data-roles="residente,colegial" onclick="return CMP_AUTH.permitirEnlace(event, ['residente','colegial'], this.href)">
           <h3>Ficha de arreglos</h3>
         </a>
 
@@ -72,16 +78,8 @@
           <h3>Habitaciones</h3>
         </a>
 
-        <a class="tarjeta" href="residentes.html" data-roles="residente,staff">
+        <a class="tarjeta" href="residentes.html" data-roles="residente">
           <h3>Residentes</h3>
-        </a>
-
-        <a class="tarjeta" href="colegiales.html" data-roles="staff">
-          <h3>Colegiales</h3>
-        </a>
-
-        <a class="tarjeta" href="gente.html" data-roles="staff">
-          <h3>Los de Casa</h3>
         </a>
 
         <a class="tarjeta" href="encargos.html" data-roles="residente">
@@ -94,10 +92,6 @@
 
         <a class="tarjeta" href="horarios.html" data-roles="residente">
           <h3>Horarios</h3>
-        </a>
-
-        <a class="tarjeta" href="misas.html" data-roles="staff">
-          <h3>Misas</h3>
         </a>
 
         <a class="tarjeta" href="calendario.html" data-roles="residente,staff">

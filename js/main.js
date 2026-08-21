@@ -61,6 +61,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Portada: el botón de Bienvenida solo tiene sentido antes de empezar el
+  // curso — se muestra en agosto y hasta el 8 de septiembre; el día 9 de
+  // septiembre se oculta automáticamente y no vuelve a aparecer hasta el
+  // siguiente mes de agosto.
+  (function () {
+    var tarjeta = document.getElementById("tarjeta-bienvenida");
+    if (!tarjeta) return;
+    var hoy = new Date();
+    var mes = hoy.getMonth() + 1;
+    var dia = hoy.getDate();
+    var visible = mes === 8 || (mes === 9 && dia <= 8);
+    if (!visible) {
+      tarjeta.style.display = "none";
+    }
+  })();
+
   // Portada: las tarjetas de fichas se ocultan en cuanto el usuario ya las ha enviado
   [
     { id: "tarjeta-ficha", clave: "cmp2627_ficha_residente_enviada" },

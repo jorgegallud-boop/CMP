@@ -432,6 +432,25 @@ main {
   color: var(--azul);
 }
 
+/* Botones que agrupan otros botones (p.ej. Gente, Cosas prácticas):
+   color invertido respecto a los botones de enlace directo, para que se
+   distingan de un vistazo. */
+.grid-inicio .tarjeta.grupo {
+  background: var(--naranja);
+}
+
+.grid-inicio .tarjeta.grupo h3 {
+  color: var(--azul);
+}
+
+.grid-inicio .tarjeta.grupo:hover {
+  background: var(--azul);
+}
+
+.grid-inicio .tarjeta.grupo:hover h3 {
+  color: var(--blanco);
+}
+
 .grid-inicio .tarjeta h3 {
   font-size: 0.88rem;
   line-height: 1.25;
