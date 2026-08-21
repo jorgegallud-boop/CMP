@@ -931,3 +931,60 @@ footer.site-footer a {
 .centro {
   text-align: center;
 }
+
+/* ---------- Recordatorio emergente (comidas de domingo) ---------- */
+
+.recordatorio-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 35, 61, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  z-index: 1000;
+}
+
+.recordatorio-caja {
+  background: var(--blanco);
+  color: var(--azul);
+  border-radius: var(--radio-tarjeta);
+  box-shadow: var(--sombra-hover);
+  padding: 1.75rem;
+  max-width: 380px;
+  width: 100%;
+  text-align: center;
+}
+
+.recordatorio-caja h2 {
+  font-family: var(--font-titulos);
+  font-size: 1.3rem;
+  margin: 0 0 0.75rem;
+}
+
+.recordatorio-caja p {
+  margin: 0 0 1.4rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.recordatorio-botones {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.recordatorio-botones .boton {
+  margin-top: 0;
+  width: 100%;
+}
+
+.recordatorio-boton-luego {
+  background: transparent;
+  border: none;
+  color: var(--azul);
+  text-decoration: underline;
+  font-size: 0.88rem;
+  cursor: pointer;
+  padding: 0.4rem;
+}

@@ -77,6 +77,59 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   })();
 
+  // Recordatorio semanal: los domingos a partir de las 16:00, aviso para
+  // residente y staff de que se apunten a las comidas de la semana.
+  // "Hecho" lo oculta hasta el domingo siguiente; "Recordarme más tarde"
+  // no guarda nada, así que vuelve a salir la próxima vez que entren,
+  // hasta que lo marquen como hecho.
+  (function () {
+    if (typeof CMP_AUTH === "undefined") return;
+    var rol = CMP_AUTH.rolReal();
+    if (rol !== "residente" && rol !== "staff") return;
+
+    var ahora = new Date();
+    var esDomingoTarde = ahora.getDay() === 0 && ahora.getHours() >= 16;
+    if (!esDomingoTarde) return;
+
+    var CLAVE = "cmp2627_recordatorio_comidas_semana";
+    var pad = function (n) { return String(n).padStart(2, "0"); };
+    var hoyISO = ahora.getFullYear() + "-" + pad(ahora.getMonth() + 1) + "-" + pad(ahora.getDate());
+
+    var yaHecho = false;
+    try {
+      yaHecho = localStorage.getItem(CLAVE) === hoyISO;
+    } catch (e) {
+      // localStorage no disponible: se muestra igualmente
+    }
+    if (yaHecho) return;
+
+    var overlay = document.createElement("div");
+    overlay.className = "recordatorio-overlay";
+    overlay.innerHTML =
+      '<div class="recordatorio-caja" role="dialog" aria-modal="true" aria-labelledby="recordatorio-titulo">' +
+        '<h2 id="recordatorio-titulo">Apúntate a las comidas</h2>' +
+        '<p>Recuerda apuntarte a las comidas de la semana en la app de comidas antes de que se cierre el plazo.</p>' +
+        '<div class="recordatorio-botones">' +
+          '<button type="button" class="boton" id="recordatorio-hecho">Hecho</button>' +
+          '<button type="button" class="recordatorio-boton-luego" id="recordatorio-luego">Recordarme más tarde</button>' +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(overlay);
+
+    document.getElementById("recordatorio-hecho").addEventListener("click", function () {
+      try {
+        localStorage.setItem(CLAVE, hoyISO);
+      } catch (e) {
+        // localStorage no disponible: no se puede recordar, volverá a salir
+      }
+      overlay.remove();
+    });
+
+    document.getElementById("recordatorio-luego").addEventListener("click", function () {
+      overlay.remove();
+    });
+  })();
+
   // Portada: las tarjetas de fichas se ocultan en cuanto el usuario ya las ha enviado
   [
     { id: "tarjeta-ficha", clave: "cmp2627_ficha_residente_enviada" },
