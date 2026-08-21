@@ -26,8 +26,29 @@
     <nav class="main-nav">
       <ul>
         <li><a href="index.html">Inicio</a></li>
-        <li data-roles="staff"><a href="gente-hub.html">Gente</a></li>
-        <li data-roles="staff"><a href="cosas-practicas.html">Cosas prácticas</a></li>
+
+        <li data-roles="staff" class="submenu">
+          <button type="button" class="submenu-toggle">Gente</button>
+          <ul class="submenu-lista">
+            <li><a href="gente.html">Casa</a></li>
+            <li><a href="directores.html">Directores</a></li>
+            <li><a href="residentes.html">Residentes</a></li>
+            <li><a href="colegiales.html">Colegiales</a></li>
+          </ul>
+        </li>
+        <li data-roles="staff" class="submenu">
+          <button type="button" class="submenu-toggle">Cosas prácticas</button>
+          <ul class="submenu-lista">
+            <li><a href="misas.html">Misas</a></li>
+            <li><a href="https://arreglos-cmp.glide.page/" target="_blank" rel="noopener" onclick="return CMP_AUTH.permitirEnlace(event, ['residente','colegial'], this.href)">Ficha de arreglos ↗</a></li>
+            <li><a href="encargos-sm.html">Encargos sm</a></li>
+            <li><a href="turnos.html">Turnos</a></li>
+            <li><a href="horario-sm.html">Horario sm</a></li>
+            <li><a href="retiro-mensual.html">Retiro mensual</a></li>
+            <li><a href="datos-interes.html">Cosas de interés</a></li>
+            <li><a href="material-interes.html">Material formativo</a></li>
+          </ul>
+        </li>
         <li data-roles="staff"><a href="contemplativos.html">#contemplativos</a></li>
         <li data-roles="residente,colegial"><a href="bienvenida.html">Bienvenida</a></li>
         <li data-roles="residente"><a href="https://compositor.org/comidas/penafiel.php" target="_blank" rel="noopener" onclick="return CMP_AUTH.permitirEnlace(event, ['residente'], this.href)">Comidas ↗</a></li>

@@ -20,12 +20,25 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Marca como activo el enlace del menú que corresponde a la página actual
+  // (si está dentro de un grupo como Gente o Cosas prácticas, ese grupo
+  // se abre solo para que se vea el enlace activo).
   var aquí = window.location.pathname.split("/").pop() || "index.html";
   document.querySelectorAll(".main-nav a").forEach(function (enlace) {
     var href = enlace.getAttribute("href");
     if (href === aquí) {
       enlace.classList.add("activo");
+      var grupo = enlace.closest("li.submenu");
+      if (grupo) grupo.classList.add("abierto");
     }
+  });
+
+  // Grupos del menú (Gente, Cosas prácticas): se expanden/colapsan al
+  // pulsarlos, sin navegar ni cerrar el resto del menú.
+  document.querySelectorAll(".submenu-toggle").forEach(function (boton) {
+    boton.addEventListener("click", function () {
+      var li = boton.closest("li.submenu");
+      if (li) li.classList.toggle("abierto");
+    });
   });
 
   // Portada: cada tarjeta solo se muestra si el rol tiene acceso (según su

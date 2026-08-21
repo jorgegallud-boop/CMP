@@ -175,6 +175,56 @@ nav.main-nav a.activo {
   text-decoration: none;
 }
 
+/* Grupos dentro del menú desplegable (Gente, Cosas prácticas): igual
+   que los botones-hub de la portada, pero como acordeón — se
+   expanden/colapsan al pulsarlos, sin salir del menú. */
+.submenu-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--blanco);
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.submenu-toggle:hover {
+  background: var(--verde-claro);
+  color: var(--azul);
+}
+
+.submenu-toggle::after {
+  content: "▾";
+  font-size: 0.75rem;
+  margin-left: 0.75rem;
+  transition: transform 0.15s ease;
+}
+
+li.submenu.abierto > .submenu-toggle::after {
+  transform: rotate(180deg);
+}
+
+nav.main-nav .submenu-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 1rem;
+  display: none;
+}
+
+nav.main-nav li.submenu.abierto > .submenu-lista {
+  display: block;
+}
+
+.submenu-lista a {
+  font-size: 0.88rem;
+}
+
 .nav-toggle {
   justify-self: center;
   background: transparent;
