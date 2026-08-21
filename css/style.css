@@ -1,18 +1,19 @@
 /* ==========================================================================
    CMP 26-27 — hoja de estilos
-   Paleta estricta de 3 colores: azul marino, naranja y blanco. Sin tonos
-   intermedios (nada de grises, tostados ni verdes/morados de apoyo). El
-   fondo general de la web es blanco, para que el texto largo (reglamento,
-   exámenes de retiro, horarios...) se lea cómodo. El azul marino enmarca
-   el contenido (header, footer, cabeceras) y es el color de acción de los
-   botones; el naranja es el color de énfasis (enlaces, subtítulos,
-   elemento activo/destacado) y aparece también al invertir los colores
-   como respuesta al pasar el ratón.
+   Paleta: azul marino, verde y blanco. El fondo general de la web es
+   blanco, para que el texto largo (reglamento, exámenes de retiro,
+   horarios...) se lea cómodo. El azul marino enmarca el contenido
+   (header, footer, cabeceras) y es el color de acción de los botones.
+   El verde es el color de énfasis (enlaces, subtítulos, elemento activo/
+   destacado) en dos tonos según el fondo sobre el que va: --verde
+   (oscuro) sobre superficies blancas, y --verde-claro (más vivo, para
+   que resalte) sobre el azul oscuro o como relleno de acento.
    ========================================================================== */
 
 :root {
   --azul: #12233d;
-  --naranja: #e2861b;
+  --verde: #1a7a4c;        /* verde oscuro — texto/bordes sobre blanco */
+  --verde-claro: #4ade80;  /* verde claro — texto/bordes sobre azul, y rellenos de acento */
   --blanco: #ffffff;
 
   --radio: 8px;                 /* radio discreto por defecto (tablas, formularios, bloques) */
@@ -43,7 +44,7 @@ img {
 }
 
 a {
-  color: var(--naranja);
+  color: var(--verde);
   text-decoration: none;
 }
 
@@ -145,7 +146,7 @@ nav.main-nav a {
 }
 
 nav.main-nav a:hover {
-  background: var(--naranja);
+  background: var(--verde-claro);
   color: var(--azul);
   text-decoration: none;
 }
@@ -220,7 +221,7 @@ nav.main-nav a.activo {
 
 .auth-widget .auth-rol {
   font-weight: 600;
-  color: var(--naranja);
+  color: var(--verde-claro);
   white-space: nowrap;
 }
 
@@ -316,14 +317,14 @@ main {
   font-size: 1.5rem;
   margin-bottom: 0.9rem;
   color: var(--azul);
-  border-left: 4px solid var(--naranja);
+  border-left: 4px solid var(--verde);
   padding-left: 0.6rem;
 }
 
 .seccion h3 {
   font-size: 1.15rem;
   margin: 1.4rem 0 0.6rem;
-  color: var(--naranja);
+  color: var(--verde);
 }
 
 .seccion h3:first-of-type {
@@ -406,7 +407,7 @@ main {
 
 .tarjeta.destacada {
   border: 2px solid var(--azul);
-  background: var(--naranja);
+  background: var(--verde-claro);
 }
 
 /* Rejilla de la portada: dos columnas fijas, botones a media anchura */
@@ -426,7 +427,7 @@ main {
 }
 
 .grid-inicio .tarjeta:hover {
-  background: var(--naranja);
+  background: var(--verde-claro);
 }
 
 .grid-inicio .tarjeta:hover h3 {
@@ -437,7 +438,7 @@ main {
    color invertido respecto a los botones de enlace directo, para que se
    distingan de un vistazo. */
 .grid-inicio .tarjeta.grupo {
-  background: var(--naranja);
+  background: var(--verde-claro);
 }
 
 .grid-inicio .tarjeta.grupo h3 {
@@ -473,7 +474,7 @@ body.pagina-inicio .seccion {
   font-size: 0.7rem;
   font-weight: 600;
   color: var(--azul);
-  background: var(--naranja);
+  background: var(--verde-claro);
   border-radius: 999px;
   padding: 0.1rem 0.55rem;
   align-self: flex-start;
@@ -492,7 +493,7 @@ body.pagina-inicio .seccion {
 }
 
 .boton:hover {
-  background: var(--naranja);
+  background: var(--verde-claro);
   color: var(--azul);
   text-decoration: none;
 }
@@ -582,12 +583,12 @@ tbody tr:hover td {
 }
 
 .aviso.pendiente {
-  border-color: var(--naranja);
-  border-left-color: var(--naranja);
+  border-color: var(--verde);
+  border-left-color: var(--verde);
 }
 
 .aviso strong {
-  color: var(--naranja);
+  color: var(--verde);
 }
 
 /* ---------- Horarios ---------- */
@@ -712,10 +713,10 @@ tbody tr:hover td {
   line-height: 1.3;
 }
 
-/* Día destacado: círculo naranja sólido */
+/* Día destacado: círculo verde claro sólido */
 .mes-bloque li.evento-destacado .evento-dia {
-  background: var(--naranja);
-  border-color: var(--naranja);
+  background: var(--verde-claro);
+  border-color: var(--verde-claro);
   color: var(--azul);
 }
 
@@ -735,10 +736,10 @@ tbody tr:hover td {
   color: var(--blanco);
 }
 
-/* Un evento destacado que además es un rango de días: se queda en naranja */
+/* Un evento destacado que además es un rango de días: se queda en verde claro */
 .mes-bloque li.evento-grupo.evento-destacado .evento-dia {
-  background: var(--naranja);
-  border-color: var(--naranja);
+  background: var(--verde-claro);
+  border-color: var(--verde-claro);
   color: var(--azul);
 }
 
@@ -764,7 +765,7 @@ tbody tr:hover td {
   font-weight: 700;
   color: var(--azul);
   padding: 0 0 0.9rem;
-  border-bottom: 2px solid var(--naranja);
+  border-bottom: 2px solid var(--verde);
   width: 100%;
   margin-bottom: 1rem;
 }
@@ -807,7 +808,7 @@ tbody tr:hover td {
 .campo input:focus,
 .campo select:focus,
 .campo textarea:focus {
-  outline: 2px solid var(--naranja);
+  outline: 2px solid var(--verde);
   outline-offset: 1px;
 }
 
@@ -836,7 +837,7 @@ tbody tr:hover td {
   align-items: flex-start;
   gap: 0.6rem;
   background: var(--blanco);
-  border: 1px solid var(--naranja);
+  border: 1px solid var(--verde);
   border-radius: 8px;
   padding: 0.75rem 1rem;
 }
@@ -873,7 +874,7 @@ tbody tr:hover td {
 }
 
 .form-boton:hover {
-  background: var(--naranja);
+  background: var(--verde-claro);
   color: var(--azul);
 }
 
@@ -892,15 +893,15 @@ tbody tr:hover td {
 }
 
 .form-estado.ok {
-  color: var(--naranja);
+  color: var(--verde);
 }
 
 .panel-gracias {
   display: none;
   background: var(--blanco);
   color: var(--azul);
-  border: 1px solid var(--naranja);
-  border-left: 4px solid var(--naranja);
+  border: 1px solid var(--verde);
+  border-left: 4px solid var(--verde);
   border-radius: 8px;
   padding: 1.2rem 1.4rem;
   margin-bottom: 1.5rem;
@@ -909,7 +910,7 @@ tbody tr:hover td {
 
 .panel-gracias h2 {
   margin: 0 0 0.4rem;
-  color: var(--naranja);
+  color: var(--verde);
   border: none;
   padding: 0;
 }
@@ -922,11 +923,11 @@ footer.site-footer {
   padding: 1.75rem 1.25rem;
   font-size: 0.85rem;
   text-align: center;
-  border-top: 2px solid var(--naranja);
+  border-top: 2px solid var(--verde-claro);
 }
 
 footer.site-footer a {
-  color: var(--naranja);
+  color: var(--verde-claro);
 }
 
 /* ---------- Utilidades ---------- */
