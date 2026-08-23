@@ -1,13 +1,14 @@
 /**
- * CMP 26-27 — Ficha de residente y ficha de colegial
+ * CMP 26-27 — Ficha de residente, ficha de colegial y elección de tutor
  *
- * Este script recibe los envíos de ficha.html (residentes) y de
- * ficha-colegial.html (colegiales), y añade una fila a la hoja que
- * corresponda dentro del Excel "26-27" del usuario — "Fichas de residente"
- * o "Fichas de colegial" — según el campo oculto <input type="hidden"
- * name="tipo"> de cada formulario. El script no está atado a la hoja donde
- * vive físicamente: escribe en otra hoja de cálculo distinta, identificada
- * por su ID (SPREADSHEET_ID).
+ * Este script recibe los envíos de ficha.html (residentes), de
+ * ficha-colegial.html (colegiales) y de tutores.html (elección de tutor),
+ * y añade una fila a la hoja que corresponda dentro del Excel "26-27" del
+ * usuario — "Fichas de residente", "Fichas de colegial" o "Tutores" —
+ * según el campo oculto <input type="hidden" name="tipo"> de cada
+ * formulario. El script no está atado a la hoja donde vive físicamente:
+ * escribe en otra hoja de cálculo distinta, identificada por su ID
+ * (SPREADSHEET_ID).
  *
  * CÓMO INSTALARLO (una sola vez):
  * 1. En cualquier hoja de cálculo de Google Drive (da igual cuál, el script
@@ -16,17 +17,26 @@
  *    este archivo.
  * 3. Sustituye SPREADSHEET_ID por el ID real de la hoja de destino (está en
  *    la URL: https://docs.google.com/spreadsheets/d/ESTE_ID/edit). Las
- *    pestañas SHEET_RESIDENTE y SHEET_COLEGIAL deben existir de antemano,
- *    cada una con su fila de cabeceras ya puesta.
+ *    pestañas SHEET_RESIDENTE, SHEET_COLEGIAL y SHEET_TUTOR deben existir
+ *    de antemano, cada una con su fila de cabeceras ya puesta (la de
+ *    Tutores: Fecha, Nombre, 1ª opción, 2ª opción).
  * 4. Guarda (icono de disquete).
  * 5. Implementar → Nueva implementación → tipo "Aplicación web".
  *      - Ejecutar como: Yo (tu cuenta)
  *      - Quién tiene acceso: Cualquier usuario
  * 6. Autoriza los permisos que pida Google (es tu propio script).
  * 7. Copia la URL que termina en /exec.
- * 8. Pégala en ficha.html y en ficha-colegial.html, en el atributo action
- *    del formulario (búscala con "EDITAR AQUÍ") — es la misma URL para
- *    los dos formularios, el reparto lo hace el propio script.
+ * 8. Pégala en ficha.html, ficha-colegial.html y tutores.html, en el
+ *    atributo action del formulario (búscala con "EDITAR AQUÍ") — es la
+ *    misma URL para los tres formularios, el reparto lo hace el propio
+ *    script.
+ *
+ * IMPORTANTE si ya tenías este script instalado de antes (por ficha.html /
+ * ficha-colegial.html): sustituye TODO el contenido de tu Code.gs por este
+ * archivo actualizado y crea la pestaña "Tutores" (con sus cabeceras)
+ * antes de volver a implementar — si no, los envíos de tutores.html
+ * acabarían mezclados en la hoja de residentes con las columnas
+ * descuadradas.
  *
  * Solo quien tenga acceso a esa hoja de cálculo puede ver las respuestas:
  * los formularios únicamente pueden añadir filas nuevas, nunca leer las
@@ -41,6 +51,7 @@
 var SPREADSHEET_ID = "1uqe79CoVcQP1_38VDEWgKXH1OxMIDDR9zCqTa1CvqDk"; // Excel "26-27"
 var SHEET_RESIDENTE = "Fichas de residente";
 var SHEET_COLEGIAL = "Fichas de colegial";
+var SHEET_TUTOR = "Tutores";
 
 function doPost(e) {
   var p = e.parameter;
@@ -51,7 +62,15 @@ function doPost(e) {
 
   var ss = SpreadsheetApp.openById(SPREADSHEET_ID);
 
-  if (p.tipo === "colegial") {
+  if (p.tipo === "tutor") {
+    var hojaTutor = ss.getSheetByName(SHEET_TUTOR);
+    hojaTutor.appendRow([
+      new Date(),
+      p.nombre || "",
+      p.primera_opcion || "",
+      p.segunda_opcion || "",
+    ]);
+  } else if (p.tipo === "colegial") {
     var hojaColegial = ss.getSheetByName(SHEET_COLEGIAL);
     hojaColegial.appendRow([
       new Date(),
