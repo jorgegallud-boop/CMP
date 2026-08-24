@@ -19,7 +19,8 @@
  *    la URL: https://docs.google.com/spreadsheets/d/ESTE_ID/edit). Las
  *    pestañas SHEET_RESIDENTE, SHEET_COLEGIAL y SHEET_TUTOR deben existir
  *    de antemano, cada una con su fila de cabeceras ya puesta (la de
- *    Tutores: Fecha, Nombre, 1ª opción, 2ª opción).
+ *    Tutores: Fecha de envío, Nombre, 1ª opción, 2ª opción, Fecha de
+ *    llegada, Llega a tiempo de, Comentarios).
  * 4. Guarda (icono de disquete).
  * 5. Implementar → Nueva implementación → tipo "Aplicación web".
  *      - Ejecutar como: Yo (tu cuenta)
@@ -69,6 +70,9 @@ function doPost(e) {
       p.nombre || "",
       p.primera_opcion || "",
       p.segunda_opcion || "",
+      p.fecha_llegada || "",
+      p.llegada_a || "",
+      p.comentarios || "",
     ]);
   } else if (p.tipo === "colegial") {
     var hojaColegial = ss.getSheetByName(SHEET_COLEGIAL);
