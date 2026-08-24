@@ -92,9 +92,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Recordatorio semanal: los domingos a partir de las 16:00, aviso para
   // residente y staff de que se apunten a las comidas de la semana.
-  // "Hecho" lo oculta hasta el domingo siguiente; "Recordarme más tarde"
-  // no guarda nada, así que vuelve a salir la próxima vez que entren,
-  // hasta que lo marquen como hecho.
+  // - "Hecho" lo oculta hasta el domingo siguiente.
+  // - Solo sale la primera vez que se entra: al navegar por dentro de la
+  //   web no vuelve a aparecer.
+  // - "Recordarme más tarde" (o simplemente seguir navegando) hace que
+  //   no vuelva a salir hasta pasada una hora, o hasta que se entre de
+  //   nuevo más adelante en otra visita — lo que ocurra antes.
   (function () {
     if (typeof CMP_AUTH === "undefined") return;
     var rol = CMP_AUTH.rolReal();
@@ -104,17 +107,41 @@ document.addEventListener("DOMContentLoaded", function () {
     var esDomingoTarde = ahora.getDay() === 0 && ahora.getHours() >= 16;
     if (!esDomingoTarde) return;
 
-    var CLAVE = "cmp2627_recordatorio_comidas_semana";
+    var CLAVE_SEMANA = "cmp2627_recordatorio_comidas_semana";
+    var CLAVE_VISTO = "cmp2627_recordatorio_comidas_visto_en";
+    var MINUTOS_ESPERA = 60;
     var pad = function (n) { return String(n).padStart(2, "0"); };
     var hoyISO = ahora.getFullYear() + "-" + pad(ahora.getMonth() + 1) + "-" + pad(ahora.getDate());
 
-    var yaHecho = false;
+    var yaHechoEstaSemana = false;
     try {
-      yaHecho = localStorage.getItem(CLAVE) === hoyISO;
+      yaHechoEstaSemana = localStorage.getItem(CLAVE_SEMANA) === hoyISO;
     } catch (e) {
       // localStorage no disponible: se muestra igualmente
     }
-    if (yaHecho) return;
+    if (yaHechoEstaSemana) return;
+
+    // sessionStorage se borra al cerrar la pestaña, así que en una visita
+    // nueva vuelve a salir de todas formas; el margen de tiempo cubre el
+    // caso de dejarte la misma pestaña abierta un buen rato.
+    var vistoRecientemente = false;
+    try {
+      var visto = sessionStorage.getItem(CLAVE_VISTO);
+      if (visto) {
+        var minutosPasados = (Date.now() - parseInt(visto, 10)) / 60000;
+        vistoRecientemente = minutosPasados < MINUTOS_ESPERA;
+      }
+    } catch (e) {
+      // sessionStorage no disponible: se muestra igualmente
+    }
+    if (vistoRecientemente) return;
+
+    try {
+      sessionStorage.setItem(CLAVE_VISTO, String(Date.now()));
+    } catch (e) {
+      // sessionStorage no disponible: no pasa nada, solo puede volver a
+      // salir antes de lo esperado al navegar
+    }
 
     var overlay = document.createElement("div");
     overlay.className = "recordatorio-overlay";
@@ -131,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("recordatorio-hecho").addEventListener("click", function () {
       try {
-        localStorage.setItem(CLAVE, hoyISO);
+        localStorage.setItem(CLAVE_SEMANA, hoyISO);
       } catch (e) {
         // localStorage no disponible: no se puede recordar, volverá a salir
       }
