@@ -150,12 +150,15 @@ document.addEventListener("DOMContentLoaded", function () {
         '<h2 id="recordatorio-titulo">Apúntate a las comidas</h2>' +
         '<p>Recuerda apuntarte a las comidas de la semana en la app de comidas antes de que se cierre el plazo.</p>' +
         '<div class="recordatorio-botones">' +
-          '<button type="button" class="boton" id="recordatorio-hecho">Hecho</button>' +
+          '<a href="https://compositor.org/comidas/penafiel.php" target="_blank" rel="noopener" class="boton" id="recordatorio-hecho">Voy a ello</a>' +
           '<button type="button" class="recordatorio-boton-luego" id="recordatorio-luego">Recordarme más tarde</button>' +
         '</div>' +
       '</div>';
     document.body.appendChild(overlay);
 
+    // "Voy a ello" lleva a la app de comidas y cuenta como hecho: no
+    // vuelve a recordarlo hasta el domingo siguiente (igual que antes
+    // hacía "Hecho").
     document.getElementById("recordatorio-hecho").addEventListener("click", function () {
       try {
         localStorage.setItem(CLAVE_SEMANA, hoyISO);
