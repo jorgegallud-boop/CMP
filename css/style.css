@@ -829,6 +829,15 @@ tbody tr:hover td {
   color: var(--azul);
 }
 
+/* Evento propio de staff (calendario-staff.html, columna "sm" del Excel):
+   franja ámbar para distinguirlo de los planes de residentes/colegiales
+   que staff ve en el mismo calendario. */
+.mes-bloque li.evento-staff {
+  background: #fff7e6;
+  border-left: 3px solid #d97706;
+  padding-left: calc(1.1rem - 3px);
+}
+
 /* ---------- Formularios ---------- */
 
 .formulario {

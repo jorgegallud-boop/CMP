@@ -36,8 +36,22 @@ inspeccionar cabeceras y pestañas antes de leer nada.
      calendario del rol de cada persona; los de staff van en los tres calendarios,
      y el calendario de staff lleva además los cumpleaños de residentes y colegiales
    - Un evento en negrita en el Excel se marca en la web con la clase
-     evento-destacado (círculo verde claro relleno)
+     evento-destacado (círculo verde claro relleno) — revisa esto en TODAS las
+     columnas de rol que toques, no solo en la que estés construyendo
+   - En calendario-staff.html, los eventos que vienen solo de la columna "sm"
+     (no de rs/c) llevan además la clase evento-staff (franja ámbar, definida
+     en css/style.css), para que se distingan de un plan de residentes/colegiales
+     que staff ve en el mismo calendario
    - No dupliques un plan si coincide igual en varias columnas de rol
+   - Las siglas sueltas en la columna "sm" (tipo MVG, JVE, PMA, HPG, APH, MCC,
+     AMS) son recordatorios de cumpleaños de staff — no las metas como texto de
+     evento; usa el cumpleaños real si lo tienes por la pestaña "gente", u
+     omite la entrada si no lo tienes
+   - "Retiro mensual" en la columna "sm" es el retiro de staff (cae en domingo,
+     se sobreentiende por el día); no le añadas "(staff)" ni ningún sufijo — el
+     de residentes/colegiales (columna rs/c, jueves) también se llama igual, se
+     distinguen por el día y por la franja evento-staff
+   - "Lista sJ" = Lista de San José
    - Nota: la estructura de esta pestaña ha cambiado ya varias veces entre
      sesiones (antes tenía además una columna "mf" que se eliminó) — confirma
      las columnas actuales antes de asumir que siguen siendo estas tres.
