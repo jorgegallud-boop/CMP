@@ -53,16 +53,17 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // Menú (☰ arriba a la derecha): igual, salvo Staff, que ahí sí ve
-    // todas las opciones sin filtrar.
-    if (rolActual !== "staff") {
-      document.querySelectorAll(".main-nav li[data-roles]").forEach(function (item) {
-        var roles = item.getAttribute("data-roles").split(",");
-        if (roles.indexOf(rolActual) === -1) {
-          item.style.display = "none";
-        }
-      });
-    }
+    // Menú (☰ arriba a la derecha): se filtra igual para todos los roles,
+    // incluido Staff — ya no hace falta que vea todo lo de residentes y
+    // colegiales ahí (sigue viendo lo suyo propio, más lo que tenga
+    // explícitamente marcado como "...,staff", como Ficha de residente
+    // o Ficha de colegial).
+    document.querySelectorAll(".main-nav li[data-roles]").forEach(function (item) {
+      var roles = item.getAttribute("data-roles").split(",");
+      if (roles.indexOf(rolActual) === -1) {
+        item.style.display = "none";
+      }
+    });
 
     // Contenido dentro de una página (por ejemplo, secciones de Bienvenida):
     // igual que la portada, se filtra para todos los roles según data-roles.
