@@ -972,6 +972,54 @@ footer.site-footer a {
   color: var(--verde-claro);
 }
 
+.footer-redes {
+  margin-top: 2.5rem;
+  padding: 1.75rem 1.25rem 0.5rem;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-redes a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--azul);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.footer-redes a:hover {
+  text-decoration: none;
+  color: var(--verde);
+}
+
+.footer-redes .icono-circulo {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--azul);
+  color: var(--blanco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.footer-redes .icono-circulo svg {
+  width: 26px;
+  height: 26px;
+}
+
+.footer-redes a:hover .icono-circulo {
+  background: var(--verde);
+  transform: translateY(-2px);
+}
+
 /* ---------- Utilidades ---------- */
 
 .texto-suave {
