@@ -503,6 +503,31 @@ main {
   color: var(--blanco);
 }
 
+/* Botones de color propio, para enlaces que conviene distinguir del resto */
+.grid-inicio .tarjeta.pesaje {
+  background: var(--verde);
+}
+
+.grid-inicio .tarjeta.pesaje:hover {
+  background: #14603c;
+}
+
+.grid-inicio .tarjeta.pesaje:hover h3 {
+  color: var(--blanco);
+}
+
+.grid-inicio .tarjeta.comidas {
+  background: #73282c;
+}
+
+.grid-inicio .tarjeta.comidas:hover {
+  background: #591f22;
+}
+
+.grid-inicio .tarjeta.comidas:hover h3 {
+  color: var(--blanco);
+}
+
 body.pagina-inicio main {
   padding: 1.25rem 0 2rem;
 }
