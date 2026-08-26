@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calendario · CMP 26-27</title>
+<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="img/icon-apple-touch.png">
+<meta name="theme-color" content="#12233d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/auth.js"></script>
+<script>CMP_AUTH.requerirRol(['colegial']);</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-bar">
+    <a class="brand" href="index.html">
+      <img class="logo-icon" src="img/logo-icon-white.png" alt="Colegio Mayor Peñafiel">
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+
+        <li data-roles="staff" class="submenu">
+          <button type="button" class="submenu-toggle">Gente</button>
+          <ul class="submenu-lista">
+            <li><a href="gente.html">Casa</a></li>
+            <li><a href="directores.html">Directores</a></li>
+            <li><a href="residentes.html">Residentes</a></li>
+            <li><a href="colegiales.html">Colegiales</a></li>
+          </ul>
+        </li>
+        <li data-roles="staff" class="submenu">
+          <button type="button" class="submenu-toggle">Cosas prácticas</button>
+          <ul class="submenu-lista">
+            <li><a href="misas.html">Misas</a></li>
+            <li><a href="https://arreglos-cmp.glide.page/" target="_blank" rel="noopener" onclick="return CMP_AUTH.permitirEnlace(event, ['residente','colegial'], this.href)">Ficha de arreglos ↗</a></li>
+            <li><a href="encargos-sm.html">Encargos sm</a></li>
+            <li><a href="turnos.html">Turnos</a></li>
+            <li><a href="horario-sm.html">Horario sm</a></li>
+            <li><a href="retiro-mensual.html">Retiro mensual</a></li>
+            <li><a href="datos-interes.html">Cosas de interés</a></li>
+            <li><a href="material-interes.html">Material formativo</a></li>
+            <li><a href="https://gonzalojab.github.io/pesaje/" target="_blank" rel="noopener">Pesaje ↗</a></li>
+          </ul>
+        </li>
+        <li data-roles="staff"><a href="contemplativos.html">#contemplativos</a></li>
+        <li data-roles="staff"><a href="calendario-staff.html">Calendario staff</a></li>
+        <li data-roles="residente,colegial,staff"><a href="bienvenida.html">Bienvenida</a></li>
+        <li data-roles="residente,staff"><a href="https://compositor.org/comidas/penafiel.php" target="_blank" rel="noopener" onclick="return CMP_AUTH.permitirEnlace(event, ['residente','staff'], this.href)">Comidas ↗</a></li>
+        <li data-roles="residente"><a href="habitaciones.html">Habitaciones</a></li>
+        <li data-roles="residente"><a href="encargos.html">Encargos</a></li>
+        <li data-roles="residente"><a href="comisiones.html">Comisiones</a></li>
+        <li data-roles="residente"><a href="horarios.html">Horarios</a></li>
+        <li data-roles="residente"><a href="calendario.html">Calendario</a></li>
+        <li data-roles="colegial"><a href="calendario-colegial.html">Calendario</a></li>
+        <li data-roles="residente"><a href="reglamento.html">Reglamento</a></li>
+        <li data-roles="residente"><a href="tutores.html">Tutores</a></li>
+        <li data-roles="residente"><a href="ficha.html">Ficha de residente</a></li>
+        <li data-roles="colegial"><a href="ficha-colegial.html">Ficha de colegial</a></li>
+      </ul>
+    </nav>
+    <div id="auth-widget" class="auth-widget"></div>
+  </div>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Inicio</a> / Calendario</div>
+    <h1>Calendario</h1>
+  </div>
+</div>
+
+<main>
+  <div class="container">
+
+    <!-- EDITAR AQUÍ: añade, quita o corrige eventos (bloque .mes-bloque por mes, <li> por evento) -->
+    <div class="seccion">
+      <div class="grid-calendario">
+    <div class="mes-bloque">
+      <div class="cabecera-mes">Septiembre</div>
+      <ul>
+        <li><span class="evento-dia">J 3</span><span class="evento-texto">Adoración al Santísimo</span></li>
+        <li><span class="evento-dia">D 6</span><span class="evento-texto">Cumpleaños de Antón Sagarra Gervas</span></li>
+        <li><span class="evento-dia">D 6</span><span class="evento-texto">Cumpleaños de Juan Vidal</span></li>
+        <li class="evento-destacado"><span class="evento-dia">M 8</span><span class="evento-texto">Aldebarán</span></li>
+        <li><span class="evento-dia">S 12</span><span class="evento-texto">Hamburguesada</span></li>
+        <li><span class="evento-dia">J 17</span><span class="evento-texto">Retiro mensual</span></li>
+        <li class="evento-grupo"><span class="evento-dia">V 18–D 20</span><span class="evento-texto">Convivencia (Santander)</span></li>
+        <li><span class="evento-dia">M 22</span><span class="evento-texto">Sesión formativa 1</span></li>
+        <li><span class="evento-dia">J 24</span><span class="evento-texto">Encuentro con el Obispo</span></li>
+        <li><span class="evento-dia">S 26</span><span class="evento-texto">Charla de Pep Borrell (19h)</span></li>
+      </ul>
+    </div>
+
+    <div class="mes-bloque">
+      <div class="cabecera-mes">Octubre</div>
+      <ul>
+        <li><span class="evento-dia">J 1</span><span class="evento-texto">Adoración al Santísimo</span></li>
+        <li class="evento-destacado"><span class="evento-dia">J 8</span><span class="evento-texto">Acto de apertura</span></li>
+        <li><span class="evento-dia">V 9</span><span class="evento-texto">Cumpleaños de Andrés Sagarra Gervas</span></li>
+        <li><span class="evento-dia">M 13</span><span class="evento-texto">Sesión formativa 2</span></li>
+        <li class="evento-grupo"><span class="evento-dia">V 16–D 18</span><span class="evento-texto">Curso de retiro (Llendón)</span></li>
+        <li><span class="evento-dia">V 23</span><span class="evento-texto">CMP talent</span></li>
+        <li><span class="evento-dia">L 26</span><span class="evento-texto">Cumpleaños de Hugo</span></li>
+        <li><span class="evento-dia">J 29</span><span class="evento-texto">Cumpleaños de Gonzalo</span></li>
+      </ul>
+    </div>
+
+    <div class="mes-bloque">
+      <div class="cabecera-mes">Noviembre</div>
+      <ul>
+        <li><span class="evento-dia">J 5</span><span class="evento-texto">Adoración al Santísimo</span></li>
+        <li><span class="evento-dia">V 13</span><span class="evento-texto">Fiesta karaoke</span></li>
+        <li><span class="evento-dia">V 13</span><span class="evento-texto">Cumpleaños de Jaime</span></li>
+        <li><span class="evento-dia">L 16</span><span class="evento-texto">Concierto</span></li>
+        <li><span class="evento-dia">M 17</span><span class="evento-texto">Sesión formativa 3</span></li>
+        <li><span class="evento-dia">J 19</span><span class="evento-texto">Retiro mensual</span></li>
+        <li><span class="evento-dia">J 19</span><span class="evento-texto">Cumpleaños de Fosco Vaquero</span></li>
+        <li><span class="evento-dia">S 21</span><span class="evento-texto">Fase local UNIV</span></li>
+      </ul>
+    </div>
+
+    <div class="mes-bloque">
+      <div class="cabecera-mes">Diciembre</div>
+      <ul>
+        <li><span class="evento-dia">J 3</span><span class="evento-texto">Adoración al Santísimo</span></li>
+        <li class="evento-grupo"><span class="evento-dia">V 4–M 8</span><span class="evento-texto">Curso de retiro (Llendón)</span></li>
+        <li><span class="evento-dia">X 9</span><span class="evento-texto">Sesión formativa 4</span></li>
+        <li class="evento-destacado"><span class="evento-dia">V 11</span><span class="evento-texto">Cena de Navidad</span></li>
+        <li><span class="evento-dia">J 17</span><span class="evento-texto">Retiro mensual</span></li>
+        <li><span class="evento-dia">S 19</span><span class="evento-texto">Cumpleaños de Cosme Alberdi</span></li>
+      </ul>
+    </div>
+
+    <div class="mes-bloque">
+      <div class="cabecera-mes">Enero</div>
+      <ul>
+        <li><span class="evento-dia">X 13</span><span class="evento-texto">Cumpleaños de D Alberto</span></li>
+        <li><span class="evento-dia">J 21</span><span class="evento-texto">Retiro mensual</span></li>
+      </ul>
+    </div>
+
+    <div class="mes-bloque">
+      <div class="cabecera-mes">Febrero</div>
+      <ul>
+        <li><span class="evento-dia">M 2</span><span class="evento-texto">Cumpleaños de Alex Vidal</span></li>
+        <li><span class="evento-dia">J 4</span><span class="evento-texto">Adoración al Santísimo</span></li>
+        <li><span class="evento-dia">V 5</span><span class="evento-texto">Fiesta de carnaval</span></li>
+        <li><span class="evento-dia">X 10</span><span class="evento-texto">Miércoles de ceniza</span></li>
+        <li><span class="evento-dia">M 16</span><span class="evento-texto">Sesión formativa 5</span></li>
+        <li><span class="evento-dia">X 24</span><span class="evento-texto">Curso de sutura</span></li>
+        <li><span class="evento-dia">J 25</span><span class="evento-texto">Retiro mensual</span></li>
+      </ul>
+    </div>
+
+    <div class="mes-bloque">
+      <div class="cabecera-mes">Marzo</div>
+      <ul>
+        <li><span class="evento-dia">J 4</span><span class="evento-texto">Adoración al Santísimo</span></li>
+        <li><span class="evento-dia">J 11</span><span class="evento-texto">Retiro mensual</span></li>
+        <li><span class="evento-dia">M 16</span><span class="evento-texto">Sesión formativa 6</span></li>
+        <li class="evento-grupo"><span class="evento-dia">S 20–D 28</span><span class="evento-texto">UNIV</span></li>
+        <li><span class="evento-dia">L 22</span><span class="evento-texto">Cumpleaños de Michel</span></li>
+      </ul>
+    </div>
+
+    <div class="mes-bloque">
+      <div class="cabecera-mes">Abril</div>
+      <ul>
+        <li><span class="evento-dia">J 1</span><span class="evento-texto">Adoración al Santísimo</span></li>
+        <li><span class="evento-dia">M 6</span><span class="evento-texto">Cumpleaños de Alberto</span></li>
+        <li><span class="evento-dia">M 13</span><span class="evento-texto">Sesión formativa 7</span></li>
+        <li><span class="evento-dia">J 15</span><span class="evento-texto">Retiro mensual</span></li>
+      </ul>
+    </div>
+
+    <div class="mes-bloque">
+      <div class="cabecera-mes">Mayo</div>
+      <ul>
+        <li><span class="evento-dia">J 6</span><span class="evento-texto">Adoración al Santísimo</span></li>
+        <li><span class="evento-dia">J 13</span><span class="evento-texto">Barbacoa Aldebarán</span></li>
+        <li><span class="evento-dia">J 13</span><span class="evento-texto">Cumpleaños de Jorge</span></li>
+        <li><span class="evento-dia">M 18</span><span class="evento-texto">Sesión formativa 8</span></li>
+        <li><span class="evento-dia">V 28</span><span class="evento-texto">Cumpleaños de Domingo Vega Casero</span></li>
+      </ul>
+    </div>
+
+    <div class="mes-bloque">
+      <div class="cabecera-mes">Junio</div>
+      <ul>
+        <li><span class="evento-dia">J 3</span><span class="evento-texto">Adoración al Santísimo</span></li>
+        <li><span class="evento-dia">V 11</span><span class="evento-texto">Cumpleaños de Luis Ávila</span></li>
+      </ul>
+    </div>
+
+    <div class="mes-bloque">
+      <div class="cabecera-mes">Julio</div>
+      <ul>
+        <li><span class="evento-dia">D 4</span><span class="evento-texto">Cumpleaños de Ignacio Sagarra Martín</span></li>
+        <li class="evento-grupo"><span class="evento-dia">V 10–S 18</span><span class="evento-texto">Valdelugueros</span></li>
+        <li><span class="evento-dia">J 22</span><span class="evento-texto">Cumpleaños de Gonzalo Piquero</span></li>
+        <li><span class="evento-dia">D 25</span><span class="evento-texto">JUP</span></li>
+      </ul>
+    </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script src="js/main.js"></script>
+<script src="js/oculta-pasado.js"></script>
+</body>
+</html>
