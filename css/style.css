@@ -503,13 +503,20 @@ main {
   color: var(--blanco);
 }
 
-/* Botones de color propio, para enlaces que conviene distinguir del resto */
+/* Botones de color propio, para enlaces que conviene distinguir del resto.
+   El verde usado aquí es siempre --verde-claro, el mismo que el de los
+   botones "grupo" (Gente, Cosas prácticas), para que solo haya un verde
+   en toda la web. */
 .grid-inicio .tarjeta.pesaje {
-  background: var(--verde);
+  background: var(--verde-claro);
+}
+
+.grid-inicio .tarjeta.pesaje h3 {
+  color: var(--azul);
 }
 
 .grid-inicio .tarjeta.pesaje:hover {
-  background: #14603c;
+  background: var(--azul);
 }
 
 .grid-inicio .tarjeta.pesaje:hover h3 {
@@ -1041,7 +1048,8 @@ footer.site-footer a {
 }
 
 .footer-redes a:hover .icono-circulo {
-  background: var(--verde);
+  background: var(--verde-claro);
+  color: var(--azul);
   transform: translateY(-2px);
 }
 
