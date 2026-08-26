@@ -610,6 +610,14 @@ table {
   white-space: nowrap;
 }
 
+/* Filas de "los de casa" dentro de una tabla de residentes/colegiales:
+   mismo verde que el resto de la web, para que se distingan a simple
+   vista de las filas de residentes/colegiales. */
+.fila-staff td {
+  color: var(--verde);
+  font-weight: 600;
+}
+
 table caption {
   text-align: left;
   padding: 0.75rem 1rem 0;
