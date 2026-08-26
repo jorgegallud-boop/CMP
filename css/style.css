@@ -507,19 +507,23 @@ main {
    El verde usado aquí es siempre --verde-claro, el mismo que el de los
    botones "grupo" (Gente, Cosas prácticas), para que solo haya un verde
    en toda la web. */
-.grid-inicio .tarjeta.pesaje {
+.grid-inicio .tarjeta.pesaje,
+.grid-inicio .tarjeta.arreglos {
   background: var(--verde-claro);
 }
 
-.grid-inicio .tarjeta.pesaje h3 {
+.grid-inicio .tarjeta.pesaje h3,
+.grid-inicio .tarjeta.arreglos h3 {
   color: var(--azul);
 }
 
-.grid-inicio .tarjeta.pesaje:hover {
+.grid-inicio .tarjeta.pesaje:hover,
+.grid-inicio .tarjeta.arreglos:hover {
   background: var(--azul);
 }
 
-.grid-inicio .tarjeta.pesaje:hover h3 {
+.grid-inicio .tarjeta.pesaje:hover h3,
+.grid-inicio .tarjeta.arreglos:hover h3 {
   color: var(--blanco);
 }
 
@@ -536,7 +540,7 @@ main {
 }
 
 body.pagina-inicio main {
-  padding: 1.25rem 0 2rem;
+  padding: 1.25rem 0 5rem;
 }
 
 body.pagina-inicio .seccion {
@@ -1005,11 +1009,18 @@ footer.site-footer a {
 }
 
 /* Barra de iconos al pie, como una cabecera pero abajo: mismo fondo azul
-   a todo lo ancho, solo con los iconos (sin texto) en verde. */
+   a todo lo ancho, solo con los iconos (sin texto) en verde. Anclada al
+   borde inferior de la pantalla (no hay scroll en esta vista), sea cual
+   sea la altura de las tarjetas. */
 footer.site-footer-iconos {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 50;
   background: var(--azul);
   border-top: 1px solid var(--blanco);
-  margin-top: 2.5rem;
 }
 
 .footer-iconos-bar {
