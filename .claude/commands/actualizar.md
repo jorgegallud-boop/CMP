@@ -52,6 +52,8 @@ inspeccionar cabeceras y pestañas antes de leer nada.
      de residentes/colegiales (columna rs/c, jueves) también se llama igual, se
      distinguen por el día y por la franja evento-staff
    - "Lista sJ" = Lista de San José
+   - "Xmas" (columna "sm", mediados de diciembre) = Formar Christmas, no "Fiesta de
+     Navidad"
    - Nota: la estructura de esta pestaña ha cambiado ya varias veces entre
      sesiones (antes tenía además una columna "mf" que se eliminó) — confirma
      las columnas actuales antes de asumir que siguen siendo estas tres.
