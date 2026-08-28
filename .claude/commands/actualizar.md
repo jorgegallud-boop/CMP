@@ -68,23 +68,31 @@ inspeccionar cabeceras y pestañas antes de leer nada.
 5. **Habitaciones**: actualiza habitaciones.html con los datos de la pestaña
    correspondiente
 
-6. **Círculos** (pestaña "csr" — columnas A/B mes/día del curso actual; columna
-   "mf" con "csr" en los martes que tienen círculo (además de "Vela"/"rtm"
-   [= retiro mensual]/"the mark" [sin número, el nombre de la sesión va en
-   "tema"]); columna "tema" con el tema de ese círculo (o de esa sesión "the
-   mark"), y entre paréntesis el número de guión cuando lo haya; columna
-   "ponente" (F) solo se usa para las filas "rtm", con el nombre de quien da
-   ese retiro ese mes):
-   - circulos.html (botón "Círculos" dentro del hub "Cosas prácticas" y en su
-     submenú del menú principal — solo para staff): tabla Fecha/Tema/Ponente
+6. **Círculos** (pestaña "csr" — columnas A/B/C mes/día/letra del curso
+   actual; columna "mf" con "csr" en los martes que tienen círculo (además
+   de "rtm" [= retiro mensual] y "the mark" [sin número, el nombre de la
+   sesión va en "tema"] — la pestaña ya no tiene filas "Vela", se borraron);
+   columna "tema" con el tema de ese círculo (o de esa sesión "the mark" o
+   ese retiro), y entre paréntesis el número de guión cuando lo haya;
+   columna "ponente" (F) solo se usa para las filas "rtm", con el nombre de
+   quien da ese retiro ese mes):
+   - circulos.html (botón "Círculos" dentro del hub "Cosas prácticas" y en
+     su submenú del menú principal — solo para staff): NO es una tabla,
+     usa el mismo patrón visual que los calendarios (`.grid-calendario` >
+     `.mes-bloque` con `.cabecera-mes` + `<ul><li>`), un bloque por mes con
+     un `<li>` por fila de la pestaña, en el mismo orden. La fecha va como
+     `<span class="evento-dia">` con el formato "letra + número de día"
+     (p. ej. "M 17", "X 9" — la letra sale directamente de la columna C,
+     no la recalcules), y el tema como `<span class="evento-texto">`.
    - Compara fecha a fecha contra la web; si hay temas nuevos, reasignados o
      quitados en la pestaña, actualízalos en circulos.html
    - Si faltan temas para algún martes, dilo como "pendiente de asignar"
      (no lo dejes en blanco sin más)
-   - Las filas "rtm" de la pestaña también van en esta tabla, intercaladas
-     por fecha, con "Retiro mensual" como tema y el nombre de la columna
-     "ponente" en la tercera columna; las filas "Vela" y "the mark" no se
-     incluyen (no son círculos ni retiros)
+   - Las filas "rtm" llevan la clase `evento-destacado` en el `<li>` (para
+     que resalten en verde, distinto del resto) y el texto va como "Retiro
+     mensual (tema, ponente)" — tema y ponente entre paréntesis.
+   - Las filas "the mark" se incluyen también (sin clase especial), con el
+     texto prefijado "The Mark: " + el tema de esa sesión.
    - **Comprobación cruzada con la pestaña "calendar" (obligatoria en cada
      `/actualizar`):**
      - Cada fecha con "the mark" en "csr"!mf debe tener también "the mark N"
