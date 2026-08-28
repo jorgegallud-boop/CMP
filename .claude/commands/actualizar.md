@@ -70,15 +70,19 @@ inspeccionar cabeceras y pestañas antes de leer nada.
 
 6. **Círculos** (pestaña "csr" — columnas A/B mes/día del curso actual; columna
    "mf" con "csr" en los martes que tienen círculo (además de Vela/Retiro
-   mensual/the mark N, que no son círculos); columna "tema" con el tema de ese
-   círculo, y entre paréntesis el número de guión; columnas F-I a la derecha son
-   el plan de temas del curso anterior, de referencia, no se vuelcan tal cual):
+   mensual/the mark N); columna "tema" con el tema de ese círculo, y entre
+   paréntesis el número de guión; columna "ponente" (F) solo se usa para las
+   filas de "Retiro mensual", con el nombre de quien lo da ese mes):
    - circulos.html (botón "Círculos" dentro del hub "Cosas prácticas" y en su
-     submenú del menú principal — solo para staff)
+     submenú del menú principal — solo para staff): tabla Fecha/Tema/Ponente
    - Compara fecha a fecha contra la web; si hay temas nuevos, reasignados o
      quitados en la pestaña, actualízalos en circulos.html
    - Si faltan temas para algún martes, dilo como "pendiente de asignar"
      (no lo dejes en blanco sin más)
+   - Las filas "Retiro mensual" de la pestaña también van en esta tabla,
+     intercaladas por fecha, con "Retiro mensual" como tema y el nombre de la
+     columna "ponente" en la tercera columna; las filas "Vela" y "the mark N"
+     no se incluyen (no son círculos ni retiros)
 
 ## Reglas generales
 
