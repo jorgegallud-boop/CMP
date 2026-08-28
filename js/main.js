@@ -73,6 +73,15 @@ document.addEventListener("DOMContentLoaded", function () {
         seccion.style.display = "none";
       }
     });
+
+    // Filas de tabla (por ejemplo, las de "los de casa"/staff en
+    // residentes.html): igual que arriba, pero fila a fila.
+    document.querySelectorAll("tr[data-roles]").forEach(function (fila) {
+      var roles = fila.getAttribute("data-roles").split(",");
+      if (roles.indexOf(rolActual) === -1) {
+        fila.style.display = "none";
+      }
+    });
   }
 
   // Portada: el botón de Bienvenida solo tiene sentido antes de empezar el
