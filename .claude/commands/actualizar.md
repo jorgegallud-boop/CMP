@@ -98,6 +98,17 @@ inspeccionar cabeceras y pestañas antes de leer nada.
        "mf" de esa fila en "csr" y avisa al usuario.
      - Si todo cuadra, no marques nada en rojo (y si alguna celda estaba en
        rojo de una comprobación anterior y ahora ya cuadra, quítale el color).
+   - **Colores de fila por tipo (formato condicional, no relleno manual):**
+     la pestaña "csr" tiene 3 reglas de formato condicional (Formato >
+     Formato condicional) sobre el intervalo A2:F1063 (ampliar el intervalo
+     si la hoja crece por encima de la fila 1063 — usa "Añade N filas más al
+     final" para ampliar la hoja antes de poder ampliar el intervalo), cada
+     una con fórmula personalizada sobre la columna D y un color pastel
+     distinto: `=$D2="the mark"` → amarillo pastel, `=$D2="rtm"` → verde
+     pastel, `=$D2="Vela"` → azul pastel. Las filas "csr" (círculo normal)
+     quedan sin colorear. No las sustituyas por relleno manual de celda: si
+     hace falta añadir un tipo de fila nuevo, añade otra regla de formato
+     condicional con un color pastel distinto a los ya usados.
 
 ## Reglas generales
 
