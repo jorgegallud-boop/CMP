@@ -615,7 +615,6 @@ table {
    vista de las filas de residentes/colegiales. */
 .fila-staff td {
   color: var(--verde);
-  font-weight: 600;
 }
 
 table caption {
