@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Círculos · CMP 26-27</title>
+<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="img/icon-apple-touch.png">
+<meta name="theme-color" content="#12233d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/auth.js"></script>
+<script>CMP_AUTH.requerirRol([]);</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-bar">
+    <a class="brand" href="index.html">
+      <img class="logo-icon" src="img/logo-icon-white.png" alt="Colegio Mayor Peñafiel">
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+
+        <li data-roles="staff" class="submenu">
+          <button type="button" class="submenu-toggle">Gente</button>
+          <ul class="submenu-lista">
+            <li><a href="gente.html">Casa</a></li>
+            <li><a href="directores.html">Directores</a></li>
+            <li><a href="residentes.html">Residentes</a></li>
+            <li><a href="colegiales.html">Colegiales</a></li>
+          </ul>
+        </li>
+        <li data-roles="staff" class="submenu">
+          <button type="button" class="submenu-toggle">Cosas prácticas</button>
+          <ul class="submenu-lista">
+            <li><a href="misas.html">Misas</a></li>
+            <li><a href="https://arreglos-cmp.glide.page/" target="_blank" rel="noopener" onclick="return CMP_AUTH.permitirEnlace(event, ['residente','colegial'], this.href)">Ficha de arreglos ↗</a></li>
+            <li><a href="encargos-sm.html">Encargos sm</a></li>
+            <li><a href="turnos.html">Turnos</a></li>
+            <li><a href="horario-sm.html">Horario sm</a></li>
+            <li><a href="circulos.html">Círculos</a></li>
+            <li><a href="retiro-mensual.html">Retiro mensual</a></li>
+            <li><a href="datos-interes.html">Cosas de interés</a></li>
+            <li><a href="material-interes.html">Material formativo</a></li>
+            <li><a href="https://gonzalojab.github.io/pesaje/" target="_blank" rel="noopener">Pesaje ↗</a></li>
+          </ul>
+        </li>
+        <li data-roles="staff"><a href="contemplativos.html">#contemplativos</a></li>
+        <li data-roles="staff"><a href="calendario-staff.html">Calendario</a></li>
+        <li data-roles="residente,colegial,staff"><a href="bienvenida.html">Bienvenida</a></li>
+        <li data-roles="residente,staff"><a href="https://compositor.org/comidas/penafiel.php" target="_blank" rel="noopener" onclick="return CMP_AUTH.permitirEnlace(event, ['residente','staff'], this.href)">Comidas ↗</a></li>
+        <li data-roles="residente"><a href="habitaciones.html">Habitaciones</a></li>
+        <li data-roles="residente"><a href="encargos.html">Encargos</a></li>
+        <li data-roles="residente"><a href="comisiones.html">Comisiones</a></li>
+        <li data-roles="residente"><a href="horarios.html">Horarios</a></li>
+        <li data-roles="residente"><a href="calendario.html">Calendario</a></li>
+        <li data-roles="colegial"><a href="calendario-colegial.html">Calendario</a></li>
+        <li data-roles="residente"><a href="reglamento.html">Reglamento</a></li>
+        <li data-roles="residente"><a href="tutores.html">Tutores</a></li>
+        <li data-roles="residente"><a href="ficha.html">Ficha de residente</a></li>
+        <li data-roles="colegial"><a href="ficha-colegial.html">Ficha de colegial</a></li>
+      </ul>
+    </nav>
+    <div id="auth-widget" class="auth-widget"></div>
+  </div>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Inicio</a> / Círculos</div>
+    <h1>Círculos</h1>
+  </div>
+</div>
+
+<main>
+  <div class="container">
+
+    <!-- EDITAR AQUÍ: añade o quita filas <tr> según el calendario de círculos real (pestaña "csr" del Excel) -->
+    <div class="seccion">
+      <p class="texto-suave" style="margin-top:0;">Los círculos son los martes. Entre paréntesis, el número de guión correspondiente.</p>
+      <div class="tabla-wrap">
+        <table>
+          <thead>
+            <tr><th>Fecha</th><th>Tema</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1 de septiembre</td><td>el plan de vida</td></tr>
+            <tr><td>8 de septiembre</td><td>prioridades de este año / lucha por ser santos con alegría (deportividad en la lucha) (3)</td></tr>
+            <tr><td>15 de septiembre</td><td>dirección espiritual (41)</td></tr>
+            <tr><td>29 de septiembre</td><td>Eucaristía. Santa Misa, centro y raiz. (11 y 43)</td></tr>
+            <tr><td>6 de octubre</td><td>devoción mariana. rezo del rosario.</td></tr>
+            <tr><td>20 de octubre</td><td>Oración (53)</td></tr>
+            <tr><td>27 de octubre</td><td>actos de contrición. examen de conciencia en Positivo</td></tr>
+            <tr><td>3 de noviembre</td><td>estudio y aprovechamiento del tiempo (14 y 31)</td></tr>
+            <tr><td>10 de noviembre</td><td>humildad y sinceridad (26)</td></tr>
+            <tr><td>24 de noviembre</td><td>Santa pureza (29 y 30)</td></tr>
+            <tr><td>1 de diciembre</td><td>mortificación</td></tr>
+            <tr><td>8 de diciembre</td><td>cómo vivir tu Novena de la Inmaculada</td></tr>
+            <tr><td>15 de diciembre</td><td>ejercitar la libertad</td></tr>
+            <tr><td>22 de diciembre</td><td>para fortalecer la voluntad (23)</td></tr>
+            <tr><td>29 de diciembre</td><td>Navidad: amor de Dios que se entrega (5)</td></tr>
+            <tr><td>5 de enero</td><td>amistad, darse (25)</td></tr>
+            <tr><td>12 de enero</td><td>presencia de Dios (42)</td></tr>
+            <tr><td>19 de enero</td><td>un corazón libre para amar. Pobreza (22)</td></tr>
+            <tr><td>26 de enero</td><td>La belleza del compromiso de sr. Carta 7 (nn. 3-4; 56-58) — <a href="https://opusdei.org/es/article/el-circulo-empieza-cuando-acaba-como-aprovechar-mejor-el-circulo/" target="_blank" rel="noopener">artículo relacionado ↗</a></td></tr>
+            <tr><td>2 de febrero</td><td>p. 382 Camino, que busques a Cristo, que encuentres... // Trato con la Humanidad Santísima (Hacia la santidad: Amigos de Dios 298-305)</td></tr>
+            <tr><td>9 de febrero</td><td>Aprovechamiento del tiempo (31)</td></tr>
+            <tr><td>23 de febrero</td><td>oración de cuaresma (39 y 40)</td></tr>
+            <tr><td>2 de marzo</td><td>confesión, dejarse perdonar (44)</td></tr>
+            <tr><td>9 de marzo</td><td>Preparación para Semana Santa (7)</td></tr>
+            <tr><td>23 de marzo</td><td>Mandatum novum. Caridad (37)</td></tr>
+            <tr><td>30 de marzo</td><td>Apostolado. Consecuencia de la alegría de la pascua (9)</td></tr>
+            <tr><td>6 de abril</td><td>Deseo de Dios y confianza en su ayuda. Esperanza (36)</td></tr>
+            <tr><td>20 de abril</td><td>mes de mayo, trato con la Virgen (19)</td></tr>
+            <tr><td>27 de abril</td><td>el trato con el Espíritu Santo (10)</td></tr>
+            <tr><td>4 de mayo</td><td>vocación (51)</td></tr>
+            <tr><td>11 de mayo</td><td>Unidad de vida. Amor de Dios. Optimismo. Con el Papa (Carta nº 3, del 14 al 20)</td></tr>
+            <tr><td>25 de mayo</td><td>san Josemaría, devoción</td></tr>
+            <tr><td>1 de junio</td><td>el cristiano crece acompañado (12)</td></tr>
+            <tr><td>8 de junio</td><td>magnanimidad. Aspirar a cosas grandes (33)</td></tr>
+            <tr><td>15 de junio</td><td>ser cristiano en verano. ser de sr en verano.</td></tr>
+            <tr><td>22 de junio</td><td><em>pendiente de asignar</em></td></tr>
+            <tr><td>29 de junio</td><td><em>pendiente de asignar</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script src="js/main.js"></script>
+</body>
+</html>
