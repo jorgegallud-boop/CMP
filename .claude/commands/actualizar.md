@@ -1,5 +1,5 @@
 ---
-description: Sincroniza la web CMP 26-27 con el Excel "26-27" (residentes, colegiales, staff, calendarios, encargos, comisiones, tutores, habitaciones)
+description: Sincroniza la web CMP 26-27 con el Excel "26-27" (residentes, colegiales, staff, calendarios, encargos, comisiones, tutores, habitaciones, círculos)
 ---
 
 # /actualizar — sincronizar la web con el Excel "26-27"
@@ -67,6 +67,18 @@ inspeccionar cabeceras y pestañas antes de leer nada.
 
 5. **Habitaciones**: actualiza habitaciones.html con los datos de la pestaña
    correspondiente
+
+6. **Círculos** (pestaña "csr" — columnas A/B mes/día del curso actual; columna
+   "mf" con "csr" en los martes que tienen círculo (además de Vela/Retiro
+   mensual/the mark N, que no son círculos); columna "tema" con el tema de ese
+   círculo, y entre paréntesis el número de guión; columnas F-I a la derecha son
+   el plan de temas del curso anterior, de referencia, no se vuelcan tal cual):
+   - circulos.html (botón "Círculos" dentro del hub "Cosas prácticas" y en su
+     submenú del menú principal — solo para staff)
+   - Compara fecha a fecha contra la web; si hay temas nuevos, reasignados o
+     quitados en la pestaña, actualízalos en circulos.html
+   - Si faltan temas para algún martes, dilo como "pendiente de asignar"
+     (no lo dejes en blanco sin más)
 
 ## Reglas generales
 
