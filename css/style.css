@@ -837,6 +837,14 @@ tbody tr:hover td {
   padding-left: calc(1.1rem - 3px);
 }
 
+/* Sesión de "the mark" (circulos.html): franja lila para distinguirla
+   de los círculos normales y de los retiros mensuales (evento-destacado). */
+.mes-bloque li.evento-mark {
+  background: #f3e8ff;
+  border-left: 3px solid #9333ea;
+  padding-left: calc(1.1rem - 3px);
+}
+
 /* ---------- Formularios ---------- */
 
 .formulario {

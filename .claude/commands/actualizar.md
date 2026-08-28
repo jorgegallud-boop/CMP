@@ -91,8 +91,9 @@ inspeccionar cabeceras y pestañas antes de leer nada.
    - Las filas "rtm" llevan la clase `evento-destacado` en el `<li>` (para
      que resalten en verde, distinto del resto) y el texto va como "Retiro
      mensual (tema, ponente)" — tema y ponente entre paréntesis.
-   - Las filas "the mark" se incluyen también (sin clase especial), con el
-     texto prefijado "The Mark: " + el tema de esa sesión.
+   - Las filas "the mark" se incluyen también, con la clase `evento-mark`
+     en el `<li>` (franja lila, distinta del verde de evento-destacado) y
+     el texto prefijado "The Mark: " + el tema de esa sesión.
    - **Comprobación cruzada con la pestaña "calendar" (obligatoria en cada
      `/actualizar`):**
      - Cada fecha con "the mark" en "csr"!mf debe tener también "the mark N"
