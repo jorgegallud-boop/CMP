@@ -69,20 +69,35 @@ inspeccionar cabeceras y pestañas antes de leer nada.
    correspondiente
 
 6. **Círculos** (pestaña "csr" — columnas A/B mes/día del curso actual; columna
-   "mf" con "csr" en los martes que tienen círculo (además de Vela/Retiro
-   mensual/the mark N); columna "tema" con el tema de ese círculo, y entre
-   paréntesis el número de guión; columna "ponente" (F) solo se usa para las
-   filas de "Retiro mensual", con el nombre de quien lo da ese mes):
+   "mf" con "csr" en los martes que tienen círculo (además de "Vela"/"rtm"
+   [= retiro mensual]/"the mark" [sin número, el nombre de la sesión va en
+   "tema"]); columna "tema" con el tema de ese círculo (o de esa sesión "the
+   mark"), y entre paréntesis el número de guión cuando lo haya; columna
+   "ponente" (F) solo se usa para las filas "rtm", con el nombre de quien da
+   ese retiro ese mes):
    - circulos.html (botón "Círculos" dentro del hub "Cosas prácticas" y en su
      submenú del menú principal — solo para staff): tabla Fecha/Tema/Ponente
    - Compara fecha a fecha contra la web; si hay temas nuevos, reasignados o
      quitados en la pestaña, actualízalos en circulos.html
    - Si faltan temas para algún martes, dilo como "pendiente de asignar"
      (no lo dejes en blanco sin más)
-   - Las filas "Retiro mensual" de la pestaña también van en esta tabla,
-     intercaladas por fecha, con "Retiro mensual" como tema y el nombre de la
-     columna "ponente" en la tercera columna; las filas "Vela" y "the mark N"
-     no se incluyen (no son círculos ni retiros)
+   - Las filas "rtm" de la pestaña también van en esta tabla, intercaladas
+     por fecha, con "Retiro mensual" como tema y el nombre de la columna
+     "ponente" en la tercera columna; las filas "Vela" y "the mark" no se
+     incluyen (no son círculos ni retiros)
+   - **Comprobación cruzada con la pestaña "calendar" (obligatoria en cada
+     `/actualizar`):**
+     - Cada fecha con "the mark" en "csr"!mf debe tener también "the mark N"
+       en "calendar"!rs (columna F) ese mismo día, y viceversa (toda "the
+       mark N" de "calendar"!rs debe tener su fila "the mark" en "csr"!mf ese
+       día). Si una fecha no cuadra en ambos sitios, pon en rojo (color de
+       relleno) la celda de "mf" de esa fila en "csr" y avisa al usuario.
+     - Cada fecha con "rtm" en "csr"!mf debe tener también "Retiro mensual"
+       en "calendar"!c (columna G) ese mismo día, y viceversa. Si una fecha
+       no cuadra en ambos sitios, pon en rojo (color de relleno) la celda de
+       "mf" de esa fila en "csr" y avisa al usuario.
+     - Si todo cuadra, no marques nada en rojo (y si alguna celda estaba en
+       rojo de una comprobación anterior y ahora ya cuadra, quítale el color).
 
 ## Reglas generales
 
