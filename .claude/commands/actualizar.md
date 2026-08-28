@@ -84,6 +84,10 @@ inspeccionar cabeceras y pestañas antes de leer nada.
      `<span class="evento-dia">` con el formato "letra + número de día"
      (p. ej. "M 17", "X 9" — la letra sale directamente de la columna C,
      no la recalcules), y el tema como `<span class="evento-texto">`.
+     Incluye `<script src="js/oculta-pasado.js"></script>` al final (igual
+     que los calendarios) para que oculte automáticamente lo que ya pasó
+     — funciona solo con reconocer `.mes-bloque`/`.cabecera-mes`/
+     `.evento-dia`, no hace falta tocar el script.
    - Compara fecha a fecha contra la web; si hay temas nuevos, reasignados o
      quitados en la pestaña, actualízalos en circulos.html
    - Si faltan temas para algún martes, dilo como "pendiente de asignar"
