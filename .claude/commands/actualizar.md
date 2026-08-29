@@ -98,6 +98,13 @@ inspeccionar cabeceras y pestañas antes de leer nada.
    - Las filas "the mark" se incluyen también, con la clase `evento-mark`
      en el `<li>` (franja lila, distinta del verde de evento-destacado) y
      el texto prefijado "The Mark: " + el tema de esa sesión.
+   - El número de guión entre paréntesis en el tema de cada círculo se
+     corresponde con el PDF "Guiones del Curso Preparatorio", disponible
+     completo en `docs/guiones-circulos.pdf` y enlazado desde circulos.html
+     justo bajo el párrafo introductorio ("Guiones completos de los
+     círculos (PDF) ↗"). Si el usuario facilita una versión más reciente
+     del PDF, sustituye ese archivo (mismo nombre, para no romper el
+     enlace) y revisa si cambió la numeración de algún guión.
    - **Comprobación cruzada con la pestaña "calendar" (obligatoria en cada
      `/actualizar`):**
      - Cada fecha con "the mark" en "csr"!mf debe tener también "the mark N"
