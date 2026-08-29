@@ -105,6 +105,18 @@ inspeccionar cabeceras y pestañas antes de leer nada.
      círculos (PDF) ↗"). Si el usuario facilita una versión más reciente
      del PDF, sustituye ese archivo (mismo nombre, para no romper el
      enlace) y revisa si cambió la numeración de algún guión.
+   - Cada fila "rtm" lleva además, al final del texto, un enlace "guión ↗"
+     al PDF "Temario para los retiros mensuales de San Rafael" (en
+     `docs/guiones-retiro-mensual.pdf`), con el ancla `#page=N` apuntando
+     a la página donde empieza la "Charla" de ese mes (no las dos
+     meditaciones — el temario indica que la charla es el tercer tema del
+     mes). Páginas ya localizadas: enero=27, febrero=29, marzo=31,
+     abril=33, mayo=35, junio=37, julio=39, agosto=41, septiembre=43,
+     octubre=45, noviembre=47, diciembre=49 (no hay retiro en julio ni
+     agosto, son vacaciones, así que esas dos páginas no se usan por
+     ahora). Si el usuario facilita una versión nueva del PDF, sustituye
+     el archivo (mismo nombre) y revisa si cambiaron los números de página
+     de cada charla antes de reutilizar este mapa.
    - **Comprobación cruzada con la pestaña "calendar" (obligatoria en cada
      `/actualizar`):**
      - Cada fecha con "the mark" en "csr"!mf debe tener también "the mark N"
