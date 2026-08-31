@@ -729,6 +729,46 @@ tbody tr:hover td {
   width: fit-content;
 }
 
+/* ---------- Citas destacadas e idea central (p.ej. #contemplativos) ---------- */
+
+.marco {
+  background: #eef2f8;
+  border-radius: var(--radio);
+  padding: 1.1rem 1.3rem;
+  margin: 0 0 1.4rem;
+}
+
+.marco p {
+  margin: 0;
+}
+
+.cita {
+  border-left: 3px solid var(--azul);
+  padding-left: 0.9rem;
+  margin: 0 0 1.2rem;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.cita-fuente {
+  font-style: normal;
+  color: var(--verde);
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+.idea-central {
+  background: #eaf6ef;
+  border-left: 4px solid var(--verde);
+  border-radius: 0 var(--radio) var(--radio) 0;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--azul);
+  margin: 0 0 1.2rem;
+}
+
 /* ---------- Horarios ---------- */
 
 .grid-horarios {
