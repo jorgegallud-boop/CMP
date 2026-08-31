@@ -82,6 +82,16 @@ document.addEventListener("DOMContentLoaded", function () {
         fila.style.display = "none";
       }
     });
+
+    // Columnas de tabla (por ejemplo, "Habitación" en residentes.html,
+    // visible solo para Staff): igual que las filas, pero celda a celda
+    // (cabecera th y celdas td de esa columna, todas con el mismo data-roles).
+    document.querySelectorAll("th[data-roles], td[data-roles]").forEach(function (celda) {
+      var roles = celda.getAttribute("data-roles").split(",");
+      if (roles.indexOf(rolActual) === -1) {
+        celda.style.display = "none";
+      }
+    });
   }
 
   // Portada: el botón de Bienvenida solo tiene sentido antes de empezar el
