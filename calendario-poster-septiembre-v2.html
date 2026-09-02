@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Septiembre en Peñafiel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #f1ead8;
+  --ink: #12233d;
+  --ink-2: #1c3355;
+  --cream: #f1ead8;
+  --wine: #a13446;
+  --gold: #c9922f;
+  --teal: #3d7871;
+  --line: #cabf9c;
+  --ink-soft: #5a6479;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #d8d0b8;
+  font-family: "Archivo", sans-serif;
+  overflow-x: auto;
+}
+.stage { min-width: 1100px; padding: 30px; display: flex; justify-content: center; }
+.poster {
+  width: 1189mm;
+  height: 841mm;
+  min-width: 1189mm;
+  flex-shrink: 0;
+  background: var(--paper);
+  color: var(--ink);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6mm 20mm rgba(0,0,0,0.35);
+  display: flex;
+  flex-direction: column;
+}
+.hero {
+  background: var(--ink);
+  color: var(--cream);
+  position: relative;
+  padding: 20mm 30mm 14mm;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.castle {
+  position: absolute;
+  right: -40mm;
+  top: -30mm;
+  width: 620mm;
+  opacity: 0.14;
+}
+.hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 5.2mm;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #c7cede;
+  position: relative;
+  z-index: 2;
+}
+.hero-top .brand-line { display: flex; align-items: center; gap: 5mm; }
+.hero-top img { width: 11mm; height: 11mm; }
+h1.month {
+  margin: 4mm 0 0;
+  font-family: "Fraunces", serif;
+  font-optical-sizing: auto;
+  font-weight: 380;
+  font-size: 195mm;
+  line-height: 0.78;
+  letter-spacing: -0.02em;
+  position: relative;
+  z-index: 2;
+}
+.legend {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 6mm;
+  margin-top: 6mm;
+  flex-wrap: wrap;
+}
+.legend span {
+  font-family: "Archivo", sans-serif;
+  font-weight: 600;
+  font-size: 4.6mm;
+  padding: 2.6mm 6mm;
+  border-radius: 50mm;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 2.6mm;
+}
+.legend span::before {
+  content: "";
+  width: 3.2mm;
+  height: 3.2mm;
+  border-radius: 50%;
+  background: currentColor;
+}
+.legend .rs { background: var(--wine); color: var(--cream); }
+.legend .rs::before { background: var(--cream); }
+.legend .c { background: var(--gold); color: var(--ink); }
+.legend .c::before { background: var(--ink); }
+.legend .esp { background: var(--teal); color: var(--cream); }
+.legend .esp::before { background: var(--cream); }
+.legend .com { background: transparent; color: #c7cede; border: 0.4mm solid #55617e; }
+.legend .com::before { background: #c7cede; }
+
+.board {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 8mm 22mm 16mm;
+  min-height: 0;
+}
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 4.6mm;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-bottom: 0.5mm solid var(--ink);
+  padding-bottom: 3mm;
+}
+.grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  min-height: 0;
+}
+.day {
+  border-right: 0.3mm solid var(--line);
+  border-bottom: 0.3mm solid var(--line);
+  padding: 4mm 6mm 3mm 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+  min-height: 0;
+  overflow: hidden;
+  position: relative;
+}
+.day:nth-child(7n) { border-right: none; }
+.day.faded { opacity: 0.32; }
+.day-num {
+  font-family: "Fraunces", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size: 13mm;
+  line-height: 1;
+  color: var(--ink);
+}
+.day.faded .day-num { font-size: 9mm; }
+.month-hint {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 3.2mm;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  margin-left: 1.5mm;
+}
+.events { display: flex; flex-direction: column; gap: 1.6mm; }
+.ev {
+  display: flex;
+  align-items: baseline;
+  gap: 2.2mm;
+  font-size: 4.3mm;
+  line-height: 1.25;
+  font-weight: 500;
+  color: var(--ink);
+}
+.ev::before {
+  content: "";
+  width: 2.4mm;
+  height: 2.4mm;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transform: translateY(-0.6mm);
+}
+.ev.rs::before { background: var(--wine); }
+.ev.c::before { background: var(--gold); }
+.ev.esp::before { background: var(--teal); }
+.ev.com::before { background: var(--ink-soft); }
+.ev b { font-weight: 700; }
+.ev.destacado {
+  font-weight: 700;
+  font-size: 4.7mm;
+}
+.ev.destacado::before { display: none; }
+.ev.destacado .flag {
+  display: inline-flex;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 0.6mm 2.6mm;
+  border-radius: 1mm;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 3.6mm;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-right: 1mm;
+}
+.foot {
+  display: flex;
+  justify-content: space-between;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 3.6mm;
+  color: var(--ink-soft);
+  padding: 3mm 22mm 0;
+  flex-shrink: 0;
+}
+@media print {
+  @page { size: 1189mm 841mm; margin: 0; }
+  html, body { margin: 0; background: var(--paper); }
+  .stage { min-width: 0; padding: 0; }
+  .poster { box-shadow: none; }
+}
+</style>
+</head>
+<body>
+<div class="stage">
+<div class="poster">
+
+  <div class="hero">
+    <svg class="castle" viewBox="0 0 1000 220" preserveAspectRatio="xMidYMax slice" fill="#f1ead8">
+      <path d="M0 220 L0 150 L30 150 L30 120 L60 120 L60 150 L120 150 L120 100 L150 100 L150 70 L165 70 L165 55 L180 70 L180 100 L210 100 L210 150 L520 150 L520 90 L545 90 L545 60 L560 60 L560 40 L575 40 L575 60 L590 60 L590 90 L615 90 L615 150 L780 150 L780 110 L805 110 L805 85 L820 85 L820 65 L835 65 L835 85 L850 85 L850 110 L875 110 L875 150 L1000 150 L1000 220 Z"/>
+    </svg>
+    <div class="hero-top">
+      <div class="brand-line">
+        <img src="data:image/png;base64,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" alt="" style="filter: brightness(0) invert(1);">
+        <span>Colegio Mayor Peñafiel</span>
+      </div>
+      <span>Curso 26 · 27</span>
+    </div>
+    <h1 class="month">Septiembre</h1>
+    <div class="legend">
+      <span class="rs">Cumpleaños de residentes y staff</span>
+      <span class="c">Cumpleaños de colegiales</span>
+      <span class="esp">Vida espiritual</span>
+      <span class="com">Vida de comunidad</span>
+    </div>
+  </div>
+
+  <div class="board">
+    <div class="weekdays">
+      <span>Lunes</span><span>Martes</span><span>Miércoles</span><span>Jueves</span><span>Viernes</span><span>Sábado</span><span>Domingo</span>
+    </div>
+    <div class="grid">
+
+      <div class="day faded"><div class="day-num">31<span class="month-hint">ago</span></div></div>
+      <div class="day"><div class="day-num">1</div></div>
+      <div class="day"><div class="day-num">2</div></div>
+      <div class="day">
+        <div class="day-num">3</div>
+        <div class="events"><div class="ev esp">Adoración al Santísimo</div></div>
+      </div>
+      <div class="day"><div class="day-num">4</div></div>
+      <div class="day"><div class="day-num">5</div></div>
+      <div class="day">
+        <div class="day-num">6</div>
+        <div class="events">
+          <div class="ev com">Llegada de nuevos</div>
+          <div class="ev c">Cumpleaños de <b>Antón Sagarra</b></div>
+          <div class="ev c">Cumpleaños de <b>Juan Vidal</b></div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="day-num">7</div>
+        <div class="events"><div class="ev com">Convivencia (nuevos)</div></div>
+      </div>
+      <div class="day">
+        <div class="day-num">8</div>
+        <div class="events"><div class="ev destacado"><span class="flag">Destacado</span>Aldebarán</div></div>
+      </div>
+      <div class="day"><div class="day-num">9</div></div>
+      <div class="day"><div class="day-num">10</div></div>
+      <div class="day"><div class="day-num">11</div></div>
+      <div class="day">
+        <div class="day-num">12</div>
+        <div class="events"><div class="ev com">Hamburguesada / Plan de viejos</div></div>
+      </div>
+      <div class="day">
+        <div class="day-num">13</div>
+        <div class="events"><div class="ev esp">Retiro mensual (staff)</div></div>
+      </div>
+
+      <div class="day"><div class="day-num">14</div></div>
+      <div class="day"><div class="day-num">15</div></div>
+      <div class="day">
+        <div class="day-num">16</div>
+        <div class="events"><div class="ev rs">Cumpleaños de <b>Mingo</b></div></div>
+      </div>
+      <div class="day">
+        <div class="day-num">17</div>
+        <div class="events">
+          <div class="ev esp">Retiro mensual</div>
+          <div class="ev rs">Cumpleaños de <b>Adrián Rodríguez</b></div>
+        </div>
+      </div>
+      <div class="day">
+        <div class="day-num">18</div>
+        <div class="events"><div class="ev com">Convivencia (Santander), 18–20</div></div>
+      </div>
+      <div class="day"><div class="day-num">19</div></div>
+      <div class="day"><div class="day-num">20</div></div>
+
+      <div class="day"><div class="day-num">21</div></div>
+      <div class="day">
+        <div class="day-num">22</div>
+        <div class="events">
+          <div class="ev com">Sesión formativa 1</div>
+          <div class="ev esp">The Mark: sentido de The Mark</div>
+        </div>
+      </div>
+      <div class="day"><div class="day-num">23</div></div>
+      <div class="day">
+        <div class="day-num">24</div>
+        <div class="events"><div class="ev com">Encuentro con el Obispo</div></div>
+      </div>
+      <div class="day">
+        <div class="day-num">25</div>
+        <div class="events"><div class="ev esp">Curso de retiro (Llendón), 25–27</div></div>
+      </div>
+      <div class="day">
+        <div class="day-num">26</div>
+        <div class="events"><div class="ev com">Charla de Pep Borrell (19h)</div></div>
+      </div>
+      <div class="day"><div class="day-num">27</div></div>
+
+      <div class="day"><div class="day-num">28</div></div>
+      <div class="day">
+        <div class="day-num">29</div>
+        <div class="events"><div class="ev c">Cumpleaños de <b>Luis Cebrian</b></div></div>
+      </div>
+      <div class="day">
+        <div class="day-num">30</div>
+        <div class="events"><div class="ev esp">Arte y espiritualidad</div></div>
+      </div>
+      <div class="day faded"><div class="day-num">1<span class="month-hint">oct</span></div></div>
+      <div class="day faded"><div class="day-num">2<span class="month-hint">oct</span></div></div>
+      <div class="day faded"><div class="day-num">3<span class="month-hint">oct</span></div></div>
+      <div class="day faded"><div class="day-num">4<span class="month-hint">oct</span></div></div>
+
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>cmpenafiel.org</span>
+    <span>Borrador v2 — A0 horizontal</span>
+  </div>
+
+</div>
+</div>
+</body>
+</html>

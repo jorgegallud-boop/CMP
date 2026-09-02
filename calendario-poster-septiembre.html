@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Septiembre en Peñafiel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #efe7d3;
+  --paper-soft: #f5efe0;
+  --ink: #12233d;
+  --ink-soft: #4a5670;
+  --ink-faint: #8a91a3;
+  --line: #d9cfae;
+  --wine: #7a2e3a;
+  --wine-tint: #f1e0e0;
+  --gold: #a9761f;
+  --gold-tint: #f2e6cd;
+  --teal: #33615e;
+  --teal-tint: #dfe9e6;
+  --com-tint: #dfe2ea;
+  --shadow-color: 30, 20, 5;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #1b2436;
+    --paper-soft: #212c40;
+    --ink: #eee6d2;
+    --ink-soft: #b9c0d1;
+    --ink-faint: #6c7488;
+    --line: #384258;
+    --wine: #e08a92;
+    --wine-tint: #3a2529;
+    --gold: #e0b158;
+    --gold-tint: #3a3120;
+    --teal: #8fc4bf;
+    --teal-tint: #223432;
+    --com-tint: #2a3247;
+    --shadow-color: 0, 0, 0;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #1b2436;
+  --paper-soft: #212c40;
+  --ink: #eee6d2;
+  --ink-soft: #b9c0d1;
+  --ink-faint: #6c7488;
+  --line: #384258;
+  --wine: #e08a92;
+  --wine-tint: #3a2529;
+  --gold: #e0b158;
+  --gold-tint: #3a3120;
+  --teal: #8fc4bf;
+  --teal-tint: #223432;
+  --com-tint: #2a3247;
+  --shadow-color: 0, 0, 0;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper-soft);
+  font-family: "Archivo", "Segoe UI", Arial, sans-serif;
+  overflow-x: auto;
+}
+.stage {
+  min-width: 900px;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+}
+.poster {
+  width: 841mm;
+  height: 1189mm;
+  min-width: 841mm;
+  flex-shrink: 0;
+  background: var(--paper);
+  color: var(--ink);
+  padding: 28mm 26mm 20mm;
+  display: flex;
+  flex-direction: column;
+  gap: 10mm;
+  box-shadow: 0 4mm 16mm rgba(var(--shadow-color), 0.28);
+  position: relative;
+}
+.masthead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-bottom: 0.9mm solid var(--ink);
+  padding-bottom: 6mm;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 5mm;
+}
+.brand img {
+  width: 14mm;
+  height: 14mm;
+  filter: brightness(0) saturate(100%);
+}
+:root:not([data-theme="light"]) .brand img { filter: none; }
+:root[data-theme="dark"] .brand img { filter: none; }
+.brand-text {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 5mm;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+}
+.brand-text b { display: block; font-weight: 600; }
+.brand-text span { color: var(--ink-soft); }
+.curso-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 5mm;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+.hero {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8mm;
+}
+.hero h1 {
+  margin: 0;
+  font-family: "Fraunces", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-size: 145mm;
+  line-height: 0.82;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.hero-side {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 5.4mm;
+  color: var(--ink-soft);
+  text-align: right;
+  line-height: 1.6;
+  padding-bottom: 4mm;
+  white-space: nowrap;
+}
+.legend {
+  display: flex;
+  gap: 11mm;
+  flex-wrap: wrap;
+  font-family: "Archivo", sans-serif;
+  font-size: 4.6mm;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 3mm;
+}
+.legend-dot {
+  width: 5mm;
+  height: 5mm;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.legend-dot.rs { background: var(--wine); }
+.legend-dot.c { background: var(--gold); }
+.legend-dot.esp { background: var(--teal); }
+.legend-dot.com { background: var(--ink-soft); }
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3mm;
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: 7mm;
+  color: var(--ink);
+  border-top: 0.4mm solid var(--line);
+  padding-top: 3mm;
+}
+.weekdays span { text-align: center; }
+.grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 3mm;
+}
+.day {
+  border: 0.35mm solid var(--line);
+  border-radius: 2.5mm;
+  padding: 4mm 4mm 3mm;
+  display: flex;
+  flex-direction: column;
+  gap: 2.2mm;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--paper-soft);
+}
+.day.faded { opacity: 0.38; }
+.day-num {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 500;
+  font-size: 7mm;
+  color: var(--ink-soft);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.day-num .month-hint {
+  font-size: 3.6mm;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+}
+.events {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8mm;
+  overflow: hidden;
+}
+.ev {
+  display: flex;
+  align-items: flex-start;
+  gap: 2mm;
+  padding: 1.6mm 2.2mm;
+  border-radius: 1.4mm;
+  border-left: 1mm solid transparent;
+  font-size: 4.2mm;
+  line-height: 1.22;
+  font-weight: 500;
+}
+.ev svg { width: 4.6mm; height: 4.6mm; flex-shrink: 0; margin-top: 0.2mm; }
+.ev.rs { background: var(--wine-tint); border-left-color: var(--wine); color: var(--wine); }
+.ev.c  { background: var(--gold-tint); border-left-color: var(--gold); color: var(--gold); }
+.ev.esp{ background: var(--teal-tint); border-left-color: var(--teal); color: var(--teal); }
+.ev.com{ background: var(--com-tint); border-left-color: var(--ink-soft); color: var(--ink-soft); }
+.ev.rs svg, .ev.c svg, .ev.esp svg { stroke: currentColor; }
+.ev.com svg { stroke: var(--ink-soft); }
+.ev b { color: var(--ink); font-weight: 600; }
+.ev.destacado {
+  background: var(--ink);
+  border-left-color: var(--ink);
+  color: var(--paper);
+  font-weight: 600;
+}
+.ev.destacado b { color: var(--paper); }
+.ev.destacado svg { stroke: var(--paper); }
+.foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 3.8mm;
+  color: var(--ink-faint);
+  border-top: 0.35mm solid var(--line);
+  padding-top: 4mm;
+}
+@media print {
+  @page { size: 841mm 1189mm; margin: 0; }
+  html, body { margin: 0; background: var(--paper); }
+  .stage { min-width: 0; padding: 0; }
+  .poster { box-shadow: none; margin: 0; }
+}
+</style>
+</head>
+<body>
+<div class="stage">
+<div class="poster">
+
+  <div class="masthead">
+    <div class="brand">
+      <img src="data:image/png;base64,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" alt="">
+      <div class="brand-text"><b>Colegio Mayor Peñafiel</b><span>Calendario mensual de la comunidad</span></div>
+    </div>
+    <div class="curso-tag">Curso 26 · 27</div>
+  </div>
+
+  <div class="hero">
+    <h1>Septiembre</h1>
+    <div class="hero-side">Semanas 36 – 40<br>30 días</div>
+  </div>
+
+  <div class="legend">
+    <span class="legend-item"><span class="legend-dot rs"></span>Cumpleaños de residentes y staff</span>
+    <span class="legend-item"><span class="legend-dot c"></span>Cumpleaños de colegiales</span>
+    <span class="legend-item"><span class="legend-dot esp"></span>Vida espiritual</span>
+    <span class="legend-item"><span class="legend-dot com"></span>Vida de comunidad</span>
+  </div>
+
+  <div class="weekdays">
+    <span>Lunes</span><span>Martes</span><span>Miércoles</span><span>Jueves</span><span>Viernes</span><span>Sábado</span><span>Domingo</span>
+  </div>
+
+  <div class="grid">
+
+    <div class="day faded"><div class="day-num">31<span class="month-hint">ago</span></div></div>
+    <div class="day"><div class="day-num">1</div></div>
+    <div class="day"><div class="day-num">2</div></div>
+    <div class="day">
+      <div class="day-num">3</div>
+      <div class="events">
+        <div class="ev esp"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2 3-2 3-2 6a2 2 0 0 0 4 0c0-1-1-2-1-3"/><path d="M6 21c0-4 2.5-6 6-6s6 2 6 6"/></svg>Adoración al Santísimo</div>
+      </div>
+    </div>
+    <div class="day"><div class="day-num">4</div></div>
+    <div class="day"><div class="day-num">5</div></div>
+    <div class="day">
+      <div class="day-num">6</div>
+      <div class="events">
+        <div class="ev com"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="1.5"/><path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg>Llegada de nuevos</div>
+        <div class="ev c"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-6a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v6"/><path d="M4 17h16"/><circle cx="12" cy="6" r="2"/><path d="M12 8v3"/></svg>Cumpleaños de <b>Antón Sagarra</b></div>
+        <div class="ev c"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-6a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v6"/><path d="M4 17h16"/><circle cx="12" cy="6" r="2"/><path d="M12 8v3"/></svg>Cumpleaños de <b>Juan Vidal</b></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-num">7</div>
+      <div class="events">
+        <div class="ev com"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="2.6"/><path d="M3.5 20c0-3 2.5-5 5.5-5s5.5 2 5.5 5"/><circle cx="17" cy="9" r="2.2"/><path d="M14.5 20c0-2.6 1.6-4.4 4-4.7"/></svg>Convivencia (nuevos)</div>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-num">8</div>
+      <div class="events">
+        <div class="ev com destacado"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 3v2.2M12 18.8V21M3 12h2.2M18.8 12H21M5.6 5.6l1.6 1.6M16.8 16.8l1.6 1.6M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6"/></svg>Aldebarán</div>
+      </div>
+    </div>
+    <div class="day"><div class="day-num">9</div></div>
+    <div class="day"><div class="day-num">10</div></div>
+    <div class="day"><div class="day-num">11</div></div>
+    <div class="day">
+      <div class="day-num">12</div>
+      <div class="events">
+        <div class="ev com"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M5 12a7 7 0 0 1 14 0"/><path d="M3.5 12l1 6h15l1-6"/><path d="M8 12v-.5a4 4 0 0 1 8 0v.5"/></svg>Hamburguesada / Plan de viejos</div>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-num">13</div>
+      <div class="events">
+        <div class="ev esp"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2 3-2 3-2 6a2 2 0 0 0 4 0c0-1-1-2-1-3"/><path d="M6 21c0-4 2.5-6 6-6s6 2 6 6"/></svg>Retiro mensual (staff)</div>
+      </div>
+    </div>
+
+    <div class="day"><div class="day-num">14</div></div>
+    <div class="day"><div class="day-num">15</div></div>
+    <div class="day">
+      <div class="day-num">16</div>
+      <div class="events">
+        <div class="ev rs"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-6a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v6"/><path d="M4 17h16"/><circle cx="12" cy="6" r="2"/><path d="M12 8v3"/></svg>Cumpleaños de <b>Mingo</b></div>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-num">17</div>
+      <div class="events">
+        <div class="ev esp"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2 3-2 3-2 6a2 2 0 0 0 4 0c0-1-1-2-1-3"/><path d="M6 21c0-4 2.5-6 6-6s6 2 6 6"/></svg>Retiro mensual</div>
+        <div class="ev rs"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-6a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v6"/><path d="M4 17h16"/><circle cx="12" cy="6" r="2"/><path d="M12 8v3"/></svg>Cumpleaños de <b>Adrián Rodríguez</b></div>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-num">18</div>
+      <div class="events">
+        <div class="ev com"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V10l8-5 8 5v11"/><path d="M9 21v-6h6v6"/></svg>Convivencia (Santander), 18–20</div>
+      </div>
+    </div>
+    <div class="day"><div class="day-num">19</div></div>
+    <div class="day"><div class="day-num">20</div></div>
+
+    <div class="day"><div class="day-num">21</div></div>
+    <div class="day">
+      <div class="day-num">22</div>
+      <div class="events">
+        <div class="ev com"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21l4-4 4 4"/></svg>Sesión formativa 1</div>
+        <div class="ev esp"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.6H20l-4.9 3.5L17 18l-5-3.6L7 18l1.9-5.9L4 8.6h6.2z"/></svg>The Mark: sentido de The Mark</div>
+      </div>
+    </div>
+    <div class="day"><div class="day-num">23</div></div>
+    <div class="day">
+      <div class="day-num">24</div>
+      <div class="events">
+        <div class="ev com"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-2.2 0-3.6 1.7-3.6 3.4 0 1 .5 1.7 1.1 2.3-2 .7-3.5 2.5-3.5 5.3H18c0-2.8-1.5-4.6-3.5-5.3.6-.6 1.1-1.3 1.1-2.3C15.6 4.7 14.2 3 12 3z"/><path d="M5 21h14"/><path d="M12 9v3"/></svg>Encuentro con el Obispo</div>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-num">25</div>
+      <div class="events">
+        <div class="ev esp"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l6-11 4 6 2-3 6 8Z"/></svg>Curso de retiro (Llendón), 25–27</div>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-num">26</div>
+      <div class="events">
+        <div class="ev com"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0 0 12 0"/><path d="M12 17v4M9 21h6"/></svg>Charla de Pep Borrell (19h)</div>
+      </div>
+    </div>
+    <div class="day"><div class="day-num">27</div></div>
+
+    <div class="day"><div class="day-num">28</div></div>
+    <div class="day">
+      <div class="day-num">29</div>
+      <div class="events">
+        <div class="ev c"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-6a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v6"/><path d="M4 17h16"/><circle cx="12" cy="6" r="2"/><path d="M12 8v3"/></svg>Cumpleaños de <b>Luis Cebrian</b></div>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-num">30</div>
+      <div class="events">
+        <div class="ev esp"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c4-1 6-4 10-13 1.5 0 2.5 1 2 2.5C13 18 10 20 4 20Z"/><circle cx="16.3" cy="6.6" r="1.2"/></svg>Arte y espiritualidad</div>
+      </div>
+    </div>
+    <div class="day faded"><div class="day-num">1<span class="month-hint">oct</span></div></div>
+    <div class="day faded"><div class="day-num">2<span class="month-hint">oct</span></div></div>
+    <div class="day faded"><div class="day-num">3<span class="month-hint">oct</span></div></div>
+    <div class="day faded"><div class="day-num">4<span class="month-hint">oct</span></div></div>
+
+  </div>
+
+  <div class="foot">
+    <span>cmpenafiel.org · docs internos</span>
+    <span>Borrador de prueba — calendario mensual imprimible A0</span>
+  </div>
+
+</div>
+</div>
+</body>
+</html>
