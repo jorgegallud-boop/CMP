@@ -162,6 +162,13 @@ nav.main-nav a {
   font-size: 0.95rem;
 }
 
+/* Enlaces externos (salen de la web) en el menú: mismo verde que los
+   botones-hub y de enlace directo en la portada, para que se distingan
+   de un vistazo de las páginas propias del sitio. */
+nav.main-nav a[target="_blank"] {
+  color: var(--verde-claro);
+}
+
 nav.main-nav a:hover {
   background: var(--verde-claro);
   color: var(--azul);
@@ -185,7 +192,7 @@ nav.main-nav a.activo {
   width: 100%;
   background: transparent;
   border: none;
-  color: var(--blanco);
+  color: var(--verde-claro);
   padding: 0.6rem 0.75rem;
   border-radius: 8px;
   font-size: 0.95rem;
@@ -508,22 +515,26 @@ main {
    botones "grupo" (Gente, Cosas prácticas), para que solo haya un verde
    en toda la web. */
 .grid-inicio .tarjeta.pesaje,
-.grid-inicio .tarjeta.arreglos {
+.grid-inicio .tarjeta.arreglos,
+.grid-inicio .tarjeta.evangelio {
   background: var(--verde-claro);
 }
 
 .grid-inicio .tarjeta.pesaje h3,
-.grid-inicio .tarjeta.arreglos h3 {
+.grid-inicio .tarjeta.arreglos h3,
+.grid-inicio .tarjeta.evangelio h3 {
   color: var(--azul);
 }
 
 .grid-inicio .tarjeta.pesaje:hover,
-.grid-inicio .tarjeta.arreglos:hover {
+.grid-inicio .tarjeta.arreglos:hover,
+.grid-inicio .tarjeta.evangelio:hover {
   background: var(--azul);
 }
 
 .grid-inicio .tarjeta.pesaje:hover h3,
-.grid-inicio .tarjeta.arreglos:hover h3 {
+.grid-inicio .tarjeta.arreglos:hover h3,
+.grid-inicio .tarjeta.evangelio:hover h3 {
   color: var(--blanco);
 }
 
