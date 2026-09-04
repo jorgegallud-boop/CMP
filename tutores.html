@@ -64,6 +64,7 @@
         <li data-roles="residente"><a href="habitaciones.html">Habitaciones</a></li>
         <li data-roles="residente"><a href="encargos.html">Encargos</a></li>
         <li data-roles="residente"><a href="comisiones.html">Comisiones</a></li>
+        <li data-roles="residente"><a href="tutores.html">Tutores</a></li>
         <li data-roles="residente"><a href="horarios.html">Horarios</a></li>
         <li data-roles="residente"><a href="reglamento.html">Reglamento</a></li>
         <li data-roles="residente"><a href="ficha.html">Ficha de residente</a></li>
@@ -83,15 +84,6 @@
 
 <main>
   <div class="container">
-
-    <div id="aviso-configuracion" class="aviso pendiente" style="display:none;">
-      <strong>Formulario sin configurar.</strong> Falta indicar la URL del Apps Script en <code>tutores.html</code> (atributo <code>action</code> del formulario). Instrucciones en <a href="docs/apps-script-ficha-residente.gs">docs/apps-script-ficha-residente.gs</a>.
-    </div>
-
-    <div class="panel-gracias" id="panel-gracias">
-      <h2>¡Gracias!</h2>
-      <p>Tu elección de tutor se ha enviado correctamente. Si quieres cambiarla, vuelve a enviar el formulario.</p>
-    </div>
 
     <div class="seccion">
       <div class="tabla-wrap">
@@ -125,95 +117,11 @@
           </tbody>
         </table>
       </div>
-      <p class="texto-suave">Si aún no has elegido tutor, o quieres cambiarlo, envía el formulario; indica también una segunda opción por si la primera no estuviera disponible.</p>
-
-      <!-- EDITAR AQUÍ: pega la URL "/exec" de tu Apps Script como action del formulario -->
-      <form class="formulario" id="form-ficha" action="https://script.google.com/macros/s/AKfycbxk0_34fJaIfbMglK4b4mGX67HkO4PB_K5MTTh3pDCfiSxH5oOsAGOcbgTaRcGss8vc/exec" method="POST" target="ficha-iframe-destino">
-        <input type="hidden" name="tipo" value="tutor">
-
-        <fieldset>
-          <legend>Elección de tutor</legend>
-          <div class="campo">
-            <label for="nombre">Nombre y apellidos</label>
-            <input type="text" id="nombre" name="nombre" required autocomplete="name">
-          </div>
-          <div class="fila-campos">
-            <div class="campo">
-              <label for="primera_opcion">1ª opción</label>
-              <select id="primera_opcion" name="primera_opcion" required>
-                <option value="">Elige una opción</option>
-                <option value="El del año pasado">El del año pasado</option>
-                <option value="Rafa">Rafa</option>
-                <option value="Alberto">Alberto</option>
-                <option value="Gonzalo">Gonzalo</option>
-                <option value="Jaime">Jaime</option>
-                <option value="Jorge">Jorge</option>
-              </select>
-            </div>
-            <div class="campo">
-              <label for="segunda_opcion">2ª opción (por si acaso)</label>
-              <select id="segunda_opcion" name="segunda_opcion" required>
-                <option value="">Elige una opción</option>
-                <option value="El del año pasado">El del año pasado</option>
-                <option value="Rafa">Rafa</option>
-                <option value="Alberto">Alberto</option>
-                <option value="Gonzalo">Gonzalo</option>
-                <option value="Jaime">Jaime</option>
-                <option value="Jorge">Jorge</option>
-              </select>
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Llegada al Colegio Mayor</legend>
-          <div class="fila-campos">
-            <div class="campo">
-              <label for="fecha_llegada">Fecha de llegada</label>
-              <input type="date" id="fecha_llegada" name="fecha_llegada" required>
-            </div>
-            <div class="campo">
-              <label for="llegada_a">¿Llegas a tiempo de...?</label>
-              <select id="llegada_a" name="llegada_a" required>
-                <option value="">Elige una opción</option>
-                <option value="Comida">Comida</option>
-                <option value="Cena">Cena</option>
-                <option value="Directamente a dormir">Directamente a dormir</option>
-              </select>
-            </div>
-          </div>
-        </fieldset>
-
-        <div class="campo">
-          <label for="comentarios">Comentarios</label>
-          <textarea id="comentarios" name="comentarios" rows="3"></textarea>
-        </div>
-
-        <div class="form-envio">
-          <button type="submit" class="form-boton" id="boton-enviar">Enviar</button>
-          <span class="form-estado" id="estado-envio"></span>
-        </div>
-      </form>
-
-      <iframe name="ficha-iframe-destino" id="ficha-iframe-destino" style="display:none;" title="destino de envío del formulario"></iframe>
     </div>
 
   </div>
 </main>
 
 <script src="js/main.js"></script>
-<script>
-// Evita elegir el mismo tutor en la 1ª y la 2ª opción.
-document.getElementById("form-ficha").addEventListener("submit", function (evento) {
-  var primera = document.getElementById("primera_opcion").value;
-  var segunda = document.getElementById("segunda_opcion").value;
-  if (primera && segunda && primera === segunda) {
-    evento.preventDefault();
-    evento.stopImmediatePropagation();
-    alert("La segunda opción debe ser distinta de la primera.");
-  }
-});
-</script>
-<script src="js/ficha.js"></script>
 </body>
 </html>
