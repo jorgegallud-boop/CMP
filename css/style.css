@@ -550,6 +550,14 @@ main {
   color: var(--blanco);
 }
 
+/* Grupo de botones temporales (Bienvenida, Ficha de residente/colegial):
+   a ancho completo y algo separados del resto, porque desaparecerán
+   cuando dejen de tener sentido. */
+.grid-temporal {
+  grid-template-columns: 1fr;
+  margin-top: 1.75rem;
+}
+
 body.pagina-inicio main {
   padding: 1.25rem 0 5rem;
 }
