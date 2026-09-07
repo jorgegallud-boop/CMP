@@ -516,25 +516,29 @@ main {
    en toda la web. */
 .grid-inicio .tarjeta.pesaje,
 .grid-inicio .tarjeta.arreglos,
-.grid-inicio .tarjeta.evangelio {
+.grid-inicio .tarjeta.evangelio,
+.grid-inicio .tarjeta.b10 {
   background: var(--verde-claro);
 }
 
 .grid-inicio .tarjeta.pesaje h3,
 .grid-inicio .tarjeta.arreglos h3,
-.grid-inicio .tarjeta.evangelio h3 {
+.grid-inicio .tarjeta.evangelio h3,
+.grid-inicio .tarjeta.b10 h3 {
   color: var(--azul);
 }
 
 .grid-inicio .tarjeta.pesaje:hover,
 .grid-inicio .tarjeta.arreglos:hover,
-.grid-inicio .tarjeta.evangelio:hover {
+.grid-inicio .tarjeta.evangelio:hover,
+.grid-inicio .tarjeta.b10:hover {
   background: var(--azul);
 }
 
 .grid-inicio .tarjeta.pesaje:hover h3,
 .grid-inicio .tarjeta.arreglos:hover h3,
-.grid-inicio .tarjeta.evangelio:hover h3 {
+.grid-inicio .tarjeta.evangelio:hover h3,
+.grid-inicio .tarjeta.b10:hover h3 {
   color: var(--blanco);
 }
 
