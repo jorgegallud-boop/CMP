@@ -517,28 +517,32 @@ main {
 .grid-inicio .tarjeta.pesaje,
 .grid-inicio .tarjeta.arreglos,
 .grid-inicio .tarjeta.evangelio,
-.grid-inicio .tarjeta.b10 {
+.grid-inicio .tarjeta.b10,
+.grid-inicio .tarjeta.santander {
   background: var(--verde-claro);
 }
 
 .grid-inicio .tarjeta.pesaje h3,
 .grid-inicio .tarjeta.arreglos h3,
 .grid-inicio .tarjeta.evangelio h3,
-.grid-inicio .tarjeta.b10 h3 {
+.grid-inicio .tarjeta.b10 h3,
+.grid-inicio .tarjeta.santander h3 {
   color: var(--azul);
 }
 
 .grid-inicio .tarjeta.pesaje:hover,
 .grid-inicio .tarjeta.arreglos:hover,
 .grid-inicio .tarjeta.evangelio:hover,
-.grid-inicio .tarjeta.b10:hover {
+.grid-inicio .tarjeta.b10:hover,
+.grid-inicio .tarjeta.santander:hover {
   background: var(--azul);
 }
 
 .grid-inicio .tarjeta.pesaje:hover h3,
 .grid-inicio .tarjeta.arreglos:hover h3,
 .grid-inicio .tarjeta.evangelio:hover h3,
-.grid-inicio .tarjeta.b10:hover h3 {
+.grid-inicio .tarjeta.b10:hover h3,
+.grid-inicio .tarjeta.santander:hover h3 {
   color: var(--blanco);
 }
 
@@ -953,11 +957,13 @@ tbody tr:hover td {
   padding-left: calc(1.1rem - 3px);
 }
 
-/* Sesión de "the mark" (circulos.html): franja lila para distinguirla
-   de los círculos normales y de los retiros mensuales (evento-destacado). */
+/* Sesión de "the mark" (circulos.html): celda entera en verde (el verde
+   habitual de la web), para distinguirla de los círculos normales y, por
+   ser toda la celda y no solo el círculo del día, también de los retiros
+   mensuales (evento-destacado, que solo rellena el círculo). */
 .mes-bloque li.evento-mark {
-  background: #f3e8ff;
-  border-left: 3px solid #9333ea;
+  background: var(--verde-claro);
+  border-left: 3px solid var(--verde);
   padding-left: calc(1.1rem - 3px);
 }
 
@@ -1071,6 +1077,32 @@ tbody tr:hover td {
 .check-consentimiento label {
   font-size: 0.9rem;
   color: var(--azul);
+}
+
+.grupo-opciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.opcion-radio {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--blanco);
+  border: 1px solid var(--azul);
+  border-radius: var(--radio);
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--azul);
+  cursor: pointer;
+}
+
+.opcion-radio input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--azul);
 }
 
 .form-envio {

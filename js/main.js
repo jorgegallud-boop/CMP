@@ -110,6 +110,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   })();
 
+  // Portada y menú: el botón de Santander sirve para apuntarse y avisar del
+  // pago de la convivencia de Santander (18-20 de septiembre de 2026) — en
+  // cuanto empieza deja de servir, así que se oculta a partir de ese día.
+  // Cuando haya que usarlo para otra convivencia, cambia FECHA_LIMITE (y el
+  // contenido de santander.html) para la fecha nueva.
+  (function () {
+    var FECHA_LIMITE = new Date(2026, 8, 18); // 18 de septiembre de 2026
+    if (new Date() < FECHA_LIMITE) return;
+    var tarjeta = document.getElementById("tarjeta-santander");
+    if (tarjeta) tarjeta.style.display = "none";
+    document.querySelectorAll('.main-nav a[href="santander.html"]').forEach(function (enlace) {
+      var li = enlace.closest("li");
+      if (li) li.style.display = "none";
+    });
+  })();
+
   // Recordatorio semanal: los domingos a partir de las 16:00, aviso para
   // residente y staff de que se apunten a las comidas de la semana.
   // - "Hecho" lo oculta hasta el domingo siguiente.

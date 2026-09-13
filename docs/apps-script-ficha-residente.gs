@@ -1,14 +1,16 @@
 /**
- * CMP 26-27 — Ficha de residente, ficha de colegial y elección de tutor
+ * CMP 26-27 — Ficha de residente, ficha de colegial, elección de tutor e
+ * inscripción a la convivencia de Santander
  *
  * Este script recibe los envíos de ficha.html (residentes), de
- * ficha-colegial.html (colegiales) y de tutores.html (elección de tutor),
- * y añade una fila a la hoja que corresponda dentro del Excel "26-27" del
- * usuario — "Fichas de residente", "Fichas de colegial" o "Tutores" —
- * según el campo oculto <input type="hidden" name="tipo"> de cada
- * formulario. El script no está atado a la hoja donde vive físicamente:
- * escribe en otra hoja de cálculo distinta, identificada por su ID
- * (SPREADSHEET_ID).
+ * ficha-colegial.html (colegiales), de tutores.html (elección de tutor) y
+ * de santander.html (inscripción y pago de la convivencia de Santander), y
+ * añade una fila a la hoja que corresponda dentro del Excel "26-27" del
+ * usuario — "Fichas de residente", "Fichas de colegial", "Tutores" o
+ * "Santander" — según el campo oculto <input type="hidden" name="tipo"> de
+ * cada formulario. El script no está atado a la hoja donde vive
+ * físicamente: escribe en otra hoja de cálculo distinta, identificada por
+ * su ID (SPREADSHEET_ID).
  *
  * CÓMO INSTALARLO (una sola vez):
  * 1. En cualquier hoja de cálculo de Google Drive (da igual cuál, el script
@@ -17,27 +19,33 @@
  *    este archivo.
  * 3. Sustituye SPREADSHEET_ID por el ID real de la hoja de destino (está en
  *    la URL: https://docs.google.com/spreadsheets/d/ESTE_ID/edit). Las
- *    pestañas SHEET_RESIDENTE, SHEET_COLEGIAL y SHEET_TUTOR deben existir
- *    de antemano, cada una con su fila de cabeceras ya puesta (la de
- *    Tutores: Fecha de envío, Nombre, 1ª opción, 2ª opción, Fecha de
- *    llegada, Llega a tiempo de, Comentarios).
+ *    pestañas SHEET_RESIDENTE, SHEET_COLEGIAL, SHEET_TUTOR y
+ *    SHEET_SANTANDER deben existir de antemano, cada una con su fila de
+ *    cabeceras ya puesta (la de Tutores: Fecha de envío, Nombre, 1ª
+ *    opción, 2ª opción, Fecha de llegada, Llega a tiempo de, Comentarios;
+ *    la de Santander: Fecha de envío, Nombre, Apellidos, ¿Ya ha pagado?,
+ *    Cuánto, Cómo).
  * 4. Guarda (icono de disquete).
  * 5. Implementar → Nueva implementación → tipo "Aplicación web".
  *      - Ejecutar como: Yo (tu cuenta)
  *      - Quién tiene acceso: Cualquier usuario
  * 6. Autoriza los permisos que pida Google (es tu propio script).
  * 7. Copia la URL que termina en /exec.
- * 8. Pégala en ficha.html, ficha-colegial.html y tutores.html, en el
- *    atributo action del formulario (búscala con "EDITAR AQUÍ") — es la
- *    misma URL para los tres formularios, el reparto lo hace el propio
- *    script.
+ * 8. Pégala en ficha.html, ficha-colegial.html, tutores.html y
+ *    santander.html, en el atributo action del formulario (búscala con
+ *    "EDITAR AQUÍ") — es la misma URL para los cuatro formularios, el
+ *    reparto lo hace el propio script.
  *
- * IMPORTANTE si ya tenías este script instalado de antes (por ficha.html /
- * ficha-colegial.html): sustituye TODO el contenido de tu Code.gs por este
- * archivo actualizado y crea la pestaña "Tutores" (con sus cabeceras)
- * antes de volver a implementar — si no, los envíos de tutores.html
- * acabarían mezclados en la hoja de residentes con las columnas
- * descuadradas.
+ * IMPORTANTE si ya tenías este script instalado de antes: sustituye TODO
+ * el contenido de tu Code.gs por este archivo actualizado y crea la
+ * pestaña "Santander" (con sus cabeceras) antes de volver a implementar —
+ * si no, los envíos de santander.html acabarían mezclados en otra hoja con
+ * las columnas descuadradas. Recuerda también que hay que crear una NUEVA
+ * versión de la implementación (Implementar → Gestionar implementaciones →
+ * lápiz de editar → Versión: Nueva versión → Implementar) para que la URL
+ * ya pegada en las páginas recoja este cambio; si en vez de eso creas una
+ * implementación nueva, tendrás que volver a pegar la URL en las cuatro
+ * páginas.
  *
  * Solo quien tenga acceso a esa hoja de cálculo puede ver las respuestas:
  * los formularios únicamente pueden añadir filas nuevas, nunca leer las
@@ -53,6 +61,7 @@ var SPREADSHEET_ID = "1uqe79CoVcQP1_38VDEWgKXH1OxMIDDR9zCqTa1CvqDk"; // Excel "2
 var SHEET_RESIDENTE = "Fichas de residente";
 var SHEET_COLEGIAL = "Fichas de colegial";
 var SHEET_TUTOR = "Tutores";
+var SHEET_SANTANDER = "Santander";
 
 function doPost(e) {
   var p = e.parameter;
@@ -63,7 +72,17 @@ function doPost(e) {
 
   var ss = SpreadsheetApp.openById(SPREADSHEET_ID);
 
-  if (p.tipo === "tutor") {
+  if (p.tipo === "santander") {
+    var hojaSantander = ss.getSheetByName(SHEET_SANTANDER);
+    hojaSantander.appendRow([
+      new Date(),
+      p.nombre || "",
+      p.apellidos || "",
+      si(p.ya_pagado),
+      p.cuanto || "",
+      p.como || "",
+    ]);
+  } else if (p.tipo === "tutor") {
     var hojaTutor = ss.getSheetByName(SHEET_TUTOR);
     hojaTutor.appendRow([
       new Date(),

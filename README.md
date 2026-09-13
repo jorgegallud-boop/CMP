@@ -11,6 +11,7 @@ Web de residentes del Colegio Mayor — curso 2026-2027. Sitio estático (HTML +
 - Reglamento y normas de convivencia
 - Listado de tutores
 - Ficha de residente (formulario con checkboxes en lugar de firma)
+- Inscripción y pago de la convivencia de Santander
 
 ## Estructura
 
@@ -24,6 +25,7 @@ horarios.html            Horario de comidas, limpieza y acceso (contenido real)
 reglamento.html          Reglamento y normas de convivencia (contenido real)
 tutores.html              Listado de tutores
 ficha.html                 Ficha de residente (formulario — ver más abajo)
+santander.html            Inscripción y pago de la convivencia de Santander (formulario — ver más abajo)
 css/style.css               Estilos del sitio
 js/main.js                   Menú móvil y resaltado del enlace activo
 js/ficha.js                   Envío del formulario de la ficha de residente
@@ -69,6 +71,8 @@ Como el sitio es estático (GitHub Pages, sin servidor propio), el envío se hac
 6. Pégala en `ficha.html`, en el atributo `action` del `<form>` (busca el comentario `EDITAR AQUÍ`), sustituyendo `PEGA_AQUI_TU_URL_DE_APPS_SCRIPT`.
 
 El script solo puede **añadir** filas nuevas: no expone ni permite leer las respuestas ya guardadas, así que la hoja sigue siendo privada aunque el formulario sea público. Mientras no se complete este paso, la página muestra un aviso de "formulario sin configurar".
+
+El mismo script y la misma hoja de cálculo recogen también las fichas de colegial (`ficha-colegial.html`), la elección de tutor (`tutores.html`) y la inscripción a la convivencia de Santander (`santander.html`), cada una en su propia pestaña. Si ya tenías el script instalado y solo falta añadir `santander.html`: crea la pestaña **Santander** (con cabeceras Fecha de envío, Nombre, Apellidos, ¿Ya ha pagado?, Cuánto, Cómo), sustituye el contenido de tu Code.gs por la versión actualizada de [`docs/apps-script-ficha-residente.gs`](docs/apps-script-ficha-residente.gs) y crea una **nueva versión** de la implementación (no hace falta cambiar la URL ya pegada en las páginas).
 
 ## Cómo verlo en local
 
