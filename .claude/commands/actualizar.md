@@ -96,8 +96,9 @@ inspeccionar cabeceras y pestañas antes de leer nada.
      que resalten en verde, distinto del resto) y el texto va como "Retiro
      mensual (tema, ponente)" — tema y ponente entre paréntesis.
    - Las filas "the mark" se incluyen también, con la clase `evento-mark`
-     en el `<li>` (franja lila, distinta del verde de evento-destacado) y
-     el texto prefijado "The Mark: " + el tema de esa sesión.
+     en el `<li>` (celda entera en verde — el verde habitual de la web,
+     distinto de evento-destacado porque ahí solo se rellena el círculo del
+     día) y el texto prefijado "The Mark: " + el tema de esa sesión.
    - El número de guión entre paréntesis en el tema de cada círculo se
      corresponde con el PDF "Guiones del Curso Preparatorio", disponible
      completo en `docs/guiones-circulos.pdf` y enlazado desde circulos.html
