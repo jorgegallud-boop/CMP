@@ -1165,6 +1165,43 @@ tbody tr:hover td {
   padding: 0;
 }
 
+/* Lista de quién se ha apuntado (santander.html), encima del formulario */
+.lista-apuntados {
+  background: var(--blanco);
+  color: var(--azul);
+  border: 1px solid var(--azul);
+  border-radius: var(--radio);
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--sombra);
+}
+
+.lista-apuntados h2 {
+  margin: 0 0 0.8rem;
+  border: none;
+  padding: 0;
+  font-size: 1.05rem;
+}
+
+.lista-apuntados-nombres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lista-apuntados-nombres li {
+  background: #eaf6ef;
+  border: 1px solid var(--verde);
+  color: var(--azul);
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
 /* ---------- Footer ---------- */
 
 footer.site-footer {

@@ -47,9 +47,15 @@
  * implementación nueva, tendrás que volver a pegar la URL en las cuatro
  * páginas.
  *
- * Solo quien tenga acceso a esa hoja de cálculo puede ver las respuestas:
- * los formularios únicamente pueden añadir filas nuevas, nunca leer las
- * que ya hay.
+ * Solo quien tenga acceso a esa hoja de cálculo puede ver las respuestas
+ * completas: los formularios de ficha.html, ficha-colegial.html y
+ * tutores.html únicamente pueden añadir filas nuevas, nunca leer las que
+ * ya hay. La única excepción es santander.html, que además LEE (con
+ * GET ?listado=santander) el nombre y apellidos — nada más, ni pagos ni
+ * fechas — de cada fila de la pestaña Santander, para pintar en la propia
+ * página la lista de quién se ha apuntado. Si algún día no quieres que
+ * esa lista sea pública, quita el bloque "if (p.listado === "santander")"
+ * de doGet y la sección de la lista dejará de rellenarse en la página.
  *
  * Nota: como el script vive dentro de una hoja de cálculo "contenedora",
  * si esa hoja contenedora se borra o se manda a la papelera, el script
@@ -148,6 +154,29 @@ function doPost(e) {
 }
 
 function doGet(e) {
+  var p = e.parameter;
+
+  // santander.html pide con esto la lista de quién se ha apuntado, para
+  // mostrarla encima del formulario. Es el ÚNICO listado que expone este
+  // script: solo nombre y apellidos de la pestaña Santander, nunca DNI,
+  // contacto, direcciones ni nada de las fichas de residente/colegial ni
+  // de tutores (esas siguen sin poder leerse desde fuera).
+  if (p.listado === "santander") {
+    var ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+    var hoja = ss.getSheetByName(SHEET_SANTANDER);
+    var nombres = [];
+    if (hoja && hoja.getLastRow() > 1) {
+      var filas = hoja.getRange(2, 2, hoja.getLastRow() - 1, 2).getValues(); // columnas B (Nombre) y C (Apellidos)
+      filas.forEach(function (fila) {
+        var completo = (String(fila[0] || "") + " " + String(fila[1] || "")).trim();
+        if (completo) nombres.push(completo);
+      });
+    }
+    return ContentService
+      .createTextOutput(JSON.stringify({ ok: true, nombres: nombres }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+
   return ContentService
     .createTextOutput("CMP 26-27 — endpoint de fichas activo.")
     .setMimeType(ContentService.MimeType.TEXT);

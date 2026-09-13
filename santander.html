@@ -97,6 +97,12 @@
       <p>Tu inscripción a la convivencia de Santander se ha enviado correctamente. Si necesitas corregir algo, vuelve a enviar el formulario con los datos actualizados.</p>
     </div>
 
+    <div class="lista-apuntados" id="lista-apuntados">
+      <h2>Quién se ha apuntado</h2>
+      <p class="form-estado" id="lista-apuntados-estado">Cargando…</p>
+      <ul class="lista-apuntados-nombres" id="lista-apuntados-nombres"></ul>
+    </div>
+
     <!-- EDITAR AQUÍ: pega la URL "/exec" de tu Apps Script como action del formulario (misma URL que ficha.html) -->
     <form class="formulario" id="form-ficha" action="https://script.google.com/macros/s/AKfycbxk0_34fJaIfbMglK4b4mGX67HkO4PB_K5MTTh3pDCfiSxH5oOsAGOcbgTaRcGss8vc/exec" method="POST" target="ficha-iframe-destino">
       <input type="hidden" name="tipo" value="santander">
@@ -161,5 +167,6 @@
 
 <script src="js/main.js"></script>
 <script src="js/ficha.js"></script>
+<script src="js/santander.js"></script>
 </body>
 </html>

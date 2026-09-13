@@ -74,6 +74,8 @@ El script solo puede **añadir** filas nuevas: no expone ni permite leer las res
 
 El mismo script y la misma hoja de cálculo recogen también las fichas de colegial (`ficha-colegial.html`), la elección de tutor (`tutores.html`) y la inscripción a la convivencia de Santander (`santander.html`), cada una en su propia pestaña. Si ya tenías el script instalado y solo falta añadir `santander.html`: crea la pestaña **Santander** (con cabeceras Fecha de envío, Nombre, Apellidos, ¿Ya ha pagado?, Cuánto, Cómo), sustituye el contenido de tu Code.gs por la versión actualizada de [`docs/apps-script-ficha-residente.gs`](docs/apps-script-ficha-residente.gs) y crea una **nueva versión** de la implementación (no hace falta cambiar la URL ya pegada en las páginas).
 
+`santander.html` es la única página que además **lee** de la hoja: encima del formulario muestra la lista de quién se ha apuntado ya (solo nombre y apellidos, nunca si ha pagado ni cómo). El resto de fichas (residente, colegial, tutor) siguen sin poder leerse desde fuera.
+
 ## Cómo verlo en local
 
 Al ser un sitio estático, puedes abrir `index.html` directamente en el navegador, o levantar un servidor simple:
