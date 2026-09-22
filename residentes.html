@@ -43,12 +43,9 @@
           <ul class="submenu-lista">
             <li><a href="misas.html">Misas</a></li>
             <li><a href="https://arreglos-cmp.glide.page/" target="_blank" rel="noopener" onclick="return CMP_AUTH.permitirEnlace(event, ['residente','colegial'], this.href)">Ficha de arreglos ↗</a></li>
-            <li><a href="encargos-sm.html">Encargos sm</a></li>
-            <li><a href="turnos.html">Turnos</a></li>
             <li><a href="horario-sm.html">Horario sm</a></li>
             <li><a href="circulos.html">Círculos</a></li>
             <li><a href="retiro-mensual.html">Retiro mensual</a></li>
-            <li><a href="tutores.html">Tutores</a></li>
             <li><a href="datos-interes.html">Cosas de interés</a></li>
             <li><a href="material-interes.html">Material formativo</a></li>
             <li><a href="https://gonzalojab.github.io/pesaje/" target="_blank" rel="noopener">Pesaje ↗</a></li>
@@ -64,6 +61,7 @@
         <li data-roles="colegial"><a href="calendario-colegial.html">Calendario</a></li>
         <li data-roles="colegial"><a href="comer-penafiel.html">Cómo comer</a></li>
         <li data-roles="residente,colegial"><a href="https://arreglos-cmp.glide.page/" target="_blank" rel="noopener" onclick="return CMP_AUTH.permitirEnlace(event, ['residente','colegial'], this.href)">Ficha de arreglos ↗</a></li>
+        <li data-roles="residente"><a href="https://gonzalojab.github.io/pesaje/" target="_blank" rel="noopener" onclick="return CMP_AUTH.permitirEnlace(event, ['residente'], this.href)">Pesaje ↗</a></li>
         <li data-roles="residente"><a href="habitaciones.html">Habitaciones</a></li>
         <li data-roles="residente"><a href="encargos.html">Encargos</a></li>
         <li data-roles="residente"><a href="comisiones.html">Comisiones</a></li>
@@ -100,6 +98,7 @@
               <th>Curso</th>
               <th>Cumple</th>
               <th data-roles="staff">Habitación</th>
+              <th data-roles="staff">Tutor</th>
             </tr>
           </thead>
           <tbody>
@@ -110,6 +109,7 @@
               <td>4</td>
               <td>31/1</td>
               <td data-roles="staff">6-C (11)</td>
+              <td data-roles="staff">Gonzalo</td>
             </tr>
             <tr>
               <td>Antonio Laín</td>
@@ -118,6 +118,7 @@
               <td>4</td>
               <td>8/8</td>
               <td data-roles="staff">3-C (4)</td>
+              <td data-roles="staff">Rafa</td>
             </tr>
             <tr>
               <td>Ignacio Serrano</td>
@@ -126,6 +127,7 @@
               <td>4</td>
               <td>1/7</td>
               <td data-roles="staff">8-B (15)</td>
+              <td data-roles="staff">Rafa</td>
             </tr>
             <tr>
               <td>Hugo Camacho</td>
@@ -134,6 +136,7 @@
               <td>3</td>
               <td>15/11</td>
               <td data-roles="staff">2-B (26)</td>
+              <td data-roles="staff">Jorge</td>
             </tr>
             <tr>
               <td>Jaime Reynolds</td>
@@ -142,6 +145,7 @@
               <td>3</td>
               <td>31/1</td>
               <td data-roles="staff">8-D (8)</td>
+              <td data-roles="staff">Jaime</td>
             </tr>
             <tr>
               <td>Joaquín Anaya</td>
@@ -150,6 +154,7 @@
               <td>3</td>
               <td>27/11</td>
               <td data-roles="staff">11-B (10)</td>
+              <td data-roles="staff">Gonzalo</td>
             </tr>
             <tr>
               <td>Juan Nasarre</td>
@@ -158,6 +163,7 @@
               <td>2</td>
               <td>27/6</td>
               <td data-roles="staff">2-D (24)</td>
+              <td data-roles="staff">Jorge</td>
             </tr>
             <tr>
               <td>Lucas Cabello</td>
@@ -166,6 +172,7 @@
               <td>2</td>
               <td>1/3</td>
               <td data-roles="staff">5-D (22)</td>
+              <td data-roles="staff">Rafa</td>
             </tr>
             <tr>
               <td>Sancho Garnica</td>
@@ -174,6 +181,7 @@
               <td>2</td>
               <td>20/11</td>
               <td data-roles="staff">3-B (25)</td>
+              <td data-roles="staff">Jaime</td>
             </tr>
             <tr>
               <td>Cosme Alberdi</td>
@@ -182,6 +190,7 @@
               <td>2</td>
               <td>19/12</td>
               <td data-roles="staff">4-C (28)</td>
+              <td data-roles="staff">Gonzalo</td>
             </tr>
             <tr>
               <td>Emilio Jiménez Rubio</td>
@@ -190,6 +199,7 @@
               <td>2</td>
               <td>18/2</td>
               <td data-roles="staff">4-B (5)</td>
+              <td data-roles="staff">Gonzalo</td>
             </tr>
             <tr>
               <td>Raúl Martín</td>
@@ -198,6 +208,7 @@
               <td>2</td>
               <td>7/5</td>
               <td data-roles="staff">9-B (30)</td>
+              <td data-roles="staff">Rafa</td>
             </tr>
             <tr>
               <td>Rafa López de Novales</td>
@@ -206,6 +217,7 @@
               <td>2</td>
               <td>11/7</td>
               <td data-roles="staff">3-D (16)</td>
+              <td data-roles="staff">Mingo</td>
             </tr>
             <tr>
               <td>Juan Gómez de Olea</td>
@@ -214,6 +226,7 @@
               <td>3</td>
               <td>16/10</td>
               <td data-roles="staff">5-C (6)</td>
+              <td data-roles="staff">Jaime</td>
             </tr>
             <tr>
               <td>Rafael Alenda</td>
@@ -222,6 +235,7 @@
               <td>1</td>
               <td>15/1</td>
               <td data-roles="staff">7-C (7)</td>
+              <td data-roles="staff">Alberto</td>
             </tr>
             <tr>
               <td>Adrián Rodríguez</td>
@@ -230,6 +244,7 @@
               <td>1</td>
               <td>17/9</td>
               <td data-roles="staff">15-D (1)</td>
+              <td data-roles="staff">Rafa</td>
             </tr>
             <tr>
               <td>Carlos Sánchez</td>
@@ -238,6 +253,7 @@
               <td>1</td>
               <td>13/3</td>
               <td data-roles="staff">11-D (13)</td>
+              <td data-roles="staff">Alberto</td>
             </tr>
             <tr>
               <td>Javier Lorite</td>
@@ -246,6 +262,7 @@
               <td>2</td>
               <td>18/7</td>
               <td data-roles="staff">10-B (23)</td>
+              <td data-roles="staff">Rafa</td>
             </tr>
             <tr>
               <td>Gastón Ortiz</td>
@@ -254,6 +271,7 @@
               <td>1</td>
               <td>23/7</td>
               <td data-roles="staff">13-D (3)</td>
+              <td data-roles="staff">Alberto</td>
             </tr>
             <tr class="fila-staff" data-roles="residente">
               <td>Jorge Gallud</td>
