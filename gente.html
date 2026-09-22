@@ -43,12 +43,9 @@
           <ul class="submenu-lista">
             <li><a href="misas.html">Misas</a></li>
             <li><a href="https://arreglos-cmp.glide.page/" target="_blank" rel="noopener" onclick="return CMP_AUTH.permitirEnlace(event, ['residente','colegial'], this.href)">Ficha de arreglos ↗</a></li>
-            <li><a href="encargos-sm.html">Encargos sm</a></li>
-            <li><a href="turnos.html">Turnos</a></li>
             <li><a href="horario-sm.html">Horario sm</a></li>
             <li><a href="circulos.html">Círculos</a></li>
             <li><a href="retiro-mensual.html">Retiro mensual</a></li>
-            <li><a href="tutores.html">Tutores</a></li>
             <li><a href="datos-interes.html">Cosas de interés</a></li>
             <li><a href="material-interes.html">Material formativo</a></li>
             <li><a href="https://gonzalojab.github.io/pesaje/" target="_blank" rel="noopener">Pesaje ↗</a></li>
@@ -64,6 +61,7 @@
         <li data-roles="colegial"><a href="calendario-colegial.html">Calendario</a></li>
         <li data-roles="colegial"><a href="comer-penafiel.html">Cómo comer</a></li>
         <li data-roles="residente,colegial"><a href="https://arreglos-cmp.glide.page/" target="_blank" rel="noopener" onclick="return CMP_AUTH.permitirEnlace(event, ['residente','colegial'], this.href)">Ficha de arreglos ↗</a></li>
+        <li data-roles="residente"><a href="https://gonzalojab.github.io/pesaje/" target="_blank" rel="noopener" onclick="return CMP_AUTH.permitirEnlace(event, ['residente'], this.href)">Pesaje ↗</a></li>
         <li data-roles="residente"><a href="habitaciones.html">Habitaciones</a></li>
         <li data-roles="residente"><a href="encargos.html">Encargos</a></li>
         <li data-roles="residente"><a href="comisiones.html">Comisiones</a></li>
@@ -97,23 +95,25 @@
               <th>Nombre</th>
               <th>Padres</th>
               <th>Cumple</th>
+              <th>Encargo</th>
+              <th>Turno</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>Jorge Gallud</td><td>Manolo y Cristina</td><td>13 de mayo</td></tr>
-            <tr><td>Alberto Masó</td><td>Alberto y Bárbara</td><td>6 de abril</td></tr>
-            <tr><td>Jaime Villa</td><td>Florentino (+) y Angelines</td><td>13 de noviembre</td></tr>
-            <tr><td>D Alberto Pérez</td><td>José Luis y Carmen</td><td>13 de enero</td></tr>
-            <tr><td>Mingo Vega</td><td>Domingo (+) y Ana María</td><td>16 de septiembre</td></tr>
-            <tr><td>Michel De Castro</td><td>José María (+) y Mª Dolores (+)</td><td>22 de marzo</td></tr>
-            <tr><td>Hugo Pachas</td><td>Hugo y Mª del Carmen (+)</td><td>26 de octubre</td></tr>
-            <tr><td>Gonzalo Jabat</td><td>Francisco Javier y María del Pilar</td><td>29 de octubre</td></tr>
-            <tr><td>Rafa Mora</td><td>Manuel y Maricruz</td><td>16 de julio</td></tr>
-            <tr><td>Alex Vidal</td><td>Óscar y Ana</td><td>2 de febrero</td></tr>
-            <tr><td>Antón Sagarra</td><td>Antón y María</td><td>6 de septiembre</td></tr>
-            <tr><td>Fosco Vaquero</td><td>Alberto y Elena</td><td>19 de noviembre</td></tr>
-            <tr><td>Juan Vidal</td><td>Óscar y Ana</td><td>6 de septiembre</td></tr>
-            <tr><td>D David Serrano</td><td></td><td></td></tr>
+            <tr><td>Jorge Gallud</td><td>Manolo y Cristina</td><td>13 de mayo</td><td>Biblioteca, Orden parterre</td><td>Jueves</td></tr>
+            <tr><td>Alberto Masó</td><td>Alberto y Bárbara</td><td>6 de abril</td><td>Peugeot, Orden sala de estar y sala de estudio 4ª, Libro de meditaciones</td><td>Viernes</td></tr>
+            <tr><td>Jaime Villa</td><td>Florentino (+) y Angelines</td><td>13 de noviembre</td><td>Puertas comunicación, Jefe de arreglos</td><td>Martes</td></tr>
+            <tr><td>D Alberto Pérez</td><td>José Luis y Carmen</td><td>13 de enero</td><td>Biblioteca del oratorio</td><td></td></tr>
+            <tr><td>Mingo Vega</td><td>Domingo (+) y Ana María</td><td>16 de septiembre</td><td>Películas</td><td>Miércoles</td></tr>
+            <tr><td>Michel De Castro</td><td>José María (+) y Mª Dolores (+)</td><td>22 de marzo</td><td>Diario, Libro de meditaciones</td><td>Domingo</td></tr>
+            <tr><td>Hugo Pachas</td><td>Hugo y Mª del Carmen (+)</td><td>26 de octubre</td><td>Oratorio, Orden sala de estar y sala de estudio, Tablón de anuncios</td><td>Lunes</td></tr>
+            <tr><td>Gonzalo Jabat</td><td>Francisco Javier y María del Pilar</td><td>29 de octubre</td><td>Orden gimnasio</td><td>Martes</td></tr>
+            <tr><td>Rafa Mora</td><td>Manuel y Maricruz</td><td>16 de julio</td><td>Celebraciones, Forfi</td><td>Sábado</td></tr>
+            <tr><td>Alex Vidal</td><td>Óscar y Ana</td><td>2 de febrero</td><td></td><td></td></tr>
+            <tr><td>Antón Sagarra</td><td>Antón y María</td><td>6 de septiembre</td><td></td><td></td></tr>
+            <tr><td>Fosco Vaquero</td><td>Alberto y Elena</td><td>19 de noviembre</td><td></td><td></td></tr>
+            <tr><td>Juan Vidal</td><td>Óscar y Ana</td><td>6 de septiembre</td><td></td><td></td></tr>
+            <tr><td>D David Serrano</td><td></td><td></td><td></td><td></td></tr>
           </tbody>
         </table>
       </div>
