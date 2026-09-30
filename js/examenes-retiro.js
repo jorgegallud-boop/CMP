@@ -245,7 +245,7 @@
     var contenido = document.getElementById("examen-mes-contenido");
     if (!summary || !contenido) return;
 
-    var ahora = new Date();
+    var ahora = window.CMP_RETIRO_PROXIMO || new Date();
     var mes = ahora.getMonth() + 1;
     var anio = ahora.getFullYear();
     var paridad = (anio % 2 === 0) ? "par" : "impar";
