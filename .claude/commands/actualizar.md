@@ -47,6 +47,7 @@ inspeccionar cabeceras y pestañas antes de leer nada.
      AMS) son recordatorios de cumpleaños de staff — no las metas como texto de
      evento; usa el cumpleaños real si lo tienes por la pestaña "gente", u
      omite la entrada si no lo tienes
+   - "TMC" en la columna "sm" se ignora: no lo metas en ningún calendario
    - "Retiro mensual" en la columna "sm" es el retiro de staff (cae en domingo,
      se sobreentiende por el día); no le añadas "(staff)" ni ningún sufijo — el
      de residentes/colegiales (columna rs/c, jueves) también se llama igual, se
