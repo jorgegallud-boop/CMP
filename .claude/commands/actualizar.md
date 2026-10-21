@@ -52,6 +52,7 @@ inspeccionar cabeceras y pestañas antes de leer nada.
      se sobreentiende por el día); no le añadas "(staff)" ni ningún sufijo — el
      de residentes/colegiales (columna rs/c, jueves) también se llama igual, se
      distinguen por el día y por la franja evento-staff
+   - "stgr" = Studium Generale (p. ej. "cv stgr" → "Convivencia (Studium Generale)")
    - "Lista sJ" = Lista de San José
    - "Xmas" (columna "sm", mediados de diciembre) = Formar Christmas, no "Fiesta de
      Navidad"
