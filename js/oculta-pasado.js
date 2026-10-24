@@ -36,7 +36,15 @@
         // Para un rango ("V 18–D 20") toma el día final, para que el
         // evento siga visible mientras dure.
         var diaFin = parseInt(numeros[numeros.length - 1], 10);
-        var fechaFin = anio * 10000 + mes * 100 + diaFin;
+        var mesFin = mes;
+        var anioFin = anio;
+        // Si el día final es menor que el inicial ("V 30–L 2"), el evento
+        // acaba en el mes siguiente.
+        if (numeros.length > 1 && diaFin < parseInt(numeros[0], 10)) {
+          mesFin = mes === 12 ? 1 : mes + 1;
+          anioFin = mes === 12 ? anio + 1 : anio;
+        }
+        var fechaFin = anioFin * 10000 + mesFin * 100 + diaFin;
         if (fechaFin < hoy) {
           li.style.display = "none";
         } else {
