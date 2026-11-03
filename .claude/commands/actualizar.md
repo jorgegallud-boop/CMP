@@ -54,7 +54,7 @@ inspeccionar cabeceras y pestañas antes de leer nada.
      distinguen por el día y por la franja evento-staff
    - "stgr" = Studium Generale (p. ej. "cv stgr" → "Convivencia (Studium Generale)")
    - "Lista sJ" = Lista de San José
-   - "Xmas" (columna "sm", mediados de diciembre) = Formar Christmas, no "Fiesta de
+   - "Xmas" (columna "sm", mediados de diciembre) = Firmar Christmas, no "Fiesta de
      Navidad"
    - Nota: la estructura de esta pestaña ha cambiado ya varias veces entre
      sesiones (antes tenía además una columna "mf" que se eliminó) — confirma
