@@ -56,6 +56,8 @@ inspeccionar cabeceras y pestañas antes de leer nada.
    - "Lista sJ" = Lista de San José
    - "Xmas" (columna "sm", mediados de diciembre) = Firmar Christmas, no "Fiesta de
      Navidad"
+   - "Jokin" = Charla de Jokin de Irala (conferencia, mismo formato que "Charla de
+     Pep Borrell"); "Vela" el primer jueves de mes = Adoración al Santísimo
    - Nota: la estructura de esta pestaña ha cambiado ya varias veces entre
      sesiones (antes tenía además una columna "mf" que se eliminó) — confirma
      las columnas actuales antes de asumir que siguen siendo estas tres.
