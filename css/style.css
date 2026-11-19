@@ -1,28 +1,37 @@
 /* ==========================================================================
    CMP 26-27 — hoja de estilos
-   Paleta: azul marino, verde y blanco. El fondo general de la web es
-   blanco, para que el texto largo (reglamento, exámenes de retiro,
-   horarios...) se lea cómodo. El azul marino enmarca el contenido
-   (header, footer, cabeceras) y es el color de acción de los botones.
-   El verde es el color de énfasis (enlaces, subtítulos, elemento activo/
-   destacado) en dos tonos según el fondo sobre el que va: --verde
-   (oscuro) sobre superficies blancas, y --verde-claro (más vivo, para
-   que resalte) sobre el azul oscuro o como relleno de acento.
+   Identidad visual del Colegio Mayor Peñafiel (plantilla institucional,
+   nov. 2026): dos colores de marca —Naranja Institucional y Carbón
+   Profundo—, dos variantes del naranja (Ámbar Suave y Naranja Quemado) y
+   neutros cálidos (Marfil, Arena, Gris Piedra). Tipografía única: DM Sans;
+   la jerarquía sale del peso, el tamaño y el espaciado.
+   Proporción orientativa: neutros claros 65 %, carbón 25 %, naranja 10 %.
+   Contraste (WCAG AA): el naranja nunca va como texto sobre fondo claro
+   (solo formas, líneas y rellenos con texto carbón encima); sobre carbón,
+   el naranja sí sirve para texto. Nunca blanco sobre naranja.
    ========================================================================== */
 
 :root {
-  --azul: #12233d;
-  --verde: #1a7a4c;        /* verde oscuro — texto/bordes sobre blanco */
-  --verde-claro: #4ade80;  /* verde claro — texto/bordes sobre azul, y rellenos de acento */
+  --naranja: #f1901d;      /* primario: botones, acentos, insignias (texto carbón encima) */
+  --carbon: #18272d;       /* oscuro y texto: titulares, texto, cabeceras y pies */
+  --ambar: #f9b966;        /* secundario cálido: etiquetas y fondos cálidos ligeros */
+  --quemado: #c66e09;      /* secundario oscuro: botón pulsado, bordes; no para texto pequeño */
+  --marfil: #faf9f6;       /* fondo general */
+  --arena: #f1efea;        /* tarjetas, tablas y bloques secundarios */
+  --piedra: #5a676d;       /* texto secundario, subtítulos y metadatos */
+  --borde: #dce1e3;        /* bordes y separadores */
   --blanco: #ffffff;
+  --exito: #1e7e5a;
+  --aviso: #d97706;        /* solo como fondo o franja, nunca como color de texto */
+  --error: #c83e37;
 
-  --radio: 8px;                 /* radio discreto por defecto (tablas, formularios, bloques) */
-  --radio-tarjeta: 18px;        /* radio más suave, solo para tarjetas de portada/contenido */
-  --font-titulos: "Libre Franklin", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --sombra: 0 4px 14px rgba(18, 35, 61, 0.12);
-  --sombra-hover: 0 10px 26px rgba(18, 35, 61, 0.18);
+  --radio: 8px;                 /* radio por defecto (botones, formularios, bloques) */
+  --radio-tarjeta: 10px;        /* tarjetas y bloques de contenido */
+  --font: "DM Sans", "Segoe UI", system-ui, sans-serif;
+  --font-titulos: var(--font);
+  --sombra: 0 1px 2px rgba(24, 39, 45, 0.05), 0 4px 14px rgba(24, 39, 45, 0.07);
+  --sombra-hover: 0 10px 26px rgba(24, 39, 45, 0.16);
 }
-
 * {
   box-sizing: border-box;
 }
@@ -33,10 +42,16 @@ html {
 
 body {
   margin: 0;
-  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  color: var(--azul);
-  background: var(--blanco);
+  font-family: var(--font);
+  font-size: 16px;
+  color: var(--carbon);
+  background: var(--marfil);
   line-height: 1.55;
+  font-variant-numeric: tabular-nums;
+}
+
+h1, h2, h3 {
+  letter-spacing: -0.015em;
 }
 
 img {
@@ -44,12 +59,16 @@ img {
 }
 
 a {
-  color: var(--verde);
-  text-decoration: none;
+  color: var(--carbon);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--naranja);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration-color: var(--quemado);
 }
 
 .container {
@@ -62,12 +81,12 @@ a:hover {
 /* ---------- Header / navegación ---------- */
 
 header.site-header {
-  background: var(--azul);
+  background: var(--carbon);
   color: var(--blanco);
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid var(--blanco);
+  border-bottom: 3px solid var(--naranja);
 }
 
 .header-bar {
@@ -88,7 +107,13 @@ header.site-header {
   justify-self: start;
 }
 
-.brand:hover {
+.brand,
+.brand:hover,
+nav.main-nav a,
+.auth-widget a,
+a.tarjeta,
+a.boton,
+.footer-iconos-bar a {
   text-decoration: none;
 }
 
@@ -115,12 +140,12 @@ header.site-header {
   font-family: var(--font-titulos);
   font-size: 1.3rem;
   font-weight: 700;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.02em;
 }
 
 .brand .subtitulo {
   font-size: 0.75rem;
-  color: var(--blanco);
+  color: var(--ambar);
 }
 
 /* El menú es siempre un desplegable (☰), en cualquier tamaño de
@@ -133,7 +158,7 @@ nav.main-nav {
   top: 100%;
   left: 0;
   right: 0;
-  background: var(--azul);
+  background: var(--carbon);
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   max-height: calc(100vh - 100%);
   overflow-y: auto;
@@ -156,28 +181,29 @@ nav.main-nav ul {
 
 nav.main-nav a {
   display: block;
-  color: var(--blanco);
+  font-weight: 500;
+  color: var(--marfil);
   padding: 0.6rem 0.75rem;
   border-radius: 8px;
   font-size: 0.95rem;
 }
 
-/* Enlaces externos (salen de la web) en el menú: mismo verde que los
+/* Enlaces externos (salen de la web) en el menú: mismo naranja que los
    botones-hub y de enlace directo en la portada, para que se distingan
    de un vistazo de las páginas propias del sitio. */
 nav.main-nav a[target="_blank"] {
-  color: var(--verde-claro);
+  color: var(--naranja);
 }
 
 nav.main-nav a:hover {
-  background: var(--verde-claro);
-  color: var(--azul);
+  background: var(--naranja);
+  color: var(--carbon);
   text-decoration: none;
 }
 
 nav.main-nav a.activo {
-  background: var(--blanco);
-  color: var(--azul);
+  background: var(--marfil);
+  color: var(--carbon);
   font-weight: 700;
   text-decoration: none;
 }
@@ -192,7 +218,7 @@ nav.main-nav a.activo {
   width: 100%;
   background: transparent;
   border: none;
-  color: var(--verde-claro);
+  color: var(--naranja);
   padding: 0.6rem 0.75rem;
   border-radius: 8px;
   font-size: 0.95rem;
@@ -202,8 +228,8 @@ nav.main-nav a.activo {
 }
 
 .submenu-toggle:hover {
-  background: var(--verde-claro);
-  color: var(--azul);
+  background: var(--naranja);
+  color: var(--carbon);
 }
 
 .submenu-toggle::after {
@@ -264,13 +290,13 @@ nav.main-nav li.submenu.abierto > .submenu-lista {
 
 .auth-widget .auth-entrar:hover {
   background: var(--blanco);
-  color: var(--azul);
+  color: var(--carbon);
   text-decoration: none;
 }
 
 .auth-widget .auth-rol {
   font-weight: 600;
-  color: var(--verde-claro);
+  color: var(--naranja);
   white-space: nowrap;
 }
 
@@ -279,7 +305,7 @@ nav.main-nav li.submenu.abierto > .submenu-lista {
   padding: 0.25rem 0.4rem;
   border-radius: 6px;
   border: 1px solid var(--blanco);
-  background: var(--azul);
+  background: var(--carbon);
   color: var(--blanco);
 }
 
@@ -295,13 +321,13 @@ nav.main-nav li.submenu.abierto > .submenu-lista {
 
 .auth-widget .auth-salir:hover {
   background: var(--blanco);
-  color: var(--azul);
+  color: var(--carbon);
 }
 
 /* ---------- Hero (portada) ---------- */
 
 .hero {
-  background: var(--azul);
+  background: var(--carbon);
   color: var(--blanco);
   padding: 3rem 1.25rem;
   text-align: center;
@@ -310,19 +336,22 @@ nav.main-nav li.submenu.abierto > .submenu-lista {
 .hero h1 {
   font-family: var(--font-titulos);
   margin: 0 0 0.5rem;
-  font-size: 2.6rem;
+  font-size: clamp(2.2rem, 5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
 .hero p {
   margin: 0 auto;
   max-width: 640px;
-  color: var(--blanco);
+  color: var(--borde);
 }
 
 /* ---------- Cabecera de página interior ---------- */
 
 .page-header {
-  background: var(--azul);
+  background: var(--carbon);
   color: var(--blanco);
   padding: 1.1rem 1.25rem;
 }
@@ -336,14 +365,16 @@ nav.main-nav li.submenu.abierto > .submenu-lista {
 .page-header h1 {
   font-family: var(--font-titulos);
   margin: 0;
-  font-size: 1.6rem;
+  font-size: 1.75rem;
   font-weight: 700;
-  color: var(--blanco);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--marfil);
 }
 
 .page-header p {
   margin: 0;
-  color: var(--blanco);
+  color: var(--borde);
 }
 
 .breadcrumb {
@@ -362,18 +393,21 @@ main {
 
 .seccion h2 {
   font-family: var(--font-titulos);
-  font-weight: 700;
-  font-size: 1.5rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 1.25;
   margin-bottom: 0.9rem;
-  color: var(--azul);
-  border-left: 4px solid var(--verde);
+  color: var(--carbon);
+  border-left: 4px solid var(--naranja);
   padding-left: 0.6rem;
 }
 
 .seccion h3 {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.25;
   margin: 1.4rem 0 0.6rem;
-  color: var(--verde);
+  color: var(--carbon);
 }
 
 .seccion h3:first-of-type {
@@ -381,12 +415,12 @@ main {
 }
 
 .seccion details {
-  border: 1px solid var(--azul);
+  border: 1px solid var(--borde);
   border-radius: var(--radio);
   margin-bottom: 0.9rem;
   padding: 0.7rem 1rem;
   background: var(--blanco);
-  color: var(--azul);
+  color: var(--carbon);
   box-shadow: var(--sombra);
 }
 
@@ -397,7 +431,7 @@ main {
 .seccion summary {
   cursor: pointer;
   font-weight: 700;
-  color: var(--azul);
+  color: var(--carbon);
 }
 
 .seccion details ol {
@@ -421,8 +455,8 @@ main {
 
 .tarjeta {
   background: var(--blanco);
-  color: var(--azul);
-  border: 1px solid var(--azul);
+  color: var(--carbon);
+  border: 1px solid var(--borde);
   border-radius: var(--radio-tarjeta);
   padding: 1.3rem;
   box-shadow: var(--sombra);
@@ -445,18 +479,18 @@ main {
 .tarjeta h3 {
   margin: 0;
   font-size: 1.05rem;
-  color: var(--azul);
+  color: var(--carbon);
 }
 
 .tarjeta p {
   margin: 0;
   font-size: 0.88rem;
-  color: var(--azul);
+  color: var(--carbon);
 }
 
 .tarjeta.destacada {
-  border: 2px solid var(--azul);
-  background: var(--verde-claro);
+  border: 2px solid var(--carbon);
+  background: var(--naranja);
 }
 
 /* Rejilla de la portada: dos columnas fijas, botones a media anchura */
@@ -470,44 +504,44 @@ main {
   flex-direction: row;
   align-items: center;
   padding: 0.9rem 1rem;
-  background: var(--azul);
+  background: var(--carbon);
   border: none;
   border-radius: var(--radio);
 }
 
 .grid-inicio .tarjeta:hover {
-  background: var(--verde-claro);
+  background: var(--naranja);
 }
 
 .grid-inicio .tarjeta:hover h3 {
-  color: var(--azul);
+  color: var(--carbon);
 }
 
 /* Botones que agrupan otros botones (p.ej. Gente, Cosas prácticas):
    color invertido respecto a los botones de enlace directo, para que se
    distingan de un vistazo. */
 .grid-inicio .tarjeta.grupo {
-  background: var(--verde-claro);
+  background: var(--naranja);
 }
 
 .grid-inicio .tarjeta.grupo h3 {
-  color: var(--azul);
+  color: var(--carbon);
 }
 
 .grid-inicio .tarjeta.grupo:hover {
-  background: var(--azul);
+  background: var(--carbon);
 }
 
 .grid-inicio .tarjeta.grupo:hover h3 {
-  color: var(--blanco);
+  color: var(--marfil);
 }
 
 .grid-inicio .tarjeta h3 {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   line-height: 1.25;
   font-weight: 600;
-  letter-spacing: 0.01em;
-  color: var(--blanco);
+  letter-spacing: 0;
+  color: var(--marfil);
 }
 
 /* Botones de color propio, para enlaces que conviene distinguir del resto.
@@ -519,7 +553,7 @@ main {
 .grid-inicio .tarjeta.evangelio,
 .grid-inicio .tarjeta.b10,
 .grid-inicio .tarjeta.santander {
-  background: var(--verde-claro);
+  background: var(--naranja);
 }
 
 .grid-inicio .tarjeta.pesaje h3,
@@ -527,7 +561,7 @@ main {
 .grid-inicio .tarjeta.evangelio h3,
 .grid-inicio .tarjeta.b10 h3,
 .grid-inicio .tarjeta.santander h3 {
-  color: var(--azul);
+  color: var(--carbon);
 }
 
 .grid-inicio .tarjeta.pesaje:hover,
@@ -535,7 +569,7 @@ main {
 .grid-inicio .tarjeta.evangelio:hover,
 .grid-inicio .tarjeta.b10:hover,
 .grid-inicio .tarjeta.santander:hover {
-  background: var(--azul);
+  background: var(--carbon);
 }
 
 .grid-inicio .tarjeta.pesaje:hover h3,
@@ -543,15 +577,15 @@ main {
 .grid-inicio .tarjeta.evangelio:hover h3,
 .grid-inicio .tarjeta.b10:hover h3,
 .grid-inicio .tarjeta.santander:hover h3 {
-  color: var(--blanco);
+  color: var(--marfil);
 }
 
 .grid-inicio .tarjeta.comidas {
-  background: #73282c;
+  background: var(--error);
 }
 
 .grid-inicio .tarjeta.comidas:hover {
-  background: #591f22;
+  background: #a5322c;
 }
 
 .grid-inicio .tarjeta.comidas:hover h3 {
@@ -578,8 +612,8 @@ body.pagina-inicio .seccion {
   display: inline-block;
   font-size: 0.7rem;
   font-weight: 600;
-  color: var(--azul);
-  background: var(--verde-claro);
+  color: var(--carbon);
+  background: var(--naranja);
   border-radius: 999px;
   padding: 0.1rem 0.55rem;
   align-self: flex-start;
@@ -588,18 +622,22 @@ body.pagina-inicio .seccion {
 /* ---------- Botones ---------- */
 
 .boton {
-  display: inline-block;
-  background: var(--azul);
-  color: var(--blanco);
-  font-weight: 700;
-  padding: 0.7rem 1.4rem;
-  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--naranja);
+  color: var(--carbon);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.85rem 1.25rem;
+  border-radius: var(--radio);
   margin-top: 1rem;
 }
 
-.boton:hover {
-  background: var(--verde-claro);
-  color: var(--azul);
+.boton:hover,
+.boton:active {
+  background: var(--quemado);
+  color: var(--carbon);
   text-decoration: none;
 }
 
@@ -611,7 +649,7 @@ body.pagina-inicio .seccion {
 
 .boton.secundario:hover {
   background: var(--blanco);
-  color: var(--azul);
+  color: var(--carbon);
 }
 
 /* ---------- Tablas ---------- */
@@ -620,7 +658,7 @@ body.pagina-inicio .seccion {
   overflow-x: auto;
   background: var(--blanco);
   border-radius: var(--radio);
-  border: 1px solid var(--azul);
+  border: 1px solid var(--borde);
   box-shadow: var(--sombra);
 }
 
@@ -641,52 +679,53 @@ table {
    mismo verde que el resto de la web, para que se distingan a simple
    vista de las filas de residentes/colegiales. */
 .fila-staff td {
-  color: var(--verde);
+  background: var(--arena);
+  font-weight: 600;
 }
 
 table caption {
   text-align: left;
   padding: 0.75rem 1rem 0;
   font-size: 0.85rem;
-  color: var(--azul);
+  color: var(--piedra);
 }
 
 thead th {
-  background: var(--azul);
-  color: var(--blanco);
+  background: var(--arena);
+  color: var(--piedra);
   text-align: left;
   padding: 0.7rem 1rem;
+  font-size: 0.75rem;
   font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--borde);
   position: sticky;
   top: 0;
 }
 
 tbody td {
   padding: 0.65rem 1rem;
-  border-bottom: 1px solid var(--azul);
+  border-bottom: 1px solid var(--borde);
   vertical-align: top;
-  color: var(--azul);
+  color: var(--carbon);
 }
 
 tbody tr:last-child td {
   border-bottom: none;
 }
 
-tbody tr:hover {
-  background: var(--azul);
-}
-
 tbody tr:hover td {
-  color: var(--blanco);
+  background: var(--arena);
 }
 
 /* ---------- Avisos / notas ---------- */
 
 .aviso {
   background: var(--blanco);
-  color: var(--azul);
-  border: 1px solid var(--azul);
-  border-left: 4px solid var(--azul);
+  color: var(--carbon);
+  border: 1px solid var(--borde);
+  border-left: 4px solid var(--naranja);
   border-radius: 8px;
   padding: 0.9rem 1.1rem;
   font-size: 0.9rem;
@@ -695,12 +734,11 @@ tbody tr:hover td {
 }
 
 .aviso.pendiente {
-  border-color: var(--verde);
-  border-left-color: var(--verde);
+  border-left-color: var(--aviso);
 }
 
 .aviso strong {
-  color: var(--verde);
+  color: var(--carbon);
 }
 
 /* ---------- Pasos numerados (p.ej. Cómo comer) ---------- */
@@ -726,7 +764,7 @@ tbody tr:hover td {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
-  background: var(--azul);
+  background: var(--carbon);
   color: var(--blanco);
   font-family: var(--font-titulos);
   font-size: 1.2rem;
@@ -738,7 +776,7 @@ tbody tr:hover td {
 
 .paso h3 {
   margin: 0;
-  color: var(--azul);
+  color: var(--carbon);
 }
 
 .paso p {
@@ -749,8 +787,8 @@ tbody tr:hover td {
   display: inline-block;
   margin-top: 0.2rem;
   font-weight: 600;
-  color: var(--azul);
-  background: #eef2f8;
+  color: var(--carbon);
+  background: var(--ambar);
   border-radius: 999px;
   padding: 0.3rem 0.8rem;
   width: fit-content;
@@ -759,7 +797,7 @@ tbody tr:hover td {
 /* ---------- Citas destacadas e idea central (p.ej. #contemplativos) ---------- */
 
 .marco {
-  background: #eef2f8;
+  background: var(--arena);
   border-radius: var(--radio);
   padding: 1.1rem 1.3rem;
   margin: 0 0 1.4rem;
@@ -770,29 +808,30 @@ tbody tr:hover td {
 }
 
 .cita {
-  border-left: 3px solid var(--azul);
+  border-left: 3px solid var(--naranja);
   padding-left: 0.9rem;
   margin: 0 0 1.2rem;
   font-style: italic;
   font-size: 0.9rem;
-  color: #444;
+  color: var(--piedra);
 }
 
 .cita-fuente {
   font-style: normal;
-  color: var(--verde);
+  color: var(--piedra);
+  font-weight: 600;
   font-size: 0.8rem;
   margin-top: 0.25rem;
 }
 
 .idea-central {
-  background: #eaf6ef;
-  border-left: 4px solid var(--verde);
+  background: var(--arena);
+  border-left: 4px solid var(--naranja);
   border-radius: 0 var(--radio) var(--radio) 0;
   padding: 0.8rem 1rem;
   font-size: 1rem;
   font-weight: 600;
-  color: var(--azul);
+  color: var(--carbon);
   margin: 0 0 1.2rem;
 }
 
@@ -806,15 +845,15 @@ tbody tr:hover td {
 
 .horario-bloque {
   background: var(--blanco);
-  color: var(--azul);
-  border: 1px solid var(--azul);
+  color: var(--carbon);
+  border: 1px solid var(--borde);
   border-radius: var(--radio);
   box-shadow: var(--sombra);
   overflow: hidden;
 }
 
 .horario-bloque .cabecera-bloque {
-  background: var(--azul);
+  background: var(--carbon);
   color: var(--blanco);
   padding: 0.8rem 1.1rem;
   font-weight: 600;
@@ -833,7 +872,7 @@ tbody tr:hover td {
   display: flex;
   justify-content: space-between;
   padding: 0.6rem 1.1rem;
-  border-bottom: 1px solid var(--azul);
+  border-bottom: 1px solid var(--borde);
   font-size: 0.92rem;
 }
 
@@ -842,7 +881,7 @@ tbody tr:hover td {
 }
 
 .horario-bloque li span.dia {
-  color: var(--azul);
+  color: var(--piedra);
 }
 
 .horario-bloque li span.hora {
@@ -859,21 +898,21 @@ tbody tr:hover td {
 
 .mes-bloque {
   background: var(--blanco);
-  color: var(--azul);
-  border: 1px solid var(--azul);
+  color: var(--carbon);
+  border: 1px solid var(--borde);
   border-radius: var(--radio);
   box-shadow: var(--sombra);
   overflow: hidden;
 }
 
 .mes-bloque .cabecera-mes {
-  background: var(--azul);
-  color: var(--blanco);
+  background: var(--carbon);
+  color: var(--marfil);
   padding: 0.8rem 1.1rem;
   font-family: var(--font-titulos);
-  font-weight: 700;
-  font-size: 1.15rem;
-  letter-spacing: 0.01em;
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: -0.015em;
 }
 
 .mes-bloque ul {
@@ -887,14 +926,14 @@ tbody tr:hover td {
   align-items: center;
   gap: 0.85rem;
   padding: 0.55rem 1.1rem;
-  border-bottom: 1px solid var(--azul);
+  border-bottom: 1px solid var(--borde);
 }
 
 .mes-bloque li:last-child {
   border-bottom: none;
 }
 
-/* Día suelto: pastilla en blanco con anillo azul (letra del día + número) */
+/* Día suelto: pastilla en blanco con anillo gris claro (letra del día + número) */
 .mes-bloque .evento-dia {
   flex-shrink: 0;
   min-width: 2.15rem;
@@ -902,8 +941,8 @@ tbody tr:hover td {
   padding: 0 0.5rem;
   border-radius: 999px;
   background: var(--blanco);
-  border: 1px solid var(--azul);
-  color: var(--azul);
+  border: 1px solid var(--borde);
+  color: var(--carbon);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -914,56 +953,56 @@ tbody tr:hover td {
 
 .mes-bloque .evento-texto {
   font-size: 0.92rem;
-  color: var(--azul);
+  color: var(--carbon);
   line-height: 1.3;
 }
 
-/* Día destacado: círculo verde claro sólido */
+/* Día destacado: círculo naranja sólido (texto carbón) */
 .mes-bloque li.evento-destacado .evento-dia {
-  background: var(--verde-claro);
-  border-color: var(--verde-claro);
-  color: var(--azul);
+  background: var(--naranja);
+  border-color: var(--naranja);
+  color: var(--carbon);
 }
 
 .mes-bloque li.evento-destacado .evento-texto {
   font-weight: 700;
 }
 
-/* Rango de días (varios días seguidos): pastilla azul sólida */
+/* Rango de días (varios días seguidos): pastilla carbón sólida */
 .mes-bloque li.evento-grupo .evento-dia {
   width: auto;
   min-width: 2.15rem;
   border-radius: 999px;
   padding: 0 0.55rem;
   font-size: 0.78rem;
-  background: var(--azul);
-  border-color: var(--azul);
+  background: var(--carbon);
+  border-color: var(--carbon);
   color: var(--blanco);
 }
 
-/* Un evento destacado que además es un rango de días: se queda en verde claro */
+/* Un evento destacado que además es un rango de días: se queda en naranja */
 .mes-bloque li.evento-grupo.evento-destacado .evento-dia {
-  background: var(--verde-claro);
-  border-color: var(--verde-claro);
-  color: var(--azul);
+  background: var(--naranja);
+  border-color: var(--naranja);
+  color: var(--carbon);
 }
 
 /* Evento propio de staff (calendario-staff.html, columna "sm" del Excel):
-   franja ámbar para distinguirlo de los planes de residentes/colegiales
-   que staff ve en el mismo calendario. */
+   franja gris piedra sobre fondo arena, para distinguirlo de los planes de
+   residentes/colegiales que staff ve en el mismo calendario. */
 .mes-bloque li.evento-staff {
-  background: #fff7e6;
-  border-left: 3px solid #d97706;
+  background: var(--arena);
+  border-left: 3px solid var(--piedra);
   padding-left: calc(1.1rem - 3px);
 }
 
-/* Sesión de "the mark" (circulos.html): celda entera en verde (el verde
-   habitual de la web), para distinguirla de los círculos normales y, por
-   ser toda la celda y no solo el círculo del día, también de los retiros
-   mensuales (evento-destacado, que solo rellena el círculo). */
+/* Sesión de "the mark" (calendarios y circulos.html): celda entera en ámbar
+   con franja naranja quemado, para distinguirla de los planes normales y,
+   por ser toda la celda y no solo el círculo del día, también de los
+   eventos destacados (evento-destacado, que solo rellena el círculo). */
 .mes-bloque li.evento-mark {
-  background: var(--verde-claro);
-  border-left: 3px solid var(--verde);
+  background: var(--ambar);
+  border-left: 3px solid var(--quemado);
   padding-left: calc(1.1rem - 3px);
 }
 
@@ -971,8 +1010,8 @@ tbody tr:hover td {
 
 .formulario {
   background: var(--blanco);
-  color: var(--azul);
-  border: 1px solid var(--azul);
+  color: var(--carbon);
+  border: 1px solid var(--borde);
   border-radius: var(--radio);
   box-shadow: var(--sombra);
   padding: 1.5rem;
@@ -987,9 +1026,9 @@ tbody tr:hover td {
 .formulario legend {
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--azul);
+  color: var(--carbon);
   padding: 0 0 0.9rem;
-  border-bottom: 2px solid var(--verde);
+  border-bottom: 2px solid var(--naranja);
   width: 100%;
   margin-bottom: 1rem;
 }
@@ -1008,7 +1047,7 @@ tbody tr:hover td {
   display: block;
   font-size: 0.88rem;
   font-weight: 600;
-  color: var(--azul);
+  color: var(--carbon);
   margin-bottom: 0.3rem;
 }
 
@@ -1021,28 +1060,28 @@ tbody tr:hover td {
 .campo textarea {
   width: 100%;
   padding: 0.6rem 0.75rem;
-  border: 1px solid var(--azul);
+  border: 1px solid var(--borde);
   border-radius: 8px;
   font-size: 0.95rem;
   font-family: inherit;
-  color: var(--azul);
+  color: var(--carbon);
   background: var(--blanco);
 }
 
 .campo input:focus,
 .campo select:focus,
 .campo textarea:focus {
-  outline: 2px solid var(--verde);
+  outline: 2px solid var(--naranja);
   outline-offset: 1px;
 }
 
 .texto-legal {
   background: var(--blanco);
-  border: 1px solid var(--azul);
+  border: 1px solid var(--borde);
   border-radius: 8px;
   padding: 0.9rem 1rem;
   font-size: 0.85rem;
-  color: var(--azul);
+  color: var(--carbon);
   max-height: 220px;
   overflow-y: auto;
   margin-bottom: 0.8rem;
@@ -1060,8 +1099,8 @@ tbody tr:hover td {
   display: flex;
   align-items: flex-start;
   gap: 0.6rem;
-  background: var(--blanco);
-  border: 1px solid var(--verde);
+  background: var(--arena);
+  border: 1px solid var(--borde);
   border-radius: 8px;
   padding: 0.75rem 1rem;
 }
@@ -1071,12 +1110,12 @@ tbody tr:hover td {
   width: 18px;
   height: 18px;
   flex-shrink: 0;
-  accent-color: var(--azul);
+  accent-color: var(--carbon);
 }
 
 .check-consentimiento label {
   font-size: 0.9rem;
-  color: var(--azul);
+  color: var(--carbon);
 }
 
 .grupo-opciones {
@@ -1090,19 +1129,19 @@ tbody tr:hover td {
   align-items: center;
   gap: 0.5rem;
   background: var(--blanco);
-  border: 1px solid var(--azul);
+  border: 1px solid var(--borde);
   border-radius: var(--radio);
   padding: 0.6rem 1rem;
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--azul);
+  color: var(--carbon);
   cursor: pointer;
 }
 
 .opcion-radio input[type="radio"] {
   width: 18px;
   height: 18px;
-  accent-color: var(--azul);
+  accent-color: var(--carbon);
 }
 
 .form-envio {
@@ -1113,19 +1152,21 @@ tbody tr:hover td {
 }
 
 .form-boton {
-  background: var(--azul);
-  color: var(--blanco);
-  font-weight: 700;
+  background: var(--naranja);
+  color: var(--carbon);
+  font-weight: 600;
+  font-family: inherit;
   border: none;
-  padding: 0.8rem 1.8rem;
-  border-radius: 999px;
+  padding: 0.85rem 1.6rem;
+  border-radius: var(--radio);
   font-size: 1rem;
   cursor: pointer;
 }
 
-.form-boton:hover {
-  background: var(--verde-claro);
-  color: var(--azul);
+.form-boton:hover,
+.form-boton:active {
+  background: var(--quemado);
+  color: var(--carbon);
 }
 
 .form-boton:disabled {
@@ -1139,19 +1180,23 @@ tbody tr:hover td {
 }
 
 .form-estado.enviando {
-  color: var(--azul);
+  color: var(--carbon);
 }
 
 .form-estado.ok {
-  color: var(--verde);
+  color: var(--exito);
+}
+
+.form-estado.error {
+  color: var(--error);
 }
 
 .panel-gracias {
   display: none;
   background: var(--blanco);
-  color: var(--azul);
-  border: 1px solid var(--verde);
-  border-left: 4px solid var(--verde);
+  color: var(--carbon);
+  border: 1px solid var(--borde);
+  border-left: 4px solid var(--exito);
   border-radius: 8px;
   padding: 1.2rem 1.4rem;
   margin-bottom: 1.5rem;
@@ -1160,7 +1205,7 @@ tbody tr:hover td {
 
 .panel-gracias h2 {
   margin: 0 0 0.4rem;
-  color: var(--verde);
+  color: var(--exito);
   border: none;
   padding: 0;
 }
@@ -1168,8 +1213,8 @@ tbody tr:hover td {
 /* Lista de quién se ha apuntado (santander.html), encima del formulario */
 .lista-apuntados {
   background: var(--blanco);
-  color: var(--azul);
-  border: 1px solid var(--azul);
+  color: var(--carbon);
+  border: 1px solid var(--borde);
   border-radius: var(--radio);
   padding: 1.2rem 1.4rem;
   margin-bottom: 1.5rem;
@@ -1193,9 +1238,9 @@ tbody tr:hover td {
 }
 
 .lista-apuntados-nombres li {
-  background: #eaf6ef;
-  border: 1px solid var(--verde);
-  color: var(--azul);
+  background: var(--ambar);
+  border: 1px solid var(--ambar);
+  color: var(--carbon);
   border-radius: 999px;
   padding: 0.35rem 0.9rem;
   font-size: 0.88rem;
@@ -1205,20 +1250,20 @@ tbody tr:hover td {
 /* ---------- Footer ---------- */
 
 footer.site-footer {
-  background: var(--azul);
-  color: var(--blanco);
+  background: var(--carbon);
+  color: var(--borde);
   padding: 1.75rem 1.25rem;
   font-size: 0.85rem;
   text-align: center;
-  border-top: 2px solid var(--verde-claro);
+  border-top: 2px solid var(--naranja);
 }
 
 footer.site-footer a {
-  color: var(--verde-claro);
+  color: var(--naranja);
 }
 
 /* Barra de iconos al pie, como una cabecera pero abajo: mismo fondo azul
-   a todo lo ancho, solo con los iconos (sin texto) en verde. Anclada al
+   a todo lo ancho, solo con los iconos (sin texto) en naranja. Anclada al
    borde inferior de la pantalla (no hay scroll en esta vista), sea cual
    sea la altura de las tarjetas. */
 footer.site-footer-iconos {
@@ -1228,8 +1273,8 @@ footer.site-footer-iconos {
   bottom: 0;
   width: 100%;
   z-index: 50;
-  background: var(--azul);
-  border-top: 1px solid var(--blanco);
+  background: var(--carbon);
+  border-top: 3px solid var(--naranja);
 }
 
 .footer-iconos-bar {
@@ -1244,7 +1289,7 @@ footer.site-footer-iconos {
 
 .footer-iconos-bar a {
   display: flex;
-  color: var(--verde-claro);
+  color: var(--naranja);
   transition: color 0.15s ease, transform 0.15s ease;
 }
 
@@ -1265,7 +1310,7 @@ footer.site-footer-iconos {
   display: inline-block;
   width: 28px;
   height: 28px;
-  background-color: var(--verde-claro);
+  background-color: var(--naranja);
   -webkit-mask-image: url("../img/logo-icon-black.png");
   mask-image: url("../img/logo-icon-black.png");
   -webkit-mask-repeat: no-repeat;
@@ -1284,7 +1329,7 @@ footer.site-footer-iconos {
 /* ---------- Utilidades ---------- */
 
 .texto-suave {
-  color: var(--azul);
+  color: var(--piedra);
 }
 
 .centro {
@@ -1296,7 +1341,7 @@ footer.site-footer-iconos {
 .recordatorio-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(18, 35, 61, 0.65);
+  background: rgba(24, 39, 45, 0.65);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1306,7 +1351,7 @@ footer.site-footer-iconos {
 
 .recordatorio-caja {
   background: var(--blanco);
-  color: var(--azul);
+  color: var(--carbon);
   border-radius: var(--radio-tarjeta);
   box-shadow: var(--sombra-hover);
   padding: 1.75rem;
@@ -1318,6 +1363,7 @@ footer.site-footer-iconos {
 .recordatorio-caja h2 {
   font-family: var(--font-titulos);
   font-size: 1.3rem;
+  font-weight: 600;
   margin: 0 0 0.75rem;
 }
 
@@ -1341,7 +1387,8 @@ footer.site-footer-iconos {
 .recordatorio-boton-luego {
   background: transparent;
   border: none;
-  color: var(--azul);
+  font-family: inherit;
+  color: var(--piedra);
   text-decoration: underline;
   font-size: 0.88rem;
   cursor: pointer;
