@@ -20,7 +20,7 @@ inspeccionar cabeceras y pestañas antes de leer nada.
 1. **Personas** (pestaña "gente" — nombre, ciudad, carrera, curso, cumpleaños en
    columnas separadas año/mes/día, y un marcador de rol en la primera columna):
    - residentes.html (residentes + filas de "los de casa"/staff al final, con la
-     clase fila-staff para que salgan en verde)
+     clase fila-staff para que salgan resaltadas, fondo arena)
    - colegiales.html
    - Cualquier otra página de personas que dependa de estos datos (gente.html,
      directores.html, etc.)
@@ -36,10 +36,10 @@ inspeccionar cabeceras y pestañas antes de leer nada.
      calendario del rol de cada persona; los de staff van en los tres calendarios,
      y el calendario de staff lleva además los cumpleaños de residentes y colegiales
    - Un evento en negrita en el Excel se marca en la web con la clase
-     evento-destacado (círculo verde claro relleno) — revisa esto en TODAS las
+     evento-destacado (círculo naranja relleno) — revisa esto en TODAS las
      columnas de rol que toques, no solo en la que estés construyendo
    - En calendario-staff.html, los eventos que vienen solo de la columna "sm"
-     (no de rs/c) llevan además la clase evento-staff (franja ámbar, definida
+     (no de rs/c) llevan además la clase evento-staff (franja gris piedra sobre fondo arena, definida
      en css/style.css), para que se distingan de un plan de residentes/colegiales
      que staff ve en el mismo calendario
    - No dupliques un plan si coincide igual en varias columnas de rol
@@ -97,10 +97,10 @@ inspeccionar cabeceras y pestañas antes de leer nada.
    - Si faltan temas para algún martes, dilo como "pendiente de asignar"
      (no lo dejes en blanco sin más)
    - Las filas "rtm" llevan la clase `evento-destacado` en el `<li>` (para
-     que resalten en verde, distinto del resto) y el texto va como "Retiro
+     que resalten con el círculo naranja, distinto del resto) y el texto va como "Retiro
      mensual (tema, ponente)" — tema y ponente entre paréntesis.
    - Las filas "the mark" se incluyen también, con la clase `evento-mark`
-     en el `<li>` (celda entera en verde — el verde habitual de la web,
+     en el `<li>` (celda entera en ámbar con franja naranja quemado,
      distinto de evento-destacado porque ahí solo se rellena el círculo del
      día) y el texto prefijado "The Mark: " + el tema de esa sesión.
    - El número de guión entre paréntesis en el tema de cada círculo se
