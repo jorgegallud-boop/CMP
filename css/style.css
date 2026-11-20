@@ -1586,6 +1586,25 @@ main > .container:has(.grid-calendario, .tabla-wrap, .grid-horarios, .grid-pasos
   color: var(--carbon);
 }
 
+/* Botones que agrupan otros (Gente, Cosas prácticas) y enlaces a otras
+   webs (↗): fondo ámbar suave, para distinguirlos de un vistazo de las
+   páginas propias (filas blancas). Comidas sigue en naranja. */
+.grid-inicio .tarjeta.grupo,
+.grid-inicio .tarjeta[target="_blank"]:not(.comidas) {
+  background: #fdf1e0;
+}
+
+.grid-inicio .tarjeta.grupo:hover,
+.grid-inicio .tarjeta[target="_blank"]:not(.comidas):hover {
+  background: var(--ambar);
+}
+
+/* Si todos los botones de un bloque están ocultos para el rol (p. ej. los
+   temporales), no se pinta la tarjeta vacía. */
+.grid-inicio:not(:has(> .tarjeta:not([style*="none"]))) {
+  display: none;
+}
+
 /* Tarjetas de texto (p. ej. reglamento): blancas, sin borde marcado */
 .tarjeta {
   border-color: var(--borde);
