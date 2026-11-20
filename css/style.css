@@ -1394,3 +1394,301 @@ footer.site-footer-iconos {
   cursor: pointer;
   padding: 0.4rem;
 }
+
+/* ==========================================================================
+   Ajustes de diseño al estilo de la app de comidas (nov. 2026)
+   Misma paleta, pero el color se reserva: casi todo es marfil y tarjetas
+   blancas con borde casi invisible y sombra suave; el carbón queda para la
+   barra superior y el pie, y el naranja solo para la acción principal
+   (Comidas) y lo destacado. Estas reglas van al final a propósito: ajustan
+   las de arriba sin tocarlas.
+   ========================================================================== */
+
+/* ---------- Cabecera única: logo · título · Salir ---------- */
+
+.header-bar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  min-height: 3.6rem;
+  padding: 0.6rem 1rem;
+}
+
+.brand .logo-icon {
+  height: 30px;
+}
+
+.titulo-pagina {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: calc(100% - 13rem);
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: var(--marfil);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* El menú general (☰) no se usa: se navega desde la portada y los
+   botones-hub, y el logo vuelve siempre a inicio. */
+.nav-toggle,
+nav.main-nav,
+nav.main-nav.abierto {
+  display: none;
+}
+
+.auth-widget {
+  margin-left: auto;
+}
+
+/* No hace falta ver el rol arriba a la derecha: solo "Salir" / "Entrar" */
+.auth-widget .auth-rol {
+  display: none;
+}
+
+.auth-widget .auth-salir,
+.auth-widget .auth-entrar {
+  border-color: rgba(250, 249, 246, 0.45);
+  font-family: inherit;
+  font-weight: 600;
+}
+
+/* ---------- Contenido: columna estrecha salvo calendarios y tablas ---------- */
+
+main {
+  padding: 1.5rem 0 3.5rem;
+}
+
+main > .container {
+  max-width: 760px;
+}
+
+main > .container:has(.grid-calendario, .tabla-wrap, .grid-horarios, .grid-pasos, .formulario) {
+  max-width: 1080px;
+}
+
+.seccion h2 {
+  border-left: none;
+  padding-left: 0;
+  font-size: 1.35rem;
+}
+
+/* ---------- Portada y botones-hub: lista dentro de una tarjeta ---------- */
+
+.grid-inicio {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-tarjeta);
+  box-shadow: var(--sombra);
+  overflow: hidden;
+}
+
+.grid-inicio.grid-temporal {
+  margin-top: 1.25rem;
+}
+
+.grid-inicio .tarjeta,
+.grid-inicio .tarjeta.grupo,
+.grid-inicio .tarjeta.pesaje,
+.grid-inicio .tarjeta.arreglos,
+.grid-inicio .tarjeta.evangelio,
+.grid-inicio .tarjeta.b10,
+.grid-inicio .tarjeta.santander {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--borde);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0.95rem 1.1rem;
+  transform: none;
+}
+
+.grid-inicio .tarjeta:last-child {
+  border-bottom: none;
+}
+
+.grid-inicio .tarjeta h3,
+.grid-inicio .tarjeta.grupo h3,
+.grid-inicio .tarjeta.pesaje h3,
+.grid-inicio .tarjeta.arreglos h3,
+.grid-inicio .tarjeta.evangelio h3,
+.grid-inicio .tarjeta.b10 h3,
+.grid-inicio .tarjeta.santander h3 {
+  color: var(--carbon);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.grid-inicio .tarjeta::after {
+  content: "›";
+  color: var(--piedra);
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.grid-inicio .tarjeta[target="_blank"]::after {
+  content: "↗";
+  font-size: 1rem;
+}
+
+.grid-inicio .tarjeta:hover,
+.grid-inicio .tarjeta.grupo:hover,
+.grid-inicio .tarjeta.pesaje:hover,
+.grid-inicio .tarjeta.arreglos:hover,
+.grid-inicio .tarjeta.evangelio:hover,
+.grid-inicio .tarjeta.b10:hover,
+.grid-inicio .tarjeta.santander:hover {
+  background: var(--arena);
+  box-shadow: none;
+  transform: none;
+}
+
+.grid-inicio .tarjeta:hover h3,
+.grid-inicio .tarjeta.grupo:hover h3,
+.grid-inicio .tarjeta.pesaje:hover h3,
+.grid-inicio .tarjeta.arreglos:hover h3,
+.grid-inicio .tarjeta.evangelio:hover h3,
+.grid-inicio .tarjeta.b10:hover h3,
+.grid-inicio .tarjeta.santander:hover h3 {
+  color: var(--carbon);
+}
+
+/* La app de comidas es la acción principal: primera fila, en naranja */
+.grid-inicio .tarjeta.comidas {
+  order: -1;
+  background: var(--naranja);
+  border-bottom: none;
+}
+
+.grid-inicio .tarjeta.comidas h3,
+.grid-inicio .tarjeta.comidas::after {
+  color: var(--carbon);
+  font-weight: 600;
+}
+
+.grid-inicio .tarjeta.comidas:hover {
+  background: var(--quemado);
+}
+
+.grid-inicio .tarjeta.comidas:hover h3 {
+  color: var(--carbon);
+}
+
+/* Tarjetas de texto (p. ej. reglamento): blancas, sin borde marcado */
+.tarjeta {
+  border-color: var(--borde);
+}
+
+/* ---------- Bloques con cabecera (calendario, horarios) ---------- */
+
+.mes-bloque,
+.horario-bloque {
+  border-radius: var(--radio-tarjeta);
+}
+
+.mes-bloque .cabecera-mes,
+.horario-bloque .cabecera-bloque {
+  background: transparent;
+  color: var(--carbon);
+  padding: 0.95rem 1.1rem 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.mes-bloque ul,
+.horario-bloque ul {
+  padding: 0 0 0.3rem;
+}
+
+.mes-bloque li,
+.horario-bloque li {
+  border-bottom-color: var(--borde);
+}
+
+/* Día: casilla gris arena (como el calendario de la app) */
+.mes-bloque .evento-dia {
+  min-width: 2.6rem;
+  height: 2rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--arena);
+  color: var(--carbon);
+  font-weight: 600;
+}
+
+/* Rango de días: misma casilla, algo más ancha y en negrita */
+.mes-bloque li.evento-grupo .evento-dia {
+  border-radius: 6px;
+  background: var(--arena);
+  color: var(--carbon);
+  font-weight: 700;
+}
+
+/* Destacado: casilla naranja, como los días marcados en la app */
+.mes-bloque li.evento-destacado .evento-dia,
+.mes-bloque li.evento-grupo.evento-destacado .evento-dia {
+  background: var(--naranja);
+  color: var(--carbon);
+}
+
+.mes-bloque li.evento-destacado .evento-texto {
+  font-weight: 600;
+}
+
+/* The Mark: fila en ámbar suave con franja naranja */
+.mes-bloque li.evento-mark {
+  background: #fdf1e0;
+  border-left: 3px solid var(--naranja);
+}
+
+.mes-bloque li.evento-mark .evento-dia {
+  background: var(--ambar);
+}
+
+/* Plan solo de staff: fondo arena con franja gris; la casilla, en blanco */
+.mes-bloque li.evento-staff .evento-dia {
+  background: var(--blanco);
+}
+
+/* ---------- Tablas y desplegables ---------- */
+
+.tabla-wrap,
+.seccion details {
+  border-color: var(--borde);
+  border-radius: var(--radio-tarjeta);
+}
+
+tbody td {
+  border-bottom-color: var(--borde);
+}
+
+/* ---------- Pie con iconos ---------- */
+
+footer.site-footer-iconos {
+  border-top: none;
+}
+
+/* ---------- Móvil ---------- */
+
+@media (max-width: 520px) {
+  .titulo-pagina {
+    max-width: calc(100% - 12.5rem);
+    font-size: 0.95rem;
+  }
+
+  .brand .logo-icon {
+    height: 26px;
+  }
+}
