@@ -2,7 +2,7 @@
 
 Web de residentes del Colegio Mayor — curso 2026-2027. Sitio estático (HTML + CSS + JS, sin dependencias ni build) con:
 
-- Enlace a la app de comidas (apuntarse/desapuntarse): https://compositor.org/comidas/penafiel.php
+- Enlace a la app de comidas (apuntarse/desapuntarse): https://comidas.cmpenafiel.org
 - Programa de bienvenida para residentes nuevos ("Mis primeras 48h")
 - Listado de habitaciones
 - Listado de encargos

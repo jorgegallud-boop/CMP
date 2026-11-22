@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function () {
         '<h2 id="recordatorio-titulo">Apúntate a las comidas</h2>' +
         '<p>Recuerda apuntarte a las comidas de la semana en la app de comidas antes de que se cierre el plazo.</p>' +
         '<div class="recordatorio-botones">' +
-          '<a href="https://compositor.org/comidas/penafiel.php" target="_blank" rel="noopener" class="boton" id="recordatorio-hecho">Voy a ello</a>' +
+          '<a href="https://comidas.cmpenafiel.org" target="_blank" rel="noopener" class="boton" id="recordatorio-hecho">Voy a ello</a>' +
           '<button type="button" class="recordatorio-boton-luego" id="recordatorio-luego">Recordarme más tarde</button>' +
         '</div>' +
       '</div>';
